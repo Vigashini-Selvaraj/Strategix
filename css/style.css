@@ -114,6 +114,7 @@ body {
     font-family: var(--font-body);
     font-size: 15px;
     line-height: 1.6;
+    overflow-x: hidden;
     transition:
         background-color 0.3s ease,
         color 0.3s ease;
@@ -819,6 +820,10 @@ html[dir="rtl"] .section-label::before {
 
     .mobile-menu-btn {
         display: flex;
+    }
+
+    .profile-wrapper {
+        display: none;
     }
 
     .footer-container {
