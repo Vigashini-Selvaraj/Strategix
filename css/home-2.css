@@ -1104,6 +1104,31 @@
         border-bottom: 1px solid var(--border);
     }
 
+    .story-step {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .story-step.reverse {
+        flex-direction: column;
+    }
+
+    .story-number {
+        left: 50%;
+        transform: translateX(-50%);
+        top: -40px;
+    }
+
+    .story-step.reverse .story-number {
+        left: 50%;
+        right: auto;
+    }
+
+    .story-content::after {
+        display: none;
+    }
+
     .mastery-flow {
         flex-direction: column;
     }

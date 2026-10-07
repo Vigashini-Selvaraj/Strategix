@@ -105,6 +105,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -925,7 +926,9 @@ html[dir="rtl"] .section-label::before {
 @media (max-width: 600px) {
     .modal-content {
         padding: 25px;
-        width: 95%;
+        width: calc(100vw - 40px);
+        max-height: 90vh;
+        overflow-y: auto;
     }
 }
 
