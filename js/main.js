@@ -55,7 +55,50 @@ function initializeGlobalComponents() {
     initializeMobileMenu();
     initializeProfileDropdown();
     initializeActiveNavigation();
+    initializeScrollAnimations();
 
+}
+
+/* =========================================================
+   SCROLL ANIMATIONS
+   ========================================================= */
+
+function initializeScrollAnimations() {
+    // Select entire sections to animate them together like Framer Motion
+    const selectors = [
+        'section:not(.hero):not(.pd-hero)'
+    ];
+
+    const elementsToAnimate = document.querySelectorAll(selectors.join(', '));
+
+    // Add base class to elements
+    elementsToAnimate.forEach((el) => {
+        // We add the reveal class to the container inside the section, or the section itself
+        const container = el.querySelector('.container') || el;
+        if (!container.classList.contains('scroll-reveal')) {
+            container.classList.add('scroll-reveal');
+        }
+    });
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -10% 0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                // Optional: stop observing once revealed
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observe all elements with animation classes
+    const animatedElements = document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right');
+    animatedElements.forEach(el => observer.observe(el));
 }
 
 

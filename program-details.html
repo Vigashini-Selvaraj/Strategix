@@ -1,719 +1,736 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Program Details | Strategix</title>
-    <meta name="description"
-        content="Detailed information about Strategix premium chess coaching services, including structure, pricing, and policies.">
+    <meta name="description" content="Detailed overview of our premium chess training program.">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/service-details.css">
+    <link rel="stylesheet" href="css/program-details.css">
     <link rel="icon" type="image/png" href="assets/strategix%20logo.png">
 </head>
-
 <body>
-    <!-- NAVBAR -->
+
     <div id="navbar"></div>
 
-    <!-- =====================================================
-         SECTION 1: SERVICE DETAIL HERO
-    ====================================================== -->
-    <section class="service-detail-hero">
-        <div class="container">
-            <div class="hero-grid">
-                <div class="hero-content">
-                    <span class="section-label" id="hero-eyebrow">PRIVATE COACHING</span>
-                    <h1 id="hero-title">Structured Group <span class="text-gold">Coaching</span></h1>
-                    <p id="hero-desc">
-                        Focused one-to-one training designed around your playing level, goals and strategic development.
-                    </p>
-                    
-                    <div class="service-meta">
-                        <div class="meta-item">
-                            <i class="fa-solid fa-user"></i>
-                            <span>1-to-1 Coaching</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fa-regular fa-clock"></i>
-                            <span>60 Minutes / Session</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fa-solid fa-location-dot"></i>
-                            <span>Online & In-Person</span>
-                        </div>
-                    </div>
-
-                    <div class="hero-actions">
-                        <a href="#pricing" class="btn btn-primary">Choose Your Plan <i class="fa-solid fa-arrow-right"></i></a>
-                        <a href="contact.html" class="btn btn-outline">Book A Trial</a>
+    <!-- MAIN WRAPPER: Hidden until JS loads the data -->
+    <main id="main-content" style="display: none;">
+        
+        <!-- =====================================================
+             SECTION 1: PROGRAM HERO
+        ====================================================== -->
+        <section class="pd-hero">
+            <div class="container pd-hero-container">
+                <div class="pd-hero-left">
+                    <span class="pd-eyebrow">STRATEGIX PROGRAM • <span id="hero-badge"></span></span>
+                    <h1 id="hero-title"></h1>
+                    <p class="pd-hero-subtitle" id="hero-subtitle"></p>
+                    <p class="pd-hero-desc" id="hero-desc"></p>
+                    <div class="pd-hero-actions">
+                        <a id="hero-enroll-btn" href="#" class="btn btn-primary">Enroll In This Program</a>
+                        <a href="contact.html" class="btn btn-secondary">Book A Free Trial</a>
                     </div>
                 </div>
-                
-                <div class="hero-image-wrapper">
-                    <img src="assets/images/private-coaching.jpg" alt="Service Coaching" id="hero-img">
-                    <div class="floating-panel">
-                        <div class="panel-icon"><i class="fa-solid fa-star"></i></div>
-                        <div class="panel-text">
-                            <h4>PERSONALIZED TRAINING</h4>
-                            <p>Built around your game.</p>
+                <div class="pd-hero-right">
+                    <div class="pd-hero-image-wrapper">
+                        <img id="hero-img" src="" alt="Program Image" class="pd-hero-img">
+                        <div class="pd-hero-meta-bar">
+                            <div class="pd-meta-item">
+                                <span class="pd-meta-label">Level</span>
+                                <span class="pd-meta-value" id="meta-level"></span>
+                            </div>
+                            <div class="pd-meta-item">
+                                <span class="pd-meta-label">Format</span>
+                                <span class="pd-meta-value">Online / In-Person</span>
+                            </div>
+                            <div class="pd-meta-item">
+                                <span class="pd-meta-label">Training</span>
+                                <span class="pd-meta-value">Structured Coaching</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- =====================================================
-         SECTION 2: SERVICE OVERVIEW
-    ====================================================== -->
-    <section class="service-overview section">
-        <div class="container">
-            <div class="overview-grid">
-                <div class="overview-content">
-                    <span class="section-label">THE SERVICE</span>
-                    <h2>Training Built <span class="text-gold">Around Your Game.</span></h2>
-                    <p>
-                        Private coaching gives players dedicated time with a Strategix coach to analyze games, understand strategic concepts, identify weaknesses and create a focused improvement path.
-                    </p>
-                    <p>
-                        Every session is tailored specifically to your needs, ensuring that you are constantly challenged and moving towards your personal chess goals, whether that means breaking a rating plateau or preparing for a major tournament.
-                    </p>
+        <!-- =====================================================
+             SECTION 2: PROGRAM OVERVIEW
+        ====================================================== -->
+        <section class="pd-section pd-section-alt">
+            <div class="container">
+                <div class="pd-section-header">
+                    <span class="pd-eyebrow">PROGRAM OVERVIEW</span>
+                    <h2>What This Program Is Designed <span style="color:var(--accent);">To Build</span></h2>
                 </div>
-                
-                <div class="service-info-panel">
-                    <div class="info-row">
-                        <span class="info-label">SERVICE TYPE</span>
-                        <span class="info-value">One-to-One Coaching</span>
+                <div class="pd-overview-layout">
+                    <div class="pd-overview-text">
+                        <p id="overview-desc"></p>
                     </div>
-                    <div class="info-row">
-                        <span class="info-label">SESSION LENGTH</span>
-                        <span class="info-value">60 Minutes</span>
-                    </div>
-                    <div class="info-row">
-                        <span class="info-label">FORMAT</span>
-                        <span class="info-value">Online / In-Person</span>
-                    </div>
-                    <div class="info-row">
-                        <span class="info-label">LEVEL</span>
-                        <span class="info-value">Beginner to Advanced</span>
-                    </div>
-                    <div class="info-row">
-                        <span class="info-label">FREQUENCY</span>
-                        <span class="info-value">Weekly / Flexible</span>
+                    <div class="pd-overview-panel">
+                        <div class="pd-panel-row">
+                            <span class="pd-panel-label">Level</span>
+                            <span class="pd-panel-value" id="panel-level"></span>
+                        </div>
+                        <div class="pd-panel-row">
+                            <span class="pd-panel-label">Focus</span>
+                            <span class="pd-panel-value" id="panel-focus"></span>
+                        </div>
+                        <div class="pd-panel-row">
+                            <span class="pd-panel-label">Format</span>
+                            <span class="pd-panel-value">Online / In-Person</span>
+                        </div>
+                        <div class="pd-panel-row">
+                            <span class="pd-panel-label">Structure</span>
+                            <span class="pd-panel-value">Structured Training</span>
+                        </div>
+                        <div class="pd-panel-row">
+                            <span class="pd-panel-label">Outcome</span>
+                            <span class="pd-panel-value">Skill Development</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- =====================================================
-         SECTION 3: WHAT YOU GET
-    ====================================================== -->
-    <section class="service-includes section bg-secondary">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-label">WHAT'S INCLUDED</span>
-                <h2>More Than Just <span class="text-gold">A Coaching Session.</span></h2>
-            </div>
-            
-            <div class="include-grid">
-                <div class="include-card">
-                    <div class="include-num">01</div>
-                    <i class="fa-solid fa-magnifying-glass-chart"></i>
-                    <h3>GAME ANALYSIS</h3>
-                    <p>Review your games and identify critical decisions.</p>
+        <!-- =====================================================
+             SECTION 3: WHO THIS PROGRAM IS FOR
+        ====================================================== -->
+        <section class="pd-section">
+            <div class="container">
+                <div class="pd-section-header">
+                    <h2>Is This The Right Program <span style="color:var(--accent);">For You?</span></h2>
                 </div>
-                <div class="include-card">
-                    <div class="include-num">02</div>
-                    <i class="fa-solid fa-chess-knight"></i>
-                    <h3>STRATEGIC TRAINING</h3>
-                    <p>Understand positional ideas and long-term planning.</p>
+                
+                <div class="pd-audience-grid">
+                    <div class="pd-audience-box">
+                        <h3>This program is designed for:</h3>
+                        <ul class="pd-audience-list" id="audience-list">
+                            <!-- Injected by JS -->
+                        </ul>
+                    </div>
+                    <div class="pd-audience-box">
+                        <h3>Before You Begin</h3>
+                        <ul class="pd-requirements-list" id="requirements-list">
+                            <!-- Injected by JS -->
+                        </ul>
+                    </div>
                 </div>
-                <div class="include-card">
-                    <div class="include-num">03</div>
-                    <i class="fa-solid fa-bolt"></i>
-                    <h3>TACTICAL PRACTICE</h3>
-                    <p>Improve calculation and tactical awareness.</p>
-                </div>
-                <div class="include-card">
-                    <div class="include-num">04</div>
-                    <i class="fa-regular fa-comments"></i>
-                    <h3>PERSONAL FEEDBACK</h3>
-                    <p>Receive direct feedback from your coach.</p>
-                </div>
-                <div class="include-card">
-                    <div class="include-num">05</div>
-                    <i class="fa-solid fa-book-open"></i>
-                    <h3>TRAINING MATERIAL</h3>
-                    <p>Access exercises and learning resources.</p>
-                </div>
-                <div class="include-card">
-                    <div class="include-num">06</div>
-                    <i class="fa-solid fa-chart-line"></i>
-                    <h3>PROGRESS REVIEW</h3>
-                    <p>Track your development over time.</p>
+                
+                <div class="pd-next-level">
+                    <div class="pd-next-level-text">
+                        <h4>Ready for the next level?</h4>
+                        <p id="next-level-desc"></p>
+                    </div>
+                    <div class="pd-next-level-path" id="next-level-path"></div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- =====================================================
-         SECTION 4: WHO IS THIS FOR?
-    ====================================================== -->
-    <section class="service-audience section">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-label">IS THIS RIGHT FOR YOU?</span>
-                <h2>Designed For Players <span class="text-gold">Who Want Focused Progress.</span></h2>
-            </div>
-            
-            <div class="audience-grid">
-                <div class="audience-block">
-                    <h4>BEGINNERS</h4>
-                    <p>Build strong fundamentals and develop good thinking habits.</p>
+        <!-- =====================================================
+             SECTION 4: WHAT YOU WILL LEARN
+        ====================================================== -->
+        <section class="pd-section pd-section-alt">
+            <div class="container">
+                <div class="pd-section-header">
+                    <span class="pd-eyebrow">LEARNING OUTCOMES</span>
+                    <h2>What You Will <span style="color:var(--accent);">Develop</span></h2>
                 </div>
-                <div class="audience-block">
-                    <h4>IMPROVING PLAYERS</h4>
-                    <p>Break through plateaus and strengthen strategic understanding.</p>
-                </div>
-                <div class="audience-block">
-                    <h4>COMPETITIVE PLAYERS</h4>
-                    <p>Prepare for stronger opponents and tournament situations.</p>
-                </div>
-                <div class="audience-block">
-                    <h4>SERIOUS LEARNERS</h4>
-                    <p>Build a structured long-term improvement path.</p>
+                
+                <div class="pd-outcomes-grid" id="outcomes-grid">
+                    <!-- Injected by JS -->
                 </div>
             </div>
-            
-            <div class="audience-note text-center">
-                <p>Not sure which service fits your level? Talk to our team before booking.</p>
-                <a href="contact.html" class="btn btn-outline">Get Guidance</a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- =====================================================
-         SECTION 5: WHAT HAPPENS IN A SESSION
-    ====================================================== -->
-    <section class="session-timeline-section section bg-secondary">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-label">INSIDE THE SESSION</span>
-                <h2>Every Minute <span class="text-gold">Has A Purpose.</span></h2>
-            </div>
-            
-            <div class="session-timeline">
-                <div class="timeline-line"></div>
-                
-                <div class="timeline-step">
-                    <div class="time-badge">00â€“10 MIN</div>
-                    <h4>CHECK-IN</h4>
-                    <p>Discuss recent games, questions and current challenges.</p>
+        <!-- =====================================================
+             SECTION 5: PROGRAM CURRICULUM
+        ====================================================== -->
+        <section class="pd-section">
+            <div class="container">
+                <div class="pd-section-header text-center">
+                    <span class="pd-eyebrow">CURRICULUM</span>
+                    <h2>Inside The <span style="color:var(--accent);">Program</span></h2>
                 </div>
                 
-                <div class="timeline-step">
-                    <div class="time-badge">10â€“25 MIN</div>
-                    <h4>ANALYSIS</h4>
-                    <p>Review a position, game or strategic concept.</p>
-                </div>
-                
-                <div class="timeline-step">
-                    <div class="time-badge">25â€“45 MIN</div>
-                    <h4>TRAINING</h4>
-                    <p>Work through guided examples and practical exercises.</p>
-                </div>
-                
-                <div class="timeline-step">
-                    <div class="time-badge">45â€“55 MIN</div>
-                    <h4>APPLICATION</h4>
-                    <p>Solve positions independently.</p>
-                </div>
-                
-                <div class="timeline-step">
-                    <div class="time-badge">55â€“60 MIN</div>
-                    <h4>REVIEW</h4>
-                    <p>Summarize key lessons and define the next focus.</p>
+                <div class="pd-curriculum-accordion" id="curriculum-accordion">
+                    <!-- Injected by JS -->
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- =====================================================
-         SECTION 6: YOUR LEARNING PATH
-    ====================================================== -->
-    <section class="learning-path section">
-        <div class="container">
-            <div class="section-header text-center">
-                <h2>Your Training <span class="text-gold">Evolves With You.</span></h2>
-                <p style="max-width: 600px; margin: 0 auto; color: var(--text-secondary); line-height: 1.6;">
-                    This service is not a collection of isolated sessions. As you improve, the training focus shifts naturally.
-                </p>
+        <!-- =====================================================
+             SECTION 6: HOW A SESSION WORKS
+        ====================================================== -->
+        <section class="pd-section pd-section-alt">
+            <div class="container">
+                <div class="pd-section-header">
+                    <h2>Inside A Strategix <span style="color:var(--accent);">Session</span></h2>
+                </div>
+                
+                <div class="pd-session-timeline">
+                    <div class="pd-session-step">
+                        <div class="pd-session-num">01</div>
+                        <h4>ASSESS</h4>
+                        <p>Understand the position, problem, or concept.</p>
+                    </div>
+                    <div class="pd-session-step">
+                        <div class="pd-session-num">02</div>
+                        <h4>LEARN</h4>
+                        <p>Study the principle or technique.</p>
+                    </div>
+                    <div class="pd-session-step">
+                        <div class="pd-session-num">03</div>
+                        <h4>APPLY</h4>
+                        <p>Use it through positions, exercises, or games.</p>
+                    </div>
+                    <div class="pd-session-step">
+                        <div class="pd-session-num">04</div>
+                        <h4>REVIEW</h4>
+                        <p>Analyze decisions and identify what to improve.</p>
+                    </div>
+                </div>
             </div>
-            
-            <div class="path-visual">
-                <div class="path-node">
-                    <div class="node-circle">1</div>
-                    <span>ASSESS</span>
-                    <p class="node-desc">Analyze your current level, understand your style and identify core weaknesses.</p>
-                </div>
-                <div class="path-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+        </section>
+
+        <!-- =====================================================
+             SECTION 7: PRACTICE & PROGRESS
+        ====================================================== -->
+        <section class="pd-strategic-section">
+            <div class="container">
+                <h2>Learn It. Use It. <span style="color:var(--accent);">Understand It.</span></h2>
+                <p>Progress comes from repeatedly applying ideas, analyzing decisions, and understanding why a move works. You do not simply consume lessons—you actively participate in your development.</p>
                 
-                <div class="path-node">
-                    <div class="node-circle">2</div>
-                    <span>TRAIN</span>
-                    <p class="node-desc">Work through targeted exercises, game analysis and advanced strategic concepts.</p>
-                </div>
-                <div class="path-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-                
-                <div class="path-node">
-                    <div class="node-circle">3</div>
+                <div class="pd-strategic-path">
+                    <span>CONCEPT</span>
+                    <i class="fa-solid fa-arrow-right pd-progress-arrow"></i>
+                    <span>POSITION</span>
+                    <i class="fa-solid fa-arrow-right pd-progress-arrow"></i>
                     <span>PRACTICE</span>
-                    <p class="node-desc">Apply your new knowledge in practical situations and competitive games.</p>
-                </div>
-                <div class="path-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-                
-                <div class="path-node">
-                    <div class="node-circle">4</div>
-                    <span>REVIEW</span>
-                    <p class="node-desc">Evaluate your performance, correct mistakes and fine-tune your approach.</p>
-                </div>
-                <div class="path-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-                
-                <div class="path-node">
-                    <div class="node-circle">5</div>
-                    <span>PROGRESS</span>
-                    <p class="node-desc">Achieve your goals, elevate your rating and set your next strategic target.</p>
+                    <i class="fa-solid fa-arrow-right pd-progress-arrow"></i>
+                    <span>ANALYSIS</span>
+                    <i class="fa-solid fa-arrow-right pd-progress-arrow"></i>
+                    <span>IMPROVEMENT</span>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- =====================================================
-         SECTION 7: PRICING & PLANS
-    ====================================================== -->
-    <section id="pricing" class="pricing-section section bg-secondary">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-label">PLANS & PRICING</span>
-                <h2>Choose The Training <span class="text-gold">That Fits You.</span></h2>
-            </div>
-            
-            <div class="pricing-grid">
-                <!-- Plan 1 -->
-                <div class="pricing-card">
-                    <h3>SINGLE SESSION</h3>
-                    <div class="price"><span>â‚¹</span>799 <span>/ session</span></div>
-                    <ul class="plan-features">
-                        <li><i class="fa-solid fa-check"></i> 1 Ã— 60-minute session</li>
-                        <li><i class="fa-solid fa-check"></i> Personal game review</li>
-                        <li><i class="fa-solid fa-check"></i> Coach feedback</li>
-                        <li><i class="fa-solid fa-check"></i> Training recommendations</li>
-                    </ul>
-                    <a href="booking.html?service=private-coaching&plan=single" class="btn btn-outline btn-full plan-btn">Book This Session</a>
+        <!-- =====================================================
+             SECTION 8: PROGRAM FORMAT
+        ====================================================== -->
+        <section class="pd-section">
+            <div class="container">
+                <div class="pd-section-header">
+                    <h2>How Training Can Fit <span style="color:var(--accent);">Your Schedule</span></h2>
                 </div>
                 
-                <!-- Plan 2 -->
-                <div class="pricing-card pricing-featured">
-                    <div class="pricing-badge">MOST POPULAR</div>
-                    <h3>MONTHLY</h3>
-                    <div class="price"><span>â‚¹</span>2,799 <span>/ month</span></div>
-                    <ul class="plan-features">
-                        <li><i class="fa-solid fa-check"></i> 4 Ã— 60-minute sessions</li>
-                        <li><i class="fa-solid fa-check"></i> Personalized training plan</li>
-                        <li><i class="fa-solid fa-check"></i> Game analysis</li>
-                        <li><i class="fa-solid fa-check"></i> Progress review</li>
-                        <li><i class="fa-solid fa-check"></i> Learning resources</li>
-                    </ul>
-                    <a href="booking.html?service=private-coaching&plan=monthly" class="btn btn-primary btn-full plan-btn">Choose Monthly</a>
-                </div>
-                
-                <!-- Plan 3 -->
-                <div class="pricing-card">
-                    <h3>INTENSIVE</h3>
-                    <div class="price"><span>â‚¹</span>4,999 <span>/ month</span></div>
-                    <ul class="plan-features">
-                        <li><i class="fa-solid fa-check"></i> 8 Ã— 60-minute sessions</li>
-                        <li><i class="fa-solid fa-check"></i> Advanced game analysis</li>
-                        <li><i class="fa-solid fa-check"></i> Personalized training roadmap</li>
-                        <li><i class="fa-solid fa-check"></i> Tournament preparation</li>
-                        <li><i class="fa-solid fa-check"></i> Priority scheduling</li>
-                    </ul>
-                    <a href="booking.html?service=private-coaching&plan=intensive" class="btn btn-outline btn-full plan-btn">Choose Intensive</a>
+                <div class="pd-format-grid">
+                    <div class="pd-format-card">
+                        <h4>1. INDIVIDUAL TRAINING</h4>
+                        <p>Personalized coaching around your specific development needs.</p>
+                    </div>
+                    <div class="pd-format-card">
+                        <h4>2. GROUP TRAINING</h4>
+                        <p>Structured learning with other players at a similar level.</p>
+                    </div>
+                    <div class="pd-format-card">
+                        <h4>3. ONLINE TRAINING</h4>
+                        <p>Flexible access for students who prefer remote sessions.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- =====================================================
+             SECTION 9: WHAT PROGRESS LOOKS LIKE
+        ====================================================== -->
+        <section class="pd-section pd-section-alt">
+            <div class="container">
+                <div class="pd-section-header">
+                    <h2>What Progress <span style="color:var(--accent);">Looks Like</span></h2>
+                </div>
+                <div class="pd-progress-path" id="progress-path">
+                    <!-- Injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             SECTION 11: ENROLLMENT
+        ====================================================== -->
+        <section class="pd-section">
+            <div class="container">
+                <div class="pd-enrollment-panel">
+                    <h2>Ready <span style="color:var(--accent);">To Start?</span></h2>
+                    <div class="pd-enrollment-details">
+                        <div class="pd-enrollment-row">
+                            <span class="pd-enrollment-label">Program:</span>
+                            <span class="pd-enrollment-val" id="enroll-title"></span>
+                        </div>
+                        <div class="pd-enrollment-row">
+                            <span class="pd-enrollment-label">Training:</span>
+                            <span class="pd-enrollment-val">Structured Coaching</span>
+                        </div>
+                        <div class="pd-enrollment-row">
+                            <span class="pd-enrollment-label">Format:</span>
+                            <span class="pd-enrollment-val">Online / In-Person</span>
+                        </div>
+                        <div class="pd-enrollment-row">
+                            <span class="pd-enrollment-label">Pricing:</span>
+                            <span class="pd-enrollment-val" style="color:var(--accent);">Discussed during enrollment</span>
+                        </div>
+                    </div>
+                    <a id="enroll-btn-panel" href="#" class="btn btn-primary">Continue To Enrollment</a>
+                    <div class="pd-trial-link">
+                        Not sure yet? <a href="contact.html">Book a Free Trial</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             SECTION 12: FAQ
+        ====================================================== -->
+        <section class="pd-section pd-section-alt">
+            <div class="container">
+                <div class="pd-section-header text-center">
+                    <h2>Program <span style="color:var(--accent);">FAQ</span></h2>
+                </div>
+                <div class="pd-faq-accordion" id="faq-accordion">
+                    <!-- Injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             SECTION 13: RELATED PROGRAMS
+        ====================================================== -->
+        <section class="pd-section">
+            <div class="container">
+                <div class="pd-section-header">
+                    <h2>Continue Your <span style="color:var(--accent);">Development</span></h2>
+                </div>
+                <div class="pd-related-grid" id="related-grid">
+                    <!-- Injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             SECTION 14: FINAL CTA
+        ====================================================== -->
+        <section class="pd-final-cta">
+            <div class="container">
+                <h2>Your Next Move <span style="color:var(--accent);">Starts Here.</span></h2>
+                <p>Choose a structured training path, develop stronger thinking habits, and take your game to the next level.</p>
+                <div class="pd-cta-actions">
+                    <a id="final-enroll-btn" href="#" class="btn btn-primary" style="background-color:var(--accent); color:#101827;">Enroll In This Program</a>
+                    <a href="contact.html" class="btn btn-outline-white">Book A Free Trial</a>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- =====================================================
-         SECTION 8: PLAN COMPARISON
+         ERROR STATE
     ====================================================== -->
-    <section class="pricing-comparison section">
+    <div id="error-state" class="pd-error-state" style="display: none;">
         <div class="container">
-            <div class="section-header text-center">
-                <h2>Compare <span class="text-gold">Your Options.</span></h2>
-            </div>
-            
-            <div class="table-responsive">
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Features</th>
-                            <th>Single Session</th>
-                            <th>Monthly</th>
-                            <th>Intensive</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Number of Sessions</td>
-                            <td>1</td>
-                            <td>4</td>
-                            <td>8</td>
-                        </tr>
-                        <tr>
-                            <td>Session Duration</td>
-                            <td>60 Min</td>
-                            <td>60 Min</td>
-                            <td>60 Min</td>
-                        </tr>
-                        <tr>
-                            <td>Game Analysis</td>
-                            <td><i class="fa-solid fa-check text-gold"></i></td>
-                            <td><i class="fa-solid fa-check text-gold"></i></td>
-                            <td><i class="fa-solid fa-check text-gold"></i></td>
-                        </tr>
-                        <tr>
-                            <td>Personalized Training</td>
-                            <td><i class="fa-solid fa-minus text-muted"></i></td>
-                            <td><i class="fa-solid fa-check text-gold"></i></td>
-                            <td><i class="fa-solid fa-check text-gold"></i></td>
-                        </tr>
-                        <tr>
-                            <td>Progress Review</td>
-                            <td><i class="fa-solid fa-minus text-muted"></i></td>
-                            <td><i class="fa-solid fa-check text-gold"></i></td>
-                            <td><i class="fa-solid fa-check text-gold"></i></td>
-                        </tr>
-                        <tr>
-                            <td>Training Resources</td>
-                            <td><i class="fa-solid fa-minus text-muted"></i></td>
-                            <td><i class="fa-solid fa-check text-gold"></i></td>
-                            <td><i class="fa-solid fa-check text-gold"></i></td>
-                        </tr>
-                        <tr>
-                            <td>Tournament Preparation</td>
-                            <td><i class="fa-solid fa-minus text-muted"></i></td>
-                            <td><i class="fa-solid fa-minus text-muted"></i></td>
-                            <td><i class="fa-solid fa-check text-gold"></i></td>
-                        </tr>
-                        <tr>
-                            <td>Priority Scheduling</td>
-                            <td><i class="fa-solid fa-minus text-muted"></i></td>
-                            <td><i class="fa-solid fa-minus text-muted"></i></td>
-                            <td><i class="fa-solid fa-check text-gold"></i></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <h1>Program Not Found</h1>
+            <p>The program you're looking for could not be found or does not exist.</p>
+            <a href="programs.html" class="btn btn-primary">Back To Programs</a>
         </div>
-    </section>
-
-    <!-- =====================================================
-         SECTION 9: PRICING POLICIES
-    ====================================================== -->
-    <section class="policy-section section bg-secondary">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-label">PRICING POLICY</span>
-                <h2>Clear Pricing. <span class="text-gold">No Surprises.</span></h2>
-            </div>
-            
-            <div class="policy-grid">
-                <div class="policy-card">
-                    <h4>PAYMENT</h4>
-                    <p>Payment must be completed before the session or selected plan begins.</p>
-                </div>
-                <div class="policy-card">
-                    <h4>PLAN VALIDITY</h4>
-                    <p>Monthly plans remain valid for the stated billing period.</p>
-                </div>
-                <div class="policy-card">
-                    <h4>RESCHEDULING</h4>
-                    <p>Sessions may be rescheduled according to the applicable rescheduling window.</p>
-                </div>
-                <div class="policy-card">
-                    <h4>CANCELLATION</h4>
-                    <p>Cancellation and refund eligibility depends on the selected plan and timing of the request.</p>
-                </div>
-                <div class="policy-card">
-                    <h4>REFUNDS</h4>
-                    <p>Completed sessions are non-refundable. Eligible unused services may be refunded according to the applicable policy.</p>
-                </div>
-                <div class="policy-card">
-                    <h4>PLAN CHANGES</h4>
-                    <p>Users may contact Strategix to discuss upgrading or changing an active plan.</p>
-                </div>
-            </div>
-            
-            <div class="policy-footer text-center">
-                <p>Please review the full Terms & Conditions before completing payment.</p>
-                <a href="#" class="policy-link">Terms & Conditions</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- =====================================================
-         SECTION 10: PAYMENT PROCESS
-    ====================================================== -->
-    <section class="payment-process section">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-label">HOW PAYMENT WORKS</span>
-                <h2>From Selection To <span class="text-gold">Your First Session.</span></h2>
-            </div>
-            
-            <div class="process-steps">
-                <div class="payment-step">
-                    <div class="step-circle">01</div>
-                    <h4>SELECT</h4>
-                    <p>Choose the service and plan that suits you.</p>
-                </div>
-                <div class="payment-step">
-                    <div class="step-circle">02</div>
-                    <h4>BOOK</h4>
-                    <p>Select your preferred date and available time.</p>
-                </div>
-                <div class="payment-step">
-                    <div class="step-circle">03</div>
-                    <h4>PAY</h4>
-                    <p>Complete the payment securely.</p>
-                </div>
-                <div class="payment-step">
-                    <div class="step-circle">04</div>
-                    <h4>CONFIRM</h4>
-                    <p>Receive your booking confirmation and session details.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- =====================================================
-         SECTION 11: WHAT HAPPENS AFTER PAYMENT
-    ====================================================== -->
-    <section class="after-payment section dark-section text-center">
-        <div class="container">
-            <h2>Your Training <span class="text-gold">Starts After Confirmation.</span></h2>
-            
-            <div class="sequence-visual">
-                <span>Payment Successful</span>
-                <i class="fa-solid fa-arrow-right"></i>
-                <span>Booking Confirmed</span>
-                <i class="fa-solid fa-arrow-right"></i>
-                <span>Session Details Sent</span>
-                <i class="fa-solid fa-arrow-right"></i>
-                <span>Coach Assigned</span>
-                <i class="fa-solid fa-arrow-right"></i>
-                <span>Training Begins</span>
-            </div>
-            
-            <p class="after-text">
-                After successful payment, your booking details and session information will be available through your Strategix account.
-            </p>
-            <a href="dashboard.html" class="btn btn-outline-white">User Dashboard</a>
-        </div>
-    </section>
-
-    <!-- =====================================================
-         SECTION 12: SERVICE FAQ
-    ====================================================== -->
-    <section class="service-faq section">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-label">QUESTIONS</span>
-                <h2>Before <span class="text-gold">You Book.</span></h2>
-            </div>
-            
-            <div class="faq-container">
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">
-                        <h3>Is this service suitable for beginners?</h3>
-                        <i class="fa-solid fa-plus faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, all our services can be tailored to match your current skill level, starting from strong fundamentals for beginners.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">
-                        <h3>How long is each session?</h3>
-                        <i class="fa-solid fa-plus faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Standard sessions are 60 minutes long, carefully structured to balance theory, practice, and review.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">
-                        <h3>Can I choose online or in-person coaching?</h3>
-                        <i class="fa-solid fa-plus faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, depending on your location, you can opt for in-person sessions at our academy or high-quality online sessions.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">
-                        <h3>Can I reschedule a session?</h3>
-                        <i class="fa-solid fa-plus faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, sessions can be rescheduled with prior notice as per our rescheduling policy outline.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">
-                        <h3>Can I cancel my plan?</h3>
-                        <i class="fa-solid fa-plus faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>You can cancel future renewals of monthly plans at any time through your dashboard.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">
-                        <h3>What happens if I miss a session?</h3>
-                        <i class="fa-solid fa-plus faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Missed sessions without prior notice are generally forfeited, but exceptions may apply for emergencies.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">
-                        <h3>Can I upgrade my plan?</h3>
-                        <i class="fa-solid fa-plus faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, you can upgrade from a single session or monthly plan at any point by contacting our team.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">
-                        <h3>When will my session be confirmed after payment?</h3>
-                        <i class="fa-solid fa-plus faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Session confirmations are typically sent immediately via email and appear on your dashboard.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">
-                        <h3>Can I request a specific coach?</h3>
-                        <i class="fa-solid fa-plus faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, subject to their availability. You can mention your preference during the booking process.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">
-                        <h3>What payment methods are available?</h3>
-                        <i class="fa-solid fa-plus faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We accept all major credit cards, UPI, and standard digital payment gateways through our secure checkout.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- =====================================================
-         SECTION 13: FINAL CTA
-    ====================================================== -->
-    <section class="service-detail-cta section dark-section text-center">
-        <div class="container">
-            <h2>Ready To <span class="text-gold">Train With Purpose?</span></h2>
-            <p>Choose your plan and take the next step toward stronger strategic thinking.</p>
-            <div class="cta-actions">
-                <a href="#pricing" class="btn btn-primary">Choose Your Plan</a>
-                <a href="services.html" class="btn btn-outline-white">Explore Other Services</a>
-            </div>
-        </div>
-    </section>
+    </div>
 
     <!-- FOOTER -->
     <div id="footer"></div>
 
-    <!-- JS -->
+    <!-- Scripts -->
     <script src="js/main.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const serviceId = urlParams.get('program');
-
-                        const programsData = {
-                'beginner': {
-                    eyebrow: 'BEGINNER LEVEL',
-                    title: 'Foundational Chess <span class=\"text-gold\">Training</span>',
-                    image: 'assets/images/beginner.png',
-                    desc: 'Master the rules, basic tactics, and fundamental concepts to build a strong foundation.'
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Program Data
+            const programs = {
+                beginner: {
+                    id: "beginner",
+                    title: "Beginner Chess",
+                    subtitle: "Build A Strong Foundation From Your First Move.",
+                    level: "Beginner",
+                    category: "Foundation",
+                    image: "assets/images/beginner.png",
+                    description: "A structured introduction to chess designed for players who want to understand the board, learn the fundamentals, and develop strong thinking habits from the beginning.",
+                    audience: [
+                        "Complete beginners",
+                        "Players returning to chess",
+                        "Students who want stronger fundamentals"
+                    ],
+                    requirements: [
+                        "No previous chess experience required",
+                        "Basic willingness to learn",
+                        "Regular practice recommended"
+                    ],
+                    nextLevel: {
+                        text: "You may be ready for the next level if you already understand basic tactics and opening principles.",
+                        path: "Beginner → Intermediate"
+                    },
+                    outcomes: [
+                        { num: "01", title: "Tactical Awareness", text: "Recognize basic tactical opportunities and threats." },
+                        { num: "02", title: "Calculation", text: "Learn to visualize short sequences before committing to a move." },
+                        { num: "03", title: "Positional Understanding", text: "Understand the value of activity, structure, space, and king safety." },
+                        { num: "04", title: "Game Analysis", text: "Learn to review your own decisions and identify mistakes." }
+                    ],
+                    curriculum: [
+                        { title: "Chess Fundamentals", items: ["Board and coordinates", "Piece movement", "Capturing", "Check and checkmate", "Basic rules"] },
+                        { title: "Opening Principles", items: ["Development", "Center control", "King safety", "Connecting pieces"] },
+                        { title: "Tactical Foundations", items: ["Forks", "Pins", "Skewers", "Discovered attacks", "Basic combinations"] },
+                        { title: "Essential Endgames", items: ["King and pawn endings", "Basic checkmates", "Opposition", "Promotion"] },
+                        { title: "Game Practice", items: ["Guided games", "Position exercises", "Review sessions", "Mistake analysis"] }
+                    ],
+                    progress: ["UNDERSTAND", "PRACTICE", "PLAY", "ANALYZE", "PROGRESS"],
+                    related: ["intermediate", "kids"]
                 },
-                'intermediate': {
-                    eyebrow: 'INTERMEDIATE LEVEL',
-                    title: 'Strategic Chess <span class=\"text-gold\">Mastery</span>',
-                    image: 'assets/images/intermediate.png',
-                    desc: 'Deepen your positional understanding, expand your opening repertoire, and improve calculation.'
+                intermediate: {
+                    id: "intermediate",
+                    title: "Intermediate Chess",
+                    subtitle: "Turn Knowledge Into Consistent Decisions.",
+                    level: "Intermediate",
+                    category: "Development",
+                    image: "assets/images/intermediate.png",
+                    description: "A structured program for players who understand the fundamentals and are ready to improve calculation, tactical awareness, positional understanding, and game consistency.",
+                    audience: [
+                        "Players who know the rules and basic tactics",
+                        "Club players looking to break plateaus",
+                        "Students wanting to build strategic depth"
+                    ],
+                    requirements: [
+                        "Understanding of chess rules",
+                        "Basic tactical knowledge",
+                        "Previous playing experience recommended"
+                    ],
+                    nextLevel: {
+                        text: "You may be ready for the next level if you can calculate consistently and have strong tactical vision.",
+                        path: "Intermediate → Advanced"
+                    },
+                    outcomes: [
+                        { num: "01", title: "Advanced Tactics", text: "Spot deeper multi-move tactical sequences." },
+                        { num: "02", title: "Calculation", text: "Calculate accurately without missing opponent replies." },
+                        { num: "03", title: "Positional Play", text: "Identify weaknesses, outposts, and piece coordination." },
+                        { num: "04", title: "Endgame Technique", text: "Convert winning advantages in the endgame." }
+                    ],
+                    curriculum: [
+                        { title: "Advanced Tactics", items: ["Deflection", "Decoy", "Interference", "Overloading", "Complex combinations"] },
+                        { title: "Positional Elements", items: ["Pawn structures", "Weak squares", "Outposts", "Bishop pairs"] },
+                        { title: "Calculation Training", items: ["Candidate moves", "Forcing moves", "Prophylaxis", "Evaluating end positions"] },
+                        { title: "Practical Endgames", items: ["Rook endings", "Minor piece endings", "Pawn majorities", "Active king"] },
+                        { title: "Game Analysis", items: ["Identifying critical moments", "Engine usage", "Self-correction", "Psychological resilience"] }
+                    ],
+                    progress: ["CALCULATE", "EVALUATE", "DECIDE", "ANALYZE", "IMPROVE"],
+                    related: ["beginner", "advanced", "tournament"]
                 },
-                'advanced': {
-                    eyebrow: 'ADVANCED LEVEL',
-                    title: 'Elite Competitive <span class=\"text-gold\">Preparation</span>',
-                    image: 'assets/images/advanced.png',
-                    desc: 'Intense training on grandmaster-level concepts, complex endgames, and psychological resilience.'
+                advanced: {
+                    id: "advanced",
+                    title: "Advanced Chess",
+                    subtitle: "Think Deeper. Calculate Further. Play With Purpose.",
+                    level: "Advanced",
+                    category: "Mastery",
+                    image: "assets/images/advanced.png",
+                    description: "An advanced training path for players ready to develop deeper strategic understanding, stronger calculation, advanced positional play, and more accurate decision-making.",
+                    audience: [
+                        "Experienced club players",
+                        "Aspiring titled players",
+                        "Tournament competitors seeking mastery"
+                    ],
+                    requirements: [
+                        "Strong understanding of fundamentals",
+                        "Regular game experience",
+                        "Ability to analyze complex positions"
+                    ],
+                    nextLevel: {
+                        text: "You may be ready for the next level if you want to focus heavily on tournament performance.",
+                        path: "Advanced → Tournament Preparation"
+                    },
+                    outcomes: [
+                        { num: "01", title: "Strategic Planning", text: "Create long-term plans based on the pawn structure." },
+                        { num: "02", title: "Deep Calculation", text: "Navigate complex, irrational positions accurately." },
+                        { num: "03", title: "Opening Repertoire", text: "Build a robust and personalized opening system." },
+                        { num: "04", title: "Complex Endgames", text: "Master theoretical and practical endgame conversions." }
+                    ],
+                    curriculum: [
+                        { title: "Dynamic Play", items: ["Initiative", "Sacrifices", "Imbalances", "Attacking the king"] },
+                        { title: "Strategic Mastery", items: ["Prophylactic thinking", "Maneuvering", "Space advantage", "Color complexes"] },
+                        { title: "Opening Preparation", items: ["Repertoire building", "Pawn structure transitions", "Novelty preparation"] },
+                        { title: "Endgame Mastery", items: ["Complex rook endings", "Queen endings", "Fortresses", "Theoretical draws"] },
+                        { title: "Performance Psychology", items: ["Time trouble", "Handling pressure", "Bouncing back from losses"] }
+                    ],
+                    progress: ["UNDERSTAND", "CALCULATE", "PLAN", "EXECUTE", "REFINE"],
+                    related: ["intermediate", "tournament"]
                 },
-                'tournament-prep': {
-                    eyebrow: 'TOURNAMENT PREP',
-                    title: 'Tournament Ready <span class=\"text-gold\">Bootcamp</span>',
-                    image: 'assets/images/competitive.jpg',
-                    desc: 'Prepare with purpose before stepping into competitive play.'
+                tournament: {
+                    id: "tournament",
+                    title: "Tournament Preparation",
+                    subtitle: "Prepare To Perform When Every Move Matters.",
+                    level: "Competitive",
+                    category: "Performance",
+                    image: "assets/images/competitive.jpg",
+                    description: "A focused preparation program designed for players who want to enter tournaments with stronger preparation, practical decision-making, time management, and competitive confidence.",
+                    audience: [
+                        "Active tournament players",
+                        "Players preparing for their first major event",
+                        "Competitors wanting to improve their rating"
+                    ],
+                    requirements: [
+                        "Active tournament participation or preparation goal",
+                        "Strong fundamentals",
+                        "Commitment to practice and analysis"
+                    ],
+                    nextLevel: {
+                        text: "Continue refining your skills through specialized advanced coaching post-tournament.",
+                        path: "Tournament → Advanced Chess"
+                    },
+                    outcomes: [
+                        { num: "01", title: "Opponent Analysis", text: "Prepare specifically for upcoming opponents." },
+                        { num: "02", title: "Time Management", text: "Allocate time efficiently during critical moments." },
+                        { num: "03", title: "Psychological Resilience", text: "Maintain focus and composure under pressure." },
+                        { num: "04", title: "Practical Decision Making", text: "Choose the best practical move, not just the engine best." }
+                    ],
+                    curriculum: [
+                        { title: "Tournament Strategy", items: ["Swiss system tactics", "Playing for a win vs draw", "Managing energy", "Round-by-round approach"] },
+                        { title: "Opening Preparation", items: ["Surprise weapons", "Solidifying the repertoire", "Preparing for specific styles"] },
+                        { title: "Practical Defense", items: ["Tenacious defending", "Creating counterplay", "Swindles", "Playing worse positions"] },
+                        { title: "Time Management", items: ["When to think", "Playing on increment", "Avoiding time trouble"] },
+                        { title: "Post-Game Routine", items: ["Quick analysis", "Resetting mentally", "Preparing for the next round"] }
+                    ],
+                    progress: ["PREPARE", "PRACTICE", "COMPETE", "ANALYZE", "ADAPT"],
+                    related: ["advanced", "intermediate"]
+                },
+                kids: {
+                    id: "kids",
+                    title: "Kids Chess Development",
+                    subtitle: "Build Better Thinkers Through Chess.",
+                    level: "Kids",
+                    category: "Development",
+                    image: "assets/images/school-programs.jpg",
+                    description: "A structured chess development program that uses chess to strengthen concentration, logical thinking, problem-solving ability, patience, and confidence.",
+                    audience: [
+                        "Children aged 6-14",
+                        "Parents looking for educational activities",
+                        "Young players showing interest in chess"
+                    ],
+                    requirements: [
+                        "Interest in chess",
+                        "Ability to follow basic instructions",
+                        "Regular practice recommended"
+                    ],
+                    nextLevel: {
+                        text: "Once fundamentals are mastered, kids can transition to competitive junior tracks.",
+                        path: "Kids → Intermediate/Junior Tournaments"
+                    },
+                    outcomes: [
+                        { num: "01", title: "Logical Thinking", text: "Learn cause and effect through chess moves." },
+                        { num: "02", title: "Concentration", text: "Develop longer attention spans and focus." },
+                        { num: "03", title: "Problem Solving", text: "Find creative solutions to difficult board positions." },
+                        { num: "04", title: "Sportsmanship", text: "Learn how to win graciously and lose with dignity." }
+                    ],
+                    curriculum: [
+                        { title: "The Magic Board", items: ["The pieces and how they move", "The goal of the game", "Setting up the board", "Chess notation basics"] },
+                        { title: "First Tactics", items: ["Capturing safely", "Protecting pieces", "Simple checkmates", "Castling"] },
+                        { title: "Thinking Ahead", items: ["Look before you leap", "What does my opponent want?", "Making a plan"] },
+                        { title: "Endgame Fun", items: ["Pawn promotion races", "Checkmating with Queen and Rook", "Stalemate traps"] },
+                        { title: "Playing Games", items: ["Friendly matches", "Reviewing fun moments", "Chess etiquette"] }
+                    ],
+                    progress: ["LEARN", "THINK", "PLAY", "REVIEW", "HAVE FUN"],
+                    related: ["beginner"]
                 }
             };
 
-            if (serviceId && programsData[serviceId]) {
-                const data = programsData[serviceId];
-                document.getElementById('hero-eyebrow').textContent = data.eyebrow;
-                document.getElementById('hero-title').innerHTML = data.title;
-                document.getElementById('hero-desc').textContent = data.desc;
-                document.getElementById('hero-img').src = data.image;
+            const faqs = [
+                { q: "Who is this program designed for?", a: "This program is specifically tailored for the audience listed above, focusing on the core fundamentals needed at this stage." },
+                { q: "How is my level assessed?", a: "We assess your level through initial trial games, puzzle solving, and reviewing your past games to ensure proper placement." },
+                { q: "How long does the program take?", a: "Progression is highly individual. Most students spend 3-6 months mastering the concepts of a single level before advancing." },
+                { q: "Can I move to another level later?", a: "Absolutely. Our programs are designed as a continuous developmental path." },
+                { q: "Is online training available?", a: "Yes, all our programs can be conducted fully online via interactive chess boards and video calls." },
+                { q: "What happens after I enroll?", a: "You will be matched with a coach, receive your onboarding materials, and schedule your first session." },
+                { q: "Can I book a trial before enrolling?", a: "Yes! We highly recommend booking a free trial to ensure the coaching style and program level are a perfect fit." }
+            ];
+
+            // Setup
+            const params = new URLSearchParams(window.location.search);
+            const programId = params.get('program');
+            const prog = programs[programId];
+
+            if (!prog) {
+                document.getElementById('error-state').style.display = 'block';
+                return;
+            }
+
+            document.getElementById('main-content').style.display = 'block';
+            document.title = prog.title + " | Strategix";
+
+            // Populate Hero
+            document.getElementById('hero-badge').textContent = prog.level;
+            document.getElementById('hero-title').textContent = prog.title;
+            document.getElementById('hero-subtitle').textContent = prog.subtitle;
+            document.getElementById('hero-desc').textContent = prog.description;
+            document.getElementById('hero-img').src = prog.image;
+            document.getElementById('meta-level').textContent = prog.level;
+            
+            const enrollUrl = `booking.html?program=${prog.id}`;
+            document.getElementById('hero-enroll-btn').href = enrollUrl;
+            document.getElementById('enroll-btn-panel').href = enrollUrl;
+            document.getElementById('final-enroll-btn').href = enrollUrl;
+
+            // Overview
+            document.getElementById('overview-desc').textContent = prog.description;
+            document.getElementById('panel-level').textContent = prog.level;
+            document.getElementById('panel-focus').textContent = prog.category;
+            document.getElementById('enroll-title').textContent = prog.title;
+
+            // Audience
+            const audList = document.getElementById('audience-list');
+            prog.audience.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="fa-solid fa-check"></i> ${item}`;
+                audList.appendChild(li);
+            });
+
+            // Requirements
+            const reqList = document.getElementById('requirements-list');
+            prog.requirements.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                reqList.appendChild(li);
+            });
+
+            // Next Level
+            document.getElementById('next-level-desc').textContent = prog.nextLevel.text;
+            document.getElementById('next-level-path').textContent = prog.nextLevel.path;
+
+            // Outcomes
+            const outGrid = document.getElementById('outcomes-grid');
+            prog.outcomes.forEach(out => {
+                const div = document.createElement('div');
+                div.className = 'pd-outcome-card';
+                div.innerHTML = `
+                    <span class="pd-outcome-num">${out.num}</span>
+                    <h4>${out.title}</h4>
+                    <p>${out.text}</p>
+                `;
+                outGrid.appendChild(div);
+            });
+
+            // Curriculum
+            const currAcc = document.getElementById('curriculum-accordion');
+            prog.curriculum.forEach((mod, index) => {
+                const div = document.createElement('div');
+                div.className = 'pd-module-item';
                 
-                // Update pricing buttons URLs
-                document.querySelectorAll('.plan-btn').forEach(btn => {
-                    let href = btn.getAttribute('href');
-                    if (href && href.includes('service=')) {
-                        href = href.replace(/service=[^&]+/, 'service=' + serviceId);
-                        btn.setAttribute('href', href);
-                    }
+                const listItems = mod.items.map(i => `<li>${i}</li>`).join('');
+                
+                div.innerHTML = `
+                    <button class="pd-module-btn" aria-expanded="${index === 0 ? 'true' : 'false'}">
+                        <div class="pd-module-title-wrapper">
+                            <span class="pd-module-label">MODULE 0${index + 1}</span>
+                            <span class="pd-module-title">${mod.title}</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down pd-module-icon"></i>
+                    </button>
+                    <div class="pd-module-content" style="max-height: ${index === 0 ? '1000px' : '0'};">
+                        <div class="pd-module-content-inner">
+                            <ul class="pd-module-list">
+                                ${listItems}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+                currAcc.appendChild(div);
+            });
+
+            // Progress Path
+            const progPath = document.getElementById('progress-path');
+            prog.progress.forEach((step, index) => {
+                const div = document.createElement('div');
+                div.className = 'pd-progress-item';
+                div.innerHTML = `
+                    <i class="fa-regular fa-circle-check"></i>
+                    <span>${step}</span>
+                `;
+                progPath.appendChild(div);
+                
+                if (index < prog.progress.length - 1) {
+                    const arrow = document.createElement('i');
+                    arrow.className = 'fa-solid fa-arrow-right pd-progress-arrow';
+                    progPath.appendChild(arrow);
+                }
+            });
+
+            // FAQ
+            const faqAcc = document.getElementById('faq-accordion');
+            faqs.forEach((faq, index) => {
+                const div = document.createElement('div');
+                div.className = 'pd-faq-item';
+                div.innerHTML = `
+                    <button class="pd-faq-btn" aria-expanded="false">
+                        ${faq.q}
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="pd-faq-content">
+                        <p>${faq.a}</p>
+                    </div>
+                `;
+                faqAcc.appendChild(div);
+            });
+
+            // Related
+            const relatedGrid = document.getElementById('related-grid');
+            prog.related.forEach(relId => {
+                const relProg = programs[relId];
+                if(relProg) {
+                    const div = document.createElement('div');
+                    div.className = 'pd-related-card';
+                    div.innerHTML = `
+                        <h3>${relProg.title}</h3>
+                        <p>${relProg.description.substring(0, 100)}...</p>
+                        <a href="program-details.html?program=${relProg.id}" class="btn btn-secondary" style="text-align:center;">View Program</a>
+                    `;
+                    relatedGrid.appendChild(div);
+                }
+            });
+
+            // Accordion Logic (Shared for both Curriculum and FAQ)
+            const setupAccordion = (selector) => {
+                const btns = document.querySelectorAll(selector);
+                btns.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const expanded = btn.getAttribute('aria-expanded') === 'true';
+                        
+                        // Close all in this group
+                        btns.forEach(b => {
+                            b.setAttribute('aria-expanded', 'false');
+                            b.nextElementSibling.style.maxHeight = null;
+                        });
+
+                        // Open if it was closed
+                        if(!expanded) {
+                            btn.setAttribute('aria-expanded', 'true');
+                            const content = btn.nextElementSibling;
+                            content.style.maxHeight = content.scrollHeight + "px";
+                        }
+                    });
                 });
+            };
+
+            setupAccordion('.pd-module-btn');
+            setupAccordion('.pd-faq-btn');
+
+            // Fix initial max height for first curriculum item
+            const firstCurriculumContent = document.querySelector('.pd-module-content');
+            if (firstCurriculumContent) {
+                firstCurriculumContent.style.maxHeight = firstCurriculumContent.scrollHeight + "px";
             }
         });
     </script>
 </body>
-
 </html>
-
-
-
