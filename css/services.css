@@ -813,7 +813,7 @@
         grid-template-columns: 1fr;
     }
     
-    .services-process {
+    .process-steps-container {
         flex-direction: column;
         gap: 3rem;
     }
