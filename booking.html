@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking | Strategix Journal</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/booking.css">
+    <link rel="icon" type="image/png" href="assets/strategix%20logo.png">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <div id="navbar"></div>
+
+    <!-- MAIN -->
+    <main id="main-content" style="display: none;">
+        
+        <!-- HERO -->
+        <section class="booking-hero">
+            <div class="container text-center">
+                <div class="breadcrumb" id="booking-breadcrumb">
+                    Home / Booking
+                </div>
+                <span class="section-label">BOOK YOUR SESSION</span>
+                <h1 class="booking-title">Reserve Your Strategix Training.</h1>
+                <p class="booking-subtitle">Choose your preferred schedule, provide your details, review your training plan, and continue securely to payment.</p>
+            </div>
+        </section>
+
+        <!-- PROGRESS -->
+        <section class="booking-progress-section section bg-secondary">
+            <div class="container">
+                <div class="progress-container">
+                    <div class="progress-step active" id="step-1">
+                        <span class="step-num">01</span>
+                        <span class="step-label">SELECTED PLAN</span>
+                    </div>
+                    <div class="progress-step" id="step-2">
+                        <span class="step-num">02</span>
+                        <span class="step-label">SCHEDULE</span>
+                    </div>
+                    <div class="progress-step" id="step-3">
+                        <span class="step-num">03</span>
+                        <span class="step-label">YOUR DETAILS</span>
+                    </div>
+                    <div class="progress-step" id="step-4">
+                        <span class="step-num">04</span>
+                        <span class="step-label">REVIEW</span>
+                    </div>
+                    <div class="progress-step" id="step-5">
+                        <span class="step-num">05</span>
+                        <span class="step-label">PAYMENT</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MAIN LAYOUT -->
+        <section class="booking-layout section">
+            <div class="container layout-grid">
+                
+                <!-- LEFT COLUMN -->
+                <div class="layout-left">
+                    
+                    <!-- FORM STATE -->
+                    <div id="booking-form-state">
+                        
+                        <!-- SELECTED TRAINING -->
+                        <div class="form-section" id="section-selected-training">
+                            <h2 class="section-heading">Selected Training</h2>
+                            <div class="selected-training-card" id="selected-training-details">
+                                <!-- JS -->
+                            </div>
+                        </div>
+
+                        <!-- TRAINING FORMAT -->
+                        <div class="form-section" id="section-training-format">
+                            <h2 class="section-heading">Choose Your Training Format</h2>
+                            <div class="format-grid" id="format-options">
+                                <div class="format-card selected" data-format="1-to-1 Coaching" tabindex="0" role="button" aria-pressed="true">
+                                    <div class="format-icon"><i class="fa-solid fa-user-graduate"></i></div>
+                                    <h4>1-to-1 Coaching</h4>
+                                    <p>Personalized training with an individual coach.</p>
+                                    <div class="check-indicator"><i class="fa-solid fa-check"></i></div>
+                                </div>
+                                <div class="format-card" data-format="Small Group" tabindex="0" role="button" aria-pressed="false">
+                                    <div class="format-icon"><i class="fa-solid fa-users"></i></div>
+                                    <h4>Small Group</h4>
+                                    <p>Train with a small group of players at a similar level.</p>
+                                    <div class="check-indicator"><i class="fa-solid fa-check"></i></div>
+                                </div>
+                                <div class="format-card" data-format="Online Training" tabindex="0" role="button" aria-pressed="false">
+                                    <div class="format-icon"><i class="fa-solid fa-laptop"></i></div>
+                                    <h4>Online Training</h4>
+                                    <p>Structured coaching from anywhere.</p>
+                                    <div class="check-indicator"><i class="fa-solid fa-check"></i></div>
+                                </div>
+                            </div>
+                            <input type="hidden" id="training-format-val" value="1-to-1 Coaching">
+                        </div>
+
+                        <!-- DATE SELECTION -->
+                        <div class="form-section" id="section-date">
+                            <h2 class="section-heading">Choose Your Date</h2>
+                            <div class="calendar-container">
+                                <div class="calendar-header">
+                                    <button class="cal-btn" id="prev-month"><i class="fa-solid fa-chevron-left"></i></button>
+                                    <h4 id="calendar-month-year">October 2026</h4>
+                                    <button class="cal-btn" id="next-month"><i class="fa-solid fa-chevron-right"></i></button>
+                                </div>
+                                <div class="calendar-grid weekdays">
+                                    <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                                </div>
+                                <div class="calendar-grid days" id="calendar-days">
+                                    <!-- JS -->
+                                </div>
+                            </div>
+                            <p class="helper-text"><i class="fa-solid fa-info-circle"></i> Available schedules shown here are for demonstration and can be connected to live coach availability.</p>
+                            <input type="hidden" id="selected-date-val" value="">
+                            <div class="inline-error" id="error-date">Please select a training date.</div>
+                        </div>
+
+                        <!-- TIME SELECTION -->
+                        <div class="form-section" id="section-time" style="display: none;">
+                            <h2 class="section-heading">Choose Your Time</h2>
+                            <div class="time-slots" id="time-slots">
+                                <button class="time-slot" data-time="09:00 AM">09:00 AM</button>
+                                <button class="time-slot" data-time="10:30 AM">10:30 AM</button>
+                                <button class="time-slot" data-time="12:00 PM">12:00 PM</button>
+                                <button class="time-slot" data-time="02:00 PM">02:00 PM</button>
+                                <button class="time-slot" data-time="04:30 PM">04:30 PM</button>
+                                <button class="time-slot" data-time="06:00 PM">06:00 PM</button>
+                                <button class="time-slot" data-time="07:30 PM">07:30 PM</button>
+                            </div>
+                            <div class="time-summary" id="time-summary">
+                                <!-- JS -->
+                            </div>
+                            <input type="hidden" id="selected-time-val" value="">
+                            <div class="inline-error" id="error-time">Please select a time slot.</div>
+                        </div>
+
+                        <!-- PLAYER DETAILS -->
+                        <div class="form-section" id="section-player">
+                            <h2 class="section-heading">Tell Us About The Player</h2>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="fname">First Name *</label>
+                                    <input type="text" id="fname" placeholder="First Name">
+                                    <div class="inline-error" id="error-fname">Please enter your first name.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lname">Last Name *</label>
+                                    <input type="text" id="lname" placeholder="Last Name">
+                                    <div class="inline-error" id="error-lname">Please enter your last name.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" placeholder="Email Address">
+                                    <div class="inline-error" id="error-email">Please enter a valid email address.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" placeholder="Phone Number">
+                                    <div class="inline-error" id="error-phone">Please enter your phone number.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dob">Date of Birth</label>
+                                    <input type="date" id="dob">
+                                </div>
+                                <div class="form-group">
+                                    <label for="level">Current Playing Level *</label>
+                                    <select id="level">
+                                        <option value="">Select Level</option>
+                                        <option value="Beginner">Beginner</option>
+                                        <option value="Intermediate">Intermediate</option>
+                                        <option value="Advanced">Advanced</option>
+                                        <option value="Competitive">Competitive</option>
+                                    </select>
+                                    <div class="inline-error" id="error-level">Please select a playing level.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="chesscom">Chess.com Username (Optional)</label>
+                                    <input type="text" id="chesscom" placeholder="Username">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lichess">Lichess Username (Optional)</label>
+                                    <input type="text" id="lichess" placeholder="Username">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CHESS EXPERIENCE -->
+                        <div class="form-section" id="section-experience">
+                            <h2 class="section-heading">Your Chess Experience</h2>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="experience-years">Years of Experience</label>
+                                    <select id="experience-years">
+                                        <option value="">Select Experience</option>
+                                        <option value="Less than 1 year">Less than 1 year</option>
+                                        <option value="1â€“2 years">1â€“2 years</option>
+                                        <option value="3â€“5 years">3â€“5 years</option>
+                                        <option value="5+ years">5+ years</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tournament-exp">Tournament Experience</label>
+                                    <select id="tournament-exp">
+                                        <option value="">Select Tournament Experience</option>
+                                        <option value="First tournament">First tournament</option>
+                                        <option value="Some tournament experience">Some tournament experience</option>
+                                        <option value="Regular tournament player">Regular tournament player</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TRAINING GOALS -->
+                        <div class="form-section" id="section-goals">
+                            <h2 class="section-heading">What Would You Like To Improve?</h2>
+                            <div class="goals-grid">
+                                <label class="goal-checkbox">
+                                    <input type="checkbox" name="goals" value="Opening Understanding">
+                                    <span class="custom-checkbox"></span>
+                                    <span>Opening Understanding</span>
+                                </label>
+                                <label class="goal-checkbox">
+                                    <input type="checkbox" name="goals" value="Tactical Calculation">
+                                    <span class="custom-checkbox"></span>
+                                    <span>Tactical Calculation</span>
+                                </label>
+                                <label class="goal-checkbox">
+                                    <input type="checkbox" name="goals" value="Positional Understanding">
+                                    <span class="custom-checkbox"></span>
+                                    <span>Positional Understanding</span>
+                                </label>
+                                <label class="goal-checkbox">
+                                    <input type="checkbox" name="goals" value="Endgame Skills">
+                                    <span class="custom-checkbox"></span>
+                                    <span>Endgame Skills</span>
+                                </label>
+                                <label class="goal-checkbox">
+                                    <input type="checkbox" name="goals" value="Game Analysis">
+                                    <span class="custom-checkbox"></span>
+                                    <span>Game Analysis</span>
+                                </label>
+                                <label class="goal-checkbox">
+                                    <input type="checkbox" name="goals" value="Tournament Preparation">
+                                    <span class="custom-checkbox"></span>
+                                    <span>Tournament Preparation</span>
+                                </label>
+                                <label class="goal-checkbox">
+                                    <input type="checkbox" name="goals" value="Rating Improvement">
+                                    <span class="custom-checkbox"></span>
+                                    <span>Rating Improvement</span>
+                                </label>
+                                <label class="goal-checkbox">
+                                    <input type="checkbox" name="goals" value="Decision Making">
+                                    <span class="custom-checkbox"></span>
+                                    <span>Decision Making</span>
+                                </label>
+                            </div>
+                            
+                            <div class="form-group mt-4">
+                                <label for="goals-details">Tell Your Coach More</label>
+                                <textarea id="goals-details" rows="4" placeholder="Tell us about your current level, challenges, goals, or recent games."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- GUARDIAN DETAILS -->
+                        <div class="form-section" id="section-guardian">
+                            <label class="guardian-checkbox-wrap">
+                                <input type="checkbox" id="is-minor">
+                                <span class="custom-checkbox"></span>
+                                <span>I am registering a player under 18.</span>
+                            </label>
+                            
+                            <div class="guardian-fields" id="guardian-fields" style="display: none;">
+                                <h2 class="section-heading mt-4">Guardian Details</h2>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="g-name">Guardian Name *</label>
+                                        <input type="text" id="g-name" placeholder="Guardian Name">
+                                        <div class="inline-error" id="error-g-name">Please enter guardian's name.</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="g-phone">Guardian Phone *</label>
+                                        <input type="tel" id="g-phone" placeholder="Guardian Phone">
+                                        <div class="inline-error" id="error-g-phone">Please enter guardian's phone.</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="g-email">Guardian Email *</label>
+                                        <input type="email" id="g-email" placeholder="Guardian Email">
+                                        <div class="inline-error" id="error-g-email">Please enter guardian's email.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SESSION PREFERENCES -->
+                        <div class="form-section" id="section-preferences">
+                            <h2 class="section-heading">Session Preferences</h2>
+                            <div class="form-grid">
+                                <div class="form-group" style="grid-column: 1 / -1;">
+                                    <label for="style-pref">Preferred Coaching Style *</label>
+                                    <select id="style-pref">
+                                        <option value="Structured & Curriculum Based">Structured & Curriculum Based</option>
+                                        <option value="Game Analysis Focused">Game Analysis Focused</option>
+                                        <option value="Tournament Focused">Tournament Focused</option>
+                                        <option value="Flexible / Goal Based">Flexible / Goal Based</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="grid-column: 1 / -1;">
+                                    <label for="additional-pref">Additional Preferences</label>
+                                    <textarea id="additional-pref" rows="3" placeholder="Share any scheduling or training preferences."></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- POLICIES -->
+                        <div class="form-section" id="section-policies">
+                            <label class="policy-checkbox-wrap">
+                                <input type="checkbox" id="policy-accurate">
+                                <span class="custom-checkbox"></span>
+                                <span>I confirm that the information provided is accurate. *</span>
+                            </label>
+                            <div class="inline-error" id="error-policy-accurate">You must confirm the information is accurate.</div>
+                            
+                            <label class="policy-checkbox-wrap mt-2">
+                                <input type="checkbox" id="policy-agree">
+                                <span class="custom-checkbox"></span>
+                                <span>I agree to the <a href="#">booking and scheduling policies</a>. *</span>
+                            </label>
+                            <div class="inline-error" id="error-policy-agree">You must agree to the policies.</div>
+                            
+                            <div class="policy-links mt-3">
+                                <a href="#">Terms & Conditions</a>
+                                <a href="#">Cancellation Policy</a>
+                                <a href="#">Privacy Policy</a>
+                            </div>
+                        </div>
+
+                        <!-- CTA -->
+                        <div class="form-actions mt-5">
+                            <button class="btn btn-primary btn-large w-100" id="btn-continue-review">Continue To Review</button>
+                        </div>
+                    </div>
+
+                    <!-- REVIEW STATE -->
+                    <div id="booking-review-state" style="display: none;">
+                        <h2 class="section-heading mb-4">Review Your Booking</h2>
+                        
+                        <div class="review-section">
+                            <div class="review-header">
+                                <h3>TRAINING</h3>
+                                <button class="btn-edit" data-target="section-selected-training">Edit</button>
+                            </div>
+                            <div class="review-body" id="review-training">
+                                <!-- JS -->
+                            </div>
+                        </div>
+                        
+                        <div class="review-section">
+                            <div class="review-header">
+                                <h3>SCHEDULE</h3>
+                                <button class="btn-edit" data-target="section-date">Edit</button>
+                            </div>
+                            <div class="review-body" id="review-schedule">
+                                <!-- JS -->
+                            </div>
+                        </div>
+                        
+                        <div class="review-section">
+                            <div class="review-header">
+                                <h3>PLAYER</h3>
+                                <button class="btn-edit" data-target="section-player">Edit</button>
+                            </div>
+                            <div class="review-body" id="review-player">
+                                <!-- JS -->
+                            </div>
+                        </div>
+
+                        <div class="review-section">
+                            <div class="review-header">
+                                <h3>GOALS</h3>
+                                <button class="btn-edit" data-target="section-goals">Edit</button>
+                            </div>
+                            <div class="review-body" id="review-goals">
+                                <!-- JS -->
+                            </div>
+                        </div>
+
+                        <div class="form-actions review-actions mt-5">
+                            <button class="btn btn-outline" id="btn-back-edit">Back To Edit</button>
+                            <button class="btn btn-primary" id="btn-continue-payment">Continue To Payment</button>
+                        </div>
+                    </div>
+
+                    <!-- PAYMENT STATE -->
+                    <div id="booking-payment-state" style="display: none;">
+                        <h2 class="section-heading mb-4">Complete Your Enrollment</h2>
+                        
+                        <div class="payment-summary-box mb-4">
+                            <div class="payment-row">
+                                <span class="label">Training Plan</span>
+                                <span class="value" id="payment-plan-name"></span>
+                            </div>
+                            <div class="payment-row">
+                                <span class="label">Sessions</span>
+                                <span class="value" id="payment-sessions"></span>
+                            </div>
+                            <div class="payment-row total-row">
+                                <span class="label">Total</span>
+                                <span class="value text-gold" id="payment-total"></span>
+                            </div>
+                        </div>
+
+                        <h4 class="mb-3">Select Payment Method</h4>
+                        <div class="payment-methods">
+                            <label class="payment-method">
+                                <input type="radio" name="payment-type" value="upi" checked>
+                                <span class="custom-radio"></span>
+                                <span class="method-body">UPI</span>
+                            </label>
+                            <label class="payment-method">
+                                <input type="radio" name="payment-type" value="card">
+                                <span class="custom-radio"></span>
+                                <span class="method-body">Card</span>
+                            </label>
+                            <label class="payment-method">
+                                <input type="radio" name="payment-type" value="netbanking">
+                                <span class="custom-radio"></span>
+                                <span class="method-body">Net Banking</span>
+                            </label>
+                        </div>
+
+                        <div id="payment-processing" class="processing-state" style="display: none;">
+                            <i class="fa-solid fa-circle-notch fa-spin"></i> Processing your enrollment...
+                        </div>
+
+                        <div class="form-actions mt-5">
+                            <button class="btn btn-primary btn-large w-100" id="btn-process-payment">Proceed To Payment</button>
+                        </div>
+                    </div>
+
+                    <!-- SUCCESS STATE -->
+                    <div id="booking-success-state" style="display: none;" class="text-center">
+                        <div class="success-icon mb-4">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <h1 class="mb-4" style="margin-bottom: 2rem !important;">Your Training Is Booked.</h1>
+                        <p class="mb-5 text-secondary">Your enrollment details have been received successfully. Your selected training schedule is ready for the next step.</p>
+                        
+                        <div class="success-details text-left mb-5">
+                            <div class="success-row">
+                                <span>Booking ID</span>
+                                <strong>STRX-BOOK-2026-001</strong>
+                            </div>
+                            <div class="success-row">
+                                <span>Program / Service</span>
+                                <strong id="success-program"></strong>
+                            </div>
+                            <div class="success-row" id="success-plan-row">
+                                <span>Plan</span>
+                                <strong id="success-plan"></strong>
+                            </div>
+                            <div class="success-row">
+                                <span>Date</span>
+                                <strong id="success-date"></strong>
+                            </div>
+                            <div class="success-row">
+                                <span>Time</span>
+                                <strong id="success-time"></strong>
+                            </div>
+                            <div class="success-row">
+                                <span>Format</span>
+                                <strong id="success-format"></strong>
+                            </div>
+                        </div>
+
+                        <p class="demo-note mb-5" style="margin-bottom: 3rem !important;"><i class="fa-solid fa-info-circle"></i> Demo booking confirmation â€” connect this flow to your backend/payment system for production use.</p>
+
+                        <div class="success-actions mb-5">
+                            <a href="user-dashboard.html" class="btn btn-primary">View Dashboard</a>
+                            <a href="programs.html" class="btn btn-outline">Back To Programs</a>
+                            <a href="contact.html" class="btn btn-outline">Contact Strategix</a>
+                        </div>
+                    </div>
+
+                    <!-- ERROR STATE -->
+                    <div id="booking-error-state" style="display: none;" class="text-center py-5">
+                        <h2 class="mb-3">Booking <span class="text-gold">Not Found</span></h2>
+                        <p class="mb-4">The training option you are trying to book could not be found.</p>
+                        <div class="error-actions">
+                            <a href="programs.html" class="btn btn-primary">Explore Programs</a>
+                            <a href="services.html" class="btn btn-outline">Explore Services</a>
+                        </div>
+                    </div>
+
+                    <!-- UNAVAILABLE STATE -->
+                    <div id="booking-unavailable-state" style="display: none;" class="text-center py-5">
+                        <h2 class="mb-3">Enrollment <span class="text-gold">Currently Unavailable</span></h2>
+                        <p class="mb-4">This training option is not currently available for booking.</p>
+                        <div class="error-actions">
+                            <a href="programs.html" class="btn btn-primary">Explore Other Programs</a>
+                            <a href="contact.html" class="btn btn-outline">Contact Strategix</a>
+                        </div>
+                    </div>
+
+                    <!-- WHAT HAPPENS NEXT -->
+                    <div class="what-happens-next" id="what-happens-next" style="display: none; margin-top: 8rem;">
+                        <h2 class="section-heading mb-5 text-center">What Happens Next?</h2>
+                        <div class="timeline">
+                            <div class="timeline-step">
+                                <div class="step-num">01</div>
+                                <h4>Confirmation</h4>
+                                <p>Your booking details are reviewed.</p>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-num">02</div>
+                                <h4>Session Confirmation</h4>
+                                <p>Receive the final session information.</p>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-num">03</div>
+                                <h4>Training Begins</h4>
+                                <p>Attend your scheduled coaching session.</p>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-num">04</div>
+                                <h4>Track Progress</h4>
+                                <p>Continue your development through the Strategix dashboard.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT COLUMN: SUMMARY -->
+                <div class="layout-right">
+                    <div class="booking-summary-sticky" id="booking-summary-sticky">
+                        <h3 class="summary-heading">Your Booking</h3>
+                        <div class="summary-content" id="summary-content">
+                            <!-- JS -->
+                        </div>
+                        <div class="summary-footer">
+                            <div class="summary-row">
+                                <span>Subtotal</span>
+                                <strong id="summary-subtotal"></strong>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Total</span>
+                                <strong class="text-gold" id="summary-total"></strong>
+                            </div>
+                            <button class="btn btn-primary w-100 mt-3" id="btn-summary-continue">Continue To Review</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="booking-faq section bg-secondary" id="faq-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2>Booking <span class="text-gold">FAQ</span></h2>
+                </div>
+                <div class="faq-accordion" id="booking-faq">
+                    <!-- FAQ Items -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq1">
+                            Can I change my booking time?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer" id="faq1" hidden>
+                            <p>Yes, you can reschedule your session through your user dashboard up to 24 hours before the scheduled time.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq2">
+                            Can I cancel my booking?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer" id="faq2" hidden>
+                            <p>Yes. Cancellations made 24 hours in advance will receive a full refund or credit.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq3">
+                            Can I change my training plan?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer" id="faq3" hidden>
+                            <p>You can upgrade or switch your plan at any time by speaking with your coach.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq4">
+                            Can I book online coaching?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer" id="faq4" hidden>
+                            <p>Yes, online coaching is available for all programs and services.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq5">
+                            What happens after payment?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer" id="faq5" hidden>
+                            <p>You will receive a confirmation email, and your coach will be notified to prepare for your session.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq6">
+                            Can I book for a child?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer" id="faq6" hidden>
+                            <p>Yes. Simply check the 'I am registering a player under 18' box and provide guardian details.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq7">
+                            How do I track my training progress?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer" id="faq7" hidden>
+                            <p>Your progress, notes, and analysis are available inside your user dashboard after enrollment.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HELP -->
+        <section class="booking-help section text-center" id="help-section">
+            <div class="container">
+                <h2>Not Sure Which Training Is <span class="text-gold">Right For You?</span></h2>
+                <p class="mb-4">Speak with Strategix before completing your enrollment.</p>
+                <div class="booking-actions">
+                    <a href="contact.html" class="btn btn-primary">Contact Strategix</a>
+                    <a href="programs.html" class="btn btn-outline">Explore Programs</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="booking-cta section text-center" id="final-cta-section">
+            <div class="container">
+                <h2>Ready To Train <span class="text-gold">With Purpose?</span></h2>
+                <p class="mb-4">Choose your schedule. Start your next chapter.</p>
+                <div class="booking-actions">
+                    <a href="programs.html" class="btn btn-primary">View Programs</a>
+                    <a href="contact.html" class="btn btn-outline-white">Contact Strategix</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <div id="footer"></div>
+
+    <!-- JS -->
+    <script src="js/main.js"></script>
+    <script src="js/pages.js"></script>
+</body>
+
+</html>
+
+

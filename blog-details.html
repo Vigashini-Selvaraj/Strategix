@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article | Strategix Journal</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/blog-details.css">
+    <link rel="icon" type="image/png" href="assets/strategix%20logo.png">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <div id="navbar"></div>
+
+    <main id="main-content" style="display: none;">
+        <!-- =====================================================
+             SECTION 1: ARTICLE HERO
+        ====================================================== -->
+        <section class="blog-detail-hero">
+            <div class="container text-center">
+                <span class="blog-detail-category" id="article-category">STRATEGY</span>
+                <h1 class="blog-detail-title" id="article-title">Loading Article...</h1>
+                <p class="blog-detail-subtitle" id="article-subtitle"></p>
+                
+                <div class="blog-detail-meta" id="article-meta">
+                    <span>By Strategix Coaching Team</span>
+                    <span>&middot;</span>
+                    <span id="article-time"></span>
+                    <span>&middot;</span>
+                    <span id="article-date"></span>
+                </div>
+            </div>
+            
+            <div class="blog-detail-cover">
+                <div class="container">
+                    <img src="" id="article-image" alt="Article Cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             SECTION 2: ARTICLE LAYOUT
+        ====================================================== -->
+        <section class="blog-detail-layout section">
+            <div class="container">
+                <div class="layout-grid">
+                    
+                    <!-- LEFT: MAIN ARTICLE -->
+                    <div class="blog-article" id="article-content">
+                        <!-- Content injected via JS -->
+                    </div>
+
+                    <!-- RIGHT: SIDEBAR -->
+                    <aside class="blog-sidebar">
+                        <div class="sidebar-sticky">
+                            <!-- TOC -->
+                            <div class="sidebar-widget">
+                                <h3>IN THIS ARTICLE</h3>
+                                <ul class="blog-toc" id="article-toc">
+                                    <li><a href="#section-1">01 Why Thinking Matters</a></li>
+                                    <li><a href="#section-2">02 The Difference Between Moving And Deciding</a></li>
+                                    <li><a href="#section-3">03 The Four-Step Thinking Process</a></li>
+                                    <li><a href="#section-4">04 Put The Idea Into Practice</a></li>
+                                    <li><a href="#section-5">05 Key Takeaways</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- ARTICLE INFO -->
+                            <div class="sidebar-widget">
+                                <h3>ARTICLE INFO</h3>
+                                <div class="sidebar-info">
+                                    <span id="sidebar-category">Strategy</span><br>
+                                    <span id="sidebar-time">8 min read</span><br>
+                                    <span id="sidebar-date">October 2026</span>
+                                </div>
+                            </div>
+
+                            <!-- SHARE -->
+                            <div class="sidebar-widget">
+                                <h3>SHARE</h3>
+                                <div class="blog-share">
+                                    <a href="#" title="Share on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                                    <a href="#" title="Share on Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="#" title="Share on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                                    <a href="#" title="Copy Link" onclick="event.preventDefault(); alert('Link copied!');"><i class="fa-solid fa-link"></i></a>
+                                </div>
+                            </div>
+                            
+                            <!-- TAGS -->
+                            <div class="sidebar-widget">
+                                <h3>EXPLORE TOPICS</h3>
+                                <div class="sidebar-tags">
+                                    <a href="blog.html" class="blog-tag">Strategy</a>
+                                    <a href="blog.html" class="blog-tag">Mindset</a>
+                                    <a href="blog.html" class="blog-tag">Training</a>
+                                    <a href="blog.html" class="blog-tag">Tournaments</a>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             SECTION 11: AUTHOR
+        ====================================================== -->
+        <section class="blog-author-section">
+            <div class="container">
+                <div class="blog-author">
+                    <img src="assets/images/team.jpg" alt="Strategix Coaching Team" onerror="this.src='assets/images/private-coaching.jpg'">
+                    <div class="author-info">
+                        <h4>Strategix Coaching Team</h4>
+                        <p>Strategix combines structured chess training, strategic thinking and practical game analysis to help players develop stronger decision-making skills.</p>
+                        <a href="about.html" class="btn btn-outline">Explore Strategix</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             SECTION 12: RELATED ARTICLES
+        ====================================================== -->
+        <section class="related-articles section bg-secondary">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-label">CONTINUE READING</span>
+                    <h2>More Ideas <span class="text-gold">From Strategix</span></h2>
+                </div>
+
+                <div class="related-grid" id="related-grid">
+                    <!-- Populated via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             SECTION 13: CONVERSION CTA
+        ====================================================== -->
+        <section class="blog-detail-cta section text-center">
+            <div class="container">
+                <h2>Ready To Put <span class="text-gold">The Ideas Into Practice?</span></h2>
+                <p>Reading about strategy is only the beginning. Build stronger thinking through structured Strategix training.</p>
+                <div class="cta-actions">
+                    <a href="programs.html" class="btn btn-primary">Explore Programs</a>
+                    <a href="contact.html" class="btn btn-outline-white">Book A Free Trial</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- =====================================================
+             SECTION 14: BACK TO BLOG
+        ====================================================== -->
+        <div class="blog-back text-center">
+            <a href="blog.html"><i class="fa-solid fa-arrow-left"></i> Back To All Articles</a>
+        </div>
+    </main>
+
+    <!-- INVALID ARTICLE STATE -->
+    <main id="error-state" style="display: none;" class="section text-center">
+        <div class="container" style="padding: 10rem 0;">
+            <h2>Article <span class="text-gold">Not Found</span></h2>
+            <p style="margin: 2rem 0; color: var(--text-secondary);">The article you're looking for may have been moved or is no longer available.</p>
+            <a href="blog.html" class="btn btn-primary">Back To Blog</a>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <div id="footer"></div>
+
+    <!-- JS -->
+    <script src="js/main.js"></script>
+    <script src="js/blog-data.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const postId = params.get("post") || params.get("id");
+
+            if (postId && articles[postId]) {
+                const article = articles[postId];
+                
+                document.getElementById('main-content').style.display = 'block';
+                document.title = article.title + " | Strategix Journal";
+
+                // Populate Hero
+                document.getElementById('article-category').innerText = article.category;
+                document.getElementById('article-title').innerText = article.title;
+                document.getElementById('article-subtitle').innerText = article.subtitle;
+                document.getElementById('article-time').innerText = article.readTime;
+                document.getElementById('article-date').innerText = article.date;
+                document.getElementById('article-image').src = article.image;
+
+                // Populate Sidebar
+                document.getElementById('sidebar-category').innerText = article.category;
+                document.getElementById('sidebar-time').innerText = article.readTime;
+                document.getElementById('sidebar-date').innerText = article.date;
+
+                // Populate Content
+                document.getElementById('article-content').innerHTML = article.content;
+
+                // Generate TOC if provided
+                if (article.toc) {
+                    const tocList = document.getElementById('article-toc');
+                    tocList.innerHTML = '';
+                    article.toc.forEach(item => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `<a href="${item.link}">${item.title}</a>`;
+                        tocList.appendChild(li);
+                    });
+                }
+
+                // Smooth scroll for TOC
+                document.querySelectorAll('.blog-toc a').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href').substring(1);
+                        const targetElem = document.getElementById(targetId);
+                        if(targetElem) {
+                            window.scrollTo({
+                                top: targetElem.offsetTop - 100,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                });
+
+                // Populate Related Articles
+                const relatedGrid = document.getElementById('related-grid');
+                relatedGrid.innerHTML = '';
+                
+                let relatedCount = 0;
+                for (let key in articles) {
+                    if (key !== postId && relatedCount < 3) {
+                        const rel = articles[key];
+                        const cardHTML = `
+                            <article class="related-card">
+                                <a href="blog-details.html?post=${key}" class="related-card-link">
+                                    <div class="related-image">
+                                        <img src="${rel.image}" alt="${rel.title}" onerror="this.src='assets/images/strategy.jpg'">
+                                    </div>
+                                    <div class="related-body">
+                                        <span class="related-category">${rel.category}</span>
+                                        <h3>${rel.title}</h3>
+                                        <div class="related-footer">
+                                            <span class="read-time"><i class="fa-regular fa-clock"></i> ${rel.readTime}</span>
+                                            <span class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </article>
+                        `;
+                        relatedGrid.insertAdjacentHTML('beforeend', cardHTML);
+                        relatedCount++;
+                    }
+                }
+
+            } else {
+                document.getElementById('error-state').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+
+</html>
+
+
+

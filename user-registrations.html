@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Registrations - Strategy Chess Academy</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Admin CSS for dashboard layout -->
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="icon" type="image/png" href="assets/strategix%20logo.png">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="user-dashboard.html" class="logo">
+                    <img src="assets/strategix%20logo.png" alt="Strategy Chess Academy" class="brand-logo">
+                </a>
+                <button class="close-sidebar-btn" id="close-sidebar"><i class='bx bx-x'></i></button>
+            </div>
+            
+            <div class="sidebar-menu">
+                <div class="menu-category">MAIN</div>
+                <a href="user-dashboard.html" class="menu-item">
+                    <i class='bx bx-home-alt'></i>
+                    <span>Overview</span>
+                </a>
+                <a href="user-programs.html" class="menu-item">
+                    <i class='bx bx-book-open'></i>
+                    <span>My Programs</span>
+                </a>
+                <a href="user-batches.html" class="menu-item">
+                    <i class='bx bx-group'></i>
+                    <span>My Batches</span>
+                </a>
+                <a href="user-schedule.html" class="menu-item">
+                    <i class='bx bx-calendar'></i>
+                    <span>Schedule</span>
+                </a>
+                <a href="user-materials.html" class="menu-item">
+                    <i class='bx bx-library'></i>
+                    <span>Learning Materials</span>
+                </a>
+                <a href="user-attendance.html" class="menu-item">
+                    <i class='bx bx-check-shield'></i>
+                    <span>Attendance</span>
+                </a>
+
+                <div class="menu-category">COMPETE</div>
+                <a href="user-tournaments.html" class="menu-item">
+                    <i class='bx bx-trophy'></i>
+                    <span>Tournaments</span>
+                </a>
+                <a href="user-registrations.html" class="menu-item active">
+                    <i class='bx bx-bookmark-alt'></i>
+                    <span>My Registrations</span>
+                </a>
+                <a href="user-results.html" class="menu-item">
+                    <i class='bx bx-medal'></i>
+                    <span>My Results</span>
+                </a>
+
+                <div class="menu-category">ACCOUNT</div>
+                <a href="user-bookings.html" class="menu-item">
+                    <i class='bx bx-calendar-event'></i>
+                    <span>Bookings</span>
+                </a>
+                <a href="user-payments.html" class="menu-item">
+                    <i class='bx bx-credit-card'></i>
+                    <span>Payments</span>
+                </a>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-actions">
+                    <button id="theme-toggle" class="action-btn" title="Toggle Theme"><i class='bx bx-moon'></i></button>
+                    <button id="direction-toggle" class="action-btn" title="Toggle RTL/LTR"><i class='bx bx-right-indent'></i></button>
+                    <a href="#" class="action-btn" title="Help & Support"><i class='bx bx-help-circle'></i></a>
+                    <a href="login.html" class="action-btn text-danger" title="Logout"><i class='bx bx-log-out'></i></a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="main-content">
+            <!-- Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button id="sidebar-toggle" class="sidebar-toggle"><i class='bx bx-menu'></i></button>
+                    <div class="breadcrumbs">
+                        <span class="crumb">Dashboard</span> <span class="separator">/</span> <span class="crumb active">My Registrations</span>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="header-profile" id="profileDropdownBtn">
+                        <img src="https://i.pravatar.cc/150?img=11" alt="Student" class="avatar">
+                        <span class="admin-name d-none d-md-block">Arjun R. <i class='bx bx-chevron-down'></i></span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                
+                <div class="page-header">
+                    <div class="header-text">
+                        <h1 class="page-title">My Registrations</h1>
+                        <p class="page-subtitle">Track your past and upcoming tournament participations.</p>
+                    </div>
+                </div>
+
+                <div class="data-card">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Tournament</th>
+                                    <th>Date</th>
+                                    <th>Format</th>
+                                    <th>Status</th>
+                                    <th>Result / Rank</th>
+                                    <th>Score</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <strong>Autumn Rapid Open</strong>
+                                    </td>
+                                    <td>Oct 15, 2026</td>
+                                    <td>Rapid (15+10)</td>
+                                    <td><span class="badge status-pending">Upcoming</span></td>
+                                    <td class="text-muted">-</td>
+                                    <td class="text-muted">-</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline" disabled>Wait for Event</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Spring Chess Championship</strong>
+                                    </td>
+                                    <td>Apr 10, 2026</td>
+                                    <td>Standard (90+30)</td>
+                                    <td><span class="badge status-active" style="background-color: var(--border-color); color: var(--text-muted);">Completed</span></td>
+                                    <td><strong>Rank #8</strong></td>
+                                    <td>4.5 / 7</td>
+                                    <td>
+                                        <a href="user-results.html" class="btn btn-sm btn-primary">View Result</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Summer Blitz Arena</strong>
+                                    </td>
+                                    <td>Jul 22, 2026</td>
+                                    <td>Blitz (3+2)</td>
+                                    <td><span class="badge status-active" style="background-color: var(--border-color); color: var(--text-muted);">Completed</span></td>
+                                    <td><strong>Rank #12</strong></td>
+                                    <td>6.0 / 9</td>
+                                    <td>
+                                        <a href="user-results.html" class="btn btn-sm btn-primary">View Result</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
+
+

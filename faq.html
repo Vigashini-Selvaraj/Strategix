@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | Strategix</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="assets/strategix%20logo.png">
+    <style>
+        body { background-color: var(--bg-primary); color: var(--text-primary); }
+        .page-header { padding: 6rem 2rem 3rem; text-align: center; border-bottom: 1px solid var(--border); background: var(--bg-secondary); }
+        .page-header h1 { color: var(--accent); font-family: var(--font-heading); font-size: 3rem; margin-bottom: 1rem; }
+        .page-header p { font-size: 1.1rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+        
+        .faq-container { max-width: 800px; margin: 4rem auto; padding: 0 2rem; }
+        .faq-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); margin-bottom: 1rem; overflow: hidden; }
+        .faq-question { width: 100%; text-align: left; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; background: none; border: none; font-size: 1.1rem; font-weight: 600; color: var(--text-primary); cursor: pointer; font-family: var(--font-body); }
+        .faq-question i { color: var(--accent); transition: transform 0.3s ease; }
+        .faq-question[aria-expanded="true"] i { transform: rotate(180deg); }
+        .faq-answer { padding: 0 2rem 1.5rem; border-top: 1px solid var(--border); display: none; }
+        .faq-answer.show { display: block; }
+        .faq-answer p { margin: 1.5rem 0 0 0; color: var(--text-secondary); line-height: 1.6; }
+        
+        .back-nav { position: absolute; top: 2rem; left: 2rem; }
+    </style>
+</head>
+<body>
+    <div class="back-nav">
+        <a href="index.html" class="btn btn-outline"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+    </div>
+
+    <header class="page-header">
+        <h1>Frequently Asked Questions</h1>
+        <p>Find answers to common questions about our chess coaching, tournaments, and enrollment process.</p>
+    </header>
+
+    <div class="faq-container" id="faq-accordion">
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">How do I enroll in a coaching program? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer"><p>You can enroll by visiting our Programs page, selecting the program that fits your skill level, and completing the checkout process.</p></div>
+        </div>
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">Do I need prior chess experience to join? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer"><p>Not at all! We offer beginner programs designed specifically for those who are completely new to the game.</p></div>
+        </div>
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">How are the classes conducted? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer"><p>Classes are primarily conducted online through secure, interactive chess servers and video conferencing tools.</p></div>
+        </div>
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">Can I change my batch timing after enrollment? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer"><p>Yes, you can request a batch change through your User Dashboard, subject to availability in the new batch.</p></div>
+        </div>
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">What happens if I miss a class? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer"><p>All sessions are recorded. You will have access to the recording and training materials to catch up.</p></div>
+        </div>
+        <!-- FAQ 6 -->
+        <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">Are tournaments mandatory? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer"><p>Tournaments are highly recommended for competitive students, but they are completely optional for casual learners.</p></div>
+        </div>
+        <!-- FAQ 7 -->
+        <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">How do I track my rating and progress? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer"><p>Your User Dashboard features a comprehensive tracking system for your chess rating, puzzle solving stats, and coach evaluations.</p></div>
+        </div>
+        <!-- FAQ 8 -->
+        <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">Is there a refund policy? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer"><p>Yes, we offer a 7-day money-back guarantee for new enrollments if you are not satisfied with the coaching quality.</p></div>
+        </div>
+        <!-- FAQ 9 -->
+        <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">What equipment do I need? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer"><p>You just need a computer or tablet with a stable internet connection. A physical chessboard is optional but recommended.</p></div>
+        </div>
+        <!-- FAQ 10 -->
+        <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">How can I contact my coach outside of class? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer"><p>You can use the built-in messaging system in your User Dashboard to ask questions and share games for review.</p></div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const expanded = btn.getAttribute('aria-expanded') === 'true';
+                document.querySelectorAll('.faq-question').forEach(b => {
+                    b.setAttribute('aria-expanded', 'false');
+                    b.nextElementSibling.classList.remove('show');
+                });
+                if (!expanded) {
+                    btn.setAttribute('aria-expanded', 'true');
+                    btn.nextElementSibling.classList.add('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

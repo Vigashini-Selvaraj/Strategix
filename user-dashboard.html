@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - Strategy Chess Academy</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Admin CSS for dashboard layout -->
+    <link rel="stylesheet" href="css/admin.css">
+    <style>
+        .progress-bar-container {
+            width: 100%;
+            background-color: var(--bg-color);
+            border-radius: var(--radius-full);
+            height: 8px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background-color: var(--primary);
+            border-radius: var(--radius-full);
+        }
+        .continue-card {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        @media (min-width: 768px) {
+            .continue-card {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+        .continue-info {
+            flex: 1;
+        }
+        .continue-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .module-info {
+            display: flex;
+            gap: 16px;
+            margin-top: 12px;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+        .module-info i {
+            color: var(--primary);
+            margin-right: 4px;
+        }
+    </style>
+    <link rel="icon" type="image/png" href="assets/strategix%20logo.png">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="user-dashboard.html" class="logo">
+                    <img src="assets/strategix%20logo.png" alt="Strategy Chess Academy" class="brand-logo">
+                </a>
+                <button class="close-sidebar-btn" id="close-sidebar"><i class='bx bx-x'></i></button>
+            </div>
+            
+            <div class="sidebar-menu">
+                <div class="menu-category">MAIN</div>
+                <a href="user-dashboard.html" class="menu-item active">
+                    <i class='bx bx-home-alt'></i>
+                    <span>Overview</span>
+                </a>
+                <a href="user-programs.html" class="menu-item">
+                    <i class='bx bx-book-open'></i>
+                    <span>My Programs</span>
+                </a>
+                <a href="user-batches.html" class="menu-item">
+                    <i class='bx bx-group'></i>
+                    <span>My Batches</span>
+                </a>
+                <a href="user-schedule.html" class="menu-item">
+                    <i class='bx bx-calendar'></i>
+                    <span>Schedule</span>
+                </a>
+
+                <a href="user-materials.html" class="menu-item">
+                    <i class='bx bx-library'></i>
+                    <span>Learning Materials</span>
+                </a>
+                <a href="user-attendance.html" class="menu-item">
+                    <i class='bx bx-check-shield'></i>
+                    <span>Attendance</span>
+                </a>
+
+
+                <div class="menu-category">COMPETE</div>
+                <a href="user-tournaments.html" class="menu-item">
+                    <i class='bx bx-trophy'></i>
+                    <span>Tournaments</span>
+                </a>
+                <a href="user-registrations.html" class="menu-item">
+                    <i class='bx bx-bookmark-alt'></i>
+                    <span>My Registrations</span>
+                </a>
+                <a href="user-results.html" class="menu-item">
+                    <i class='bx bx-medal'></i>
+                    <span>My Results</span>
+                </a>
+
+                <div class="menu-category">ACCOUNT</div>
+                <a href="user-bookings.html" class="menu-item">
+                    <i class='bx bx-calendar-event'></i>
+                    <span>Bookings</span>
+                </a>
+                <a href="user-payments.html" class="menu-item">
+                    <i class='bx bx-credit-card'></i>
+                    <span>Payments</span>
+                </a>
+
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-actions">
+                    <button id="theme-toggle" class="action-btn" title="Toggle Theme"><i class='bx bx-moon'></i></button>
+                    <button id="direction-toggle" class="action-btn" title="Toggle RTL/LTR"><i class='bx bx-right-indent'></i></button>
+                    <a href="#" class="action-btn" title="Help & Support"><i class='bx bx-help-circle'></i></a>
+                    <a href="login.html" class="action-btn text-danger" title="Logout"><i class='bx bx-log-out'></i></a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="main-content">
+            <!-- Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button id="sidebar-toggle" class="sidebar-toggle"><i class='bx bx-menu'></i></button>
+                    <div class="breadcrumbs">
+                        <span class="crumb">Dashboard</span> <span class="separator">/</span> <span class="crumb active">Overview</span>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="search-bar">
+                        <i class='bx bx-search'></i>
+                        <input type="text" placeholder="Search lessons, tournaments, etc...">
+                    </div>
+                    <button class="icon-btn d-none d-md-block">
+                        <i class='bx bx-message-square-dots'></i>
+                    </button>
+                    <div class="header-profile" id="profileDropdownBtn">
+                        <img src="https://i.pravatar.cc/150?img=11" alt="Student" class="avatar">
+                        <span class="admin-name d-none d-md-block">Arjun R. <i class='bx bx-chevron-down'></i></span>
+                        <div class="dropdown-menu" id="profileDropdown">
+                            <a href="#"><i class='bx bx-user'></i> My Profile</a>
+                            <a href="#"><i class='bx bx-book-open'></i> My Programs</a>
+                            <a href="#"><i class='bx bx-credit-card'></i> Payments</a>
+                            <a href="#"><i class='bx bx-cog'></i> Settings</a>
+                            <a href="#"><i class='bx bx-help-circle'></i> Help & Support</a>
+                            <div class="divider"></div>
+                            <a href="login.html" class="text-danger"><i class='bx bx-log-out'></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                
+                <!-- Welcome Section -->
+                <div class="page-header">
+                    <div class="header-text">
+                        <h1 class="page-title">Welcome back, Arjun</h1>
+                        <p class="page-subtitle" id="current-date">Continue your chess journey and keep improving your game.</p>
+                    </div>
+                    <div class="header-actions">
+                        <a href="user-programs.html" class="btn btn-secondary"><i class='bx bx-play-circle'></i> Browse Programs</a>
+                    </div>
+                </div>
+
+                <!-- KPI Cards -->
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-icon"><i class='bx bx-line-chart'></i></div>
+                        <div class="kpi-details">
+                            <span class="kpi-label">Current Rating</span>
+                            <h3 class="kpi-value">1428</h3>
+                        </div>
+                        <div class="kpi-trend positive"><i class='bx bx-trending-up'></i> +48 this month</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon icon-success"><i class='bx bx-check-shield'></i></div>
+                        <div class="kpi-details">
+                            <span class="kpi-label">Program Progress</span>
+                            <h3 class="kpi-value">72%</h3>
+                        </div>
+                        <div class="kpi-trend positive"><i class='bx bx-check'></i> 3 of 4 modules completed</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon icon-warning"><i class='bx bx-calendar-check'></i></div>
+                        <div class="kpi-details">
+                            <span class="kpi-label">Attendance</span>
+                            <h3 class="kpi-value">94%</h3>
+                        </div>
+                        <div class="kpi-trend neutral"><i class='bx bx-smile'></i> Excellent attendance</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon icon-danger"><i class='bx bx-bulb'></i></div>
+                        <div class="kpi-details">
+                            <span class="kpi-label">Strategies Learned</span>
+                            <h3 class="kpi-value">18</h3>
+                        </div>
+                        <div class="kpi-trend neutral"><i class='bx bx-book'></i> of 25 strategies</div>
+                    </div>
+                </div>
+
+                <div class="two-col-grid">
+                    <!-- Continue Learning Card -->
+                    <div class="data-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Continue Learning</h3>
+                        </div>
+                        <div class="continue-card mt-4">
+                            <div class="continue-info">
+                                <h4>Strategic Chess Mastery</h4>
+                                <span class="badge bg-primary-light" style="margin-bottom: 12px; display: inline-block;">Intermediate</span>
+                                
+                                <div style="margin-top: 10px;">
+                                    <div style="display: flex; justify-content: space-between; font-size: 0.875rem;">
+                                        <strong>Progress</strong>
+                                        <span>72% Complete</span>
+                                    </div>
+                                    <div class="progress-bar-container">
+                                        <div class="progress-bar-fill" style="width: 72%;"></div>
+                                    </div>
+                                </div>
+
+                                <div class="module-info">
+                                    <span><i class='bx bx-play-circle'></i> Current: Tactical Calculation</span>
+                                    <span><i class='bx bx-time-five'></i> 17/24 Sessions</span>
+                                </div>
+                            </div>
+                            <div class="continue-actions">
+                                <button class="btn btn-primary" onclick="window.location.href='user-materials.html'"><i class='bx bx-right-arrow-alt'></i> Continue Lesson</button>
+                                <button class="btn btn-outline" onclick="window.location.href='user-programs.html'">View Program</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Next Class -->
+                    <div class="data-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Next Class</h3>
+                        </div>
+                        <div class="timeline mt-4" style="margin-bottom: 0;">
+                            <div class="timeline-item ongoing">
+                                <div class="time">Today, 5:00 PM – 6:30 PM</div>
+                                <div class="content">
+                                    <h4>Tactical Calculation</h4>
+                                    <p><i class='bx bx-user'></i> Coach Daniel | <i class='bx bx-group'></i> Intermediate B-04</p>
+                                </div>
+                                <div class="status-indicator">
+                                    <span class="pulse"></span> Upcoming
+                                </div>
+                                <div style="margin-top: 12px;">
+                                    <button class="btn btn-sm btn-primary" onclick="window.location.href='user-schedule.html'">Join Class (Online)</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- My Programs and Tournaments -->
+                <div style="display: flex; flex-direction: column; gap: 24px; margin-top: 24px;">
+                    <!-- My Programs -->
+                    <div class="data-card">
+                        <div class="card-header">
+                            <h3 class="card-title">My Programs</h3>
+                            <button class="btn btn-sm btn-outline">View All</button>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Program</th>
+                                        <th>Level</th>
+                                        <th>Progress</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <strong>Strategic Chess Mastery</strong><br>
+                                            <small class="text-muted">Coach: Daniel M.</small>
+                                        </td>
+                                        <td><span class="badge bg-primary-light">Intermediate</span></td>
+                                        <td>
+                                            <div class="capacity-info">
+                                                <div class="capacity-bar"><div class="fill" style="width: 72%"></div></div>
+                                                <span class="capacity-text">72%</span>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge status-active">In Progress</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Beginner Fundamentals</strong><br>
+                                            <small class="text-muted">Coach: Sarah K.</small>
+                                        </td>
+                                        <td><span class="badge bg-success-light">Beginner</span></td>
+                                        <td>
+                                            <div class="capacity-info">
+                                                <div class="capacity-bar"><div class="fill full" style="width: 100%; background-color: var(--success);"></div></div>
+                                                <span class="capacity-text">100%</span>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-success-light" style="color: var(--success);">Completed</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Tournaments -->
+                    <div class="data-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Upcoming Tournaments</h3>
+                            <button class="btn btn-sm btn-outline">Browse All</button>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-borderless table-striped">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <strong>Autumn Rapid Open</strong><br>
+                                            <small class="text-muted">Oct 15 • 10:00 AM</small>
+                                        </td>
+                                        <td><span class="badge bg-primary-light">Registered</span></td>
+                                        <td class="text-right">
+                                            <button class="icon-btn-sm" title="View Details"><i class='bx bx-chevron-right'></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>City Blitz Championship</strong><br>
+                                            <small class="text-muted">Oct 22 • 02:00 PM</small>
+                                        </td>
+                                        <td><span class="badge status-pending">Open</span></td>
+                                        <td class="text-right">
+                                            <button class="icon-btn-sm" title="View Details"><i class='bx bx-chevron-right'></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rating Progress Chart -->
+                <div class="data-card mt-4">
+                    <div class="card-header">
+                        <h3 class="card-title">Your Chess Rating Journey</h3>
+                        <select class="form-select select-sm" style="width: auto;">
+                            <option>Last 6 Months</option>
+                            <option>Last Year</option>
+                            <option>All Time</option>
+                        </select>
+                    </div>
+                    <div class="card-body" style="height: 300px; position: relative;">
+                        <canvas id="ratingChart"></canvas>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Admin JS for interactivity -->
+    <script src="js/admin.js"></script>
+    <script>
+        // Set Current Date
+        document.addEventListener('DOMContentLoaded', () => {
+            const dateElement = document.getElementById('current-date');
+            if (dateElement) {
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                const today = new Date().toLocaleDateString('en-US', options);
+                dateElement.textContent = `Continue your chess journey. Today is ${today}.`;
+            }
+        });
+
+        // Initialize Rating Chart
+        document.addEventListener("DOMContentLoaded", function() {
+            const ctx = document.getElementById('ratingChart');
+            if (ctx) {
+                const isDarkMode = document.body.classList.contains('dark-mode');
+                const textColor = isDarkMode ? '#f8fafc' : '#1e293b';
+                const gridColor = isDarkMode ? '#334155' : '#e2e8f0';
+
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+                        datasets: [{
+                            label: 'Chess Rating',
+                            data: [1250, 1280, 1310, 1345, 1380, 1428],
+                            borderColor: '#0B1220',
+                            backgroundColor: 'rgba(11, 18, 32, 0.1)',
+                            borderWidth: 2,
+                            tension: 0.4,
+                            fill: true,
+                            pointBackgroundColor: '#0B1220',
+                            pointRadius: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: false,
+                                grid: { color: gridColor },
+                                ticks: { color: textColor }
+                            },
+                            x: {
+                                grid: { display: false },
+                                ticks: { color: textColor }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
+

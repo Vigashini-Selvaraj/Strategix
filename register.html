@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Strategix</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="icon" type="image/png" href="assets/strategix%20logo.png">
+</head>
+<body class="auth-page">
+    <!-- NO NAVBAR -->
+
+    <main class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <a href="index.html" class="auth-logo">
+                    <img src="assets/strategix logo.png" alt="Strategix Logo">
+                    <span>STRATEGIX</span>
+                </a>
+                <h1>Create an Account</h1>
+                <p>Join Strategix and take your chess journey to the next level.</p>
+            </div>
+
+            <form class="auth-form" id="register-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="password" placeholder="Create a password" required>
+                        <button type="button" class="password-toggle" id="toggle-password" aria-label="Toggle Password Visibility">
+                            <i class="fa-solid fa-eye" id="eye-icon"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="confirm-password" placeholder="Confirm your password" required>
+                        <button type="button" class="password-toggle" id="toggle-confirm-password" aria-label="Toggle Confirm Password Visibility">
+                            <i class="fa-solid fa-eye" id="eye-icon-confirm"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="alert-error" id="register-error" style="display: none;">
+                    <i class="fa-solid fa-circle-exclamation"></i> <span></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 btn-large mt-3">Register</button>
+            </form>
+
+            <div class="auth-divider">
+                <span>OR</span>
+            </div>
+
+            <div class="social-login">
+                <button class="btn btn-outline social-btn">
+                    <i class="fa-brands fa-google"></i> Continue with Google
+                </button>
+                <button class="btn btn-outline social-btn">
+                    <i class="fa-brands fa-apple"></i> Continue with Apple
+                </button>
+            </div>
+
+            <div class="auth-footer">
+                <p>Already have an account? <a href="login.html">Log in here</a></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- NO FOOTER -->
+
+    <script src="js/auth.js"></script>
+</body>
+</html>
+
+

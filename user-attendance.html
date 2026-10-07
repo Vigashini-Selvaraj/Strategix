@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance - Strategy Chess Academy</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Admin CSS for dashboard layout -->
+    <link rel="stylesheet" href="css/admin.css">
+    <style>
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+            margin-top: 16px;
+        }
+        .cal-header {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            padding: 8px 0;
+        }
+        .cal-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            font-weight: 500;
+            background-color: var(--bg-color);
+            position: relative;
+            cursor: default;
+        }
+        .cal-day.empty {
+            background-color: transparent;
+        }
+        .status-present {
+            background-color: var(--success-light);
+            color: var(--success);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+        .status-absent {
+            background-color: var(--danger-light);
+            color: var(--danger);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+        .status-late {
+            background-color: var(--warning-light);
+            color: var(--warning);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+        .status-holiday {
+            background-color: var(--border-color);
+            color: var(--text-muted);
+        }
+        .legend {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+            font-size: 0.875rem;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: var(--radius-full);
+        }
+    </style>
+    <link rel="icon" type="image/png" href="assets/strategix%20logo.png">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="user-dashboard.html" class="logo">
+                    <img src="assets/strategix%20logo.png" alt="Strategy Chess Academy" class="brand-logo">
+                </a>
+                <button class="close-sidebar-btn" id="close-sidebar"><i class='bx bx-x'></i></button>
+            </div>
+            
+            <div class="sidebar-menu">
+                <div class="menu-category">MAIN</div>
+                <a href="user-dashboard.html" class="menu-item">
+                    <i class='bx bx-home-alt'></i>
+                    <span>Overview</span>
+                </a>
+                <a href="user-programs.html" class="menu-item">
+                    <i class='bx bx-book-open'></i>
+                    <span>My Programs</span>
+                </a>
+                <a href="user-batches.html" class="menu-item">
+                    <i class='bx bx-group'></i>
+                    <span>My Batches</span>
+                </a>
+                <a href="user-schedule.html" class="menu-item">
+                    <i class='bx bx-calendar'></i>
+                    <span>Schedule</span>
+                </a>
+                <a href="user-materials.html" class="menu-item">
+                    <i class='bx bx-library'></i>
+                    <span>Learning Materials</span>
+                </a>
+                <a href="user-attendance.html" class="menu-item active">
+                    <i class='bx bx-check-shield'></i>
+                    <span>Attendance</span>
+                </a>
+
+                <div class="menu-category">COMPETE</div>
+                <a href="user-tournaments.html" class="menu-item">
+                    <i class='bx bx-trophy'></i>
+                    <span>Tournaments</span>
+                </a>
+                <a href="user-registrations.html" class="menu-item">
+                    <i class='bx bx-bookmark-alt'></i>
+                    <span>My Registrations</span>
+                </a>
+                <a href="user-results.html" class="menu-item">
+                    <i class='bx bx-medal'></i>
+                    <span>My Results</span>
+                </a>
+
+                <div class="menu-category">ACCOUNT</div>
+                <a href="user-bookings.html" class="menu-item">
+                    <i class='bx bx-calendar-event'></i>
+                    <span>Bookings</span>
+                </a>
+                <a href="user-payments.html" class="menu-item">
+                    <i class='bx bx-credit-card'></i>
+                    <span>Payments</span>
+                </a>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-actions">
+                    <button id="theme-toggle" class="action-btn" title="Toggle Theme"><i class='bx bx-moon'></i></button>
+                    <button id="direction-toggle" class="action-btn" title="Toggle RTL/LTR"><i class='bx bx-right-indent'></i></button>
+                    <a href="#" class="action-btn" title="Help & Support"><i class='bx bx-help-circle'></i></a>
+                    <a href="login.html" class="action-btn text-danger" title="Logout"><i class='bx bx-log-out'></i></a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="main-content">
+            <!-- Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button id="sidebar-toggle" class="sidebar-toggle"><i class='bx bx-menu'></i></button>
+                    <div class="breadcrumbs">
+                        <span class="crumb">Dashboard</span> <span class="separator">/</span> <span class="crumb active">Attendance</span>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="header-profile" id="profileDropdownBtn">
+                        <img src="https://i.pravatar.cc/150?img=11" alt="Student" class="avatar">
+                        <span class="admin-name d-none d-md-block">Arjun R. <i class='bx bx-chevron-down'></i></span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                
+                <div class="page-header">
+                    <div class="header-text">
+                        <h1 class="page-title">Attendance Dashboard</h1>
+                        <p class="page-subtitle">Track your class attendance and punctuality.</p>
+                    </div>
+                </div>
+
+                <!-- KPI Cards -->
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-icon icon-success"><i class='bx bx-check-shield'></i></div>
+                        <div class="kpi-details">
+                            <span class="kpi-label">Attendance Percentage</span>
+                            <h3 class="kpi-value">94%</h3>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon"><i class='bx bx-calendar-check'></i></div>
+                        <div class="kpi-details">
+                            <span class="kpi-label">Classes Attended</span>
+                            <h3 class="kpi-value">47</h3>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon icon-danger"><i class='bx bx-calendar-x'></i></div>
+                        <div class="kpi-details">
+                            <span class="kpi-label">Classes Missed</span>
+                            <h3 class="kpi-value">3</h3>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon icon-warning"><i class='bx bx-time'></i></div>
+                        <div class="kpi-details">
+                            <span class="kpi-label">Late Arrivals</span>
+                            <h3 class="kpi-value">2</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="two-col-grid mt-4">
+                    
+                    <!-- Calendar -->
+                    <div class="data-card">
+                        <div class="card-header">
+                            <h3 class="card-title">October 2026</h3>
+                            <div class="header-actions-sm">
+                                <button class="btn btn-sm btn-outline"><i class='bx bx-chevron-left'></i></button>
+                                <button class="btn btn-sm btn-outline"><i class='bx bx-chevron-right'></i></button>
+                            </div>
+                        </div>
+
+                        <div class="calendar-grid">
+                            <div class="cal-header">Sun</div>
+                            <div class="cal-header">Mon</div>
+                            <div class="cal-header">Tue</div>
+                            <div class="cal-header">Wed</div>
+                            <div class="cal-header">Thu</div>
+                            <div class="cal-header">Fri</div>
+                            <div class="cal-header">Sat</div>
+
+                            <!-- Empty days for start of month -->
+                            <div class="cal-day empty"></div>
+                            <div class="cal-day empty"></div>
+                            <div class="cal-day empty"></div>
+                            <div class="cal-day empty"></div>
+
+                            <div class="cal-day">1</div>
+                            <div class="cal-day status-present">2</div>
+                            <div class="cal-day">3</div>
+                            <div class="cal-day">4</div>
+                            <div class="cal-day status-late">5</div>
+                            <div class="cal-day">6</div>
+                            <div class="cal-day status-absent">7</div>
+                            <div class="cal-day">8</div>
+                            <div class="cal-day status-present">9</div>
+                            <div class="cal-day">10</div>
+                            <div class="cal-day">11</div>
+                            <div class="cal-day status-present">12</div>
+                            <div class="cal-day">13</div>
+                            <div class="cal-day status-present">14</div>
+                            <div class="cal-day status-holiday">15</div>
+                            <div class="cal-day status-present">16</div>
+                            <div class="cal-day">17</div>
+                            <div class="cal-day">18</div>
+                            <div class="cal-day status-present">19</div>
+                            <div class="cal-day">20</div>
+                            <div class="cal-day status-present">21</div>
+                            <div class="cal-day">22</div>
+                            <div class="cal-day status-present">23</div>
+                            <div class="cal-day">24</div>
+                            <div class="cal-day">25</div>
+                            <div class="cal-day status-present">26</div>
+                            <div class="cal-day">27</div>
+                            <div class="cal-day">28</div>
+                            <div class="cal-day">29</div>
+                            <div class="cal-day">30</div>
+                            <div class="cal-day">31</div>
+                        </div>
+
+                        <div class="legend">
+                            <div class="legend-item"><div class="legend-dot status-present"></div> Present</div>
+                            <div class="legend-item"><div class="legend-dot status-absent"></div> Absent</div>
+                            <div class="legend-item"><div class="legend-dot status-late"></div> Late</div>
+                            <div class="legend-item"><div class="legend-dot status-holiday"></div> Holiday</div>
+                        </div>
+                    </div>
+
+                    <!-- Monthly Chart -->
+                    <div class="data-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Monthly Attendance</h3>
+                        </div>
+                        <div class="card-body" style="height: 300px; position: relative;">
+                            <canvas id="attendanceChart"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Admin JS for interactivity -->
+    <script src="js/admin.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const ctx = document.getElementById('attendanceChart');
+            if (ctx) {
+                const isDarkMode = document.body.classList.contains('dark-mode');
+                const textColor = isDarkMode ? '#f8fafc' : '#1e293b';
+
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+                        datasets: [{
+                            label: 'Attendance %',
+                            data: [85, 90, 88, 95, 92, 94],
+                            backgroundColor: '#0B1220',
+                            borderRadius: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 100,
+                                ticks: { color: textColor }
+                            },
+                            x: {
+                                grid: { display: false },
+                                ticks: { color: textColor }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournaments | Strategy Chess Academy</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Boxicons for Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="icon" type="image/png" href="assets/strategix%20logo.png">
+</head>
+<body class="light-mode">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="assets/strategix logo.png" alt="Strategix" class="brand-logo">
+                </div>
+                <button id="close-sidebar-btn" class="close-sidebar-btn d-lg-none"><i class='bx bx-x'></i></button>
+            </div>
+            
+            <div class="sidebar-menu">
+                <div class="menu-category">Overview</div>
+                <a href="admin-dashboard.html" class="menu-item"><i class='bx bx-grid-alt'></i> <span>Dashboard</span></a>
+                
+                <div class="menu-category">Student Management</div>
+                <a href="students.html" class="menu-item"><i class='bx bx-user'></i> <span>Students</span></a>
+                <a href="attendance.html" class="menu-item"><i class='bx bx-check-square'></i> <span>Attendance</span></a>
+                
+                <div class="menu-category">Coaching</div>
+                <a href="coaches.html" class="menu-item"><i class='bx bx-chalkboard'></i> <span>Coaches</span></a>
+                <a href="admin-programs.html" class="menu-item"><i class='bx bx-book'></i> <span>Programs</span></a>
+                
+                <div class="menu-category">Batch Management</div>
+                <a href="batches.html" class="menu-item"><i class='bx bx-group'></i> <span>Batches</span></a>
+                <a href="schedule.html" class="menu-item"><i class='bx bx-calendar-event'></i> <span>Schedule</span></a>
+                
+                <div class="menu-category">Tournament Management</div>
+                <a href="admin-tournaments.html" class="menu-item active"><i class='bx bx-trophy'></i> <span>Tournaments</span></a>
+                <a href="bookings.html" class="menu-item"><i class='bx bx-receipt'></i> <span>Bookings</span></a>
+                <a href="payments.html" class="menu-item"><i class='bx bx-wallet'></i> <span>Payments</span></a>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="admin-profile-sm">
+                    <img src="https://i.pravatar.cc/150?img=11" alt="Admin" class="avatar">
+                    <div class="admin-info">
+                        <span class="admin-name">Admin User</span>
+                        <span class="admin-role">Super Admin</span>
+                    </div>
+                </div>
+                <div class="sidebar-actions">
+                    <button id="theme-toggle" class="action-btn" title="Toggle Theme"><i class='bx bx-moon'></i></button>
+                    <button id="direction-toggle" class="action-btn" title="Toggle RTL/LTR"><i class='bx bx-right-indent'></i></button>
+                    <a href="login.html" class="action-btn text-danger" title="Logout"><i class='bx bx-log-out'></i></a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="main-content">
+            <!-- Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button id="sidebar-toggle" class="sidebar-toggle"><i class='bx bx-menu'></i></button>
+                    <div class="breadcrumbs">
+                        <a href="admin-dashboard.html" class="crumb">Dashboard</a> <span class="separator">/</span> 
+                        <span class="crumb active">Tournaments</span>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="search-bar">
+                        <i class='bx bx-search'></i>
+                        <input type="text" placeholder="Search tournaments...">
+                    </div>
+                    <div class="header-profile" id="profileDropdownBtn">
+                        <img src="https://i.pravatar.cc/150?img=11" alt="Admin" class="avatar">
+                        <span class="admin-name d-none d-md-block">Admin User <i class='bx bx-chevron-down'></i></span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                
+                <div class="page-header">
+                    <div class="header-text">
+                        <h1 class="page-title">Tournaments</h1>
+                        <p class="page-subtitle">Manage upcoming, ongoing, and past academy tournaments.</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-primary" id="add-tournament-btn"><i class='bx bx-plus'></i> Create Tournament</button>
+                    </div>
+                </div>
+
+                <!-- KPI Cards -->
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-icon"><i class='bx bx-trophy'></i></div>
+                        <div class="kpi-details">
+                            <span class="kpi-label">Upcoming</span>
+                            <h3 class="kpi-value">4</h3>
+                        </div>
+                        <div class="kpi-trend positive"><i class='bx bx-calendar'></i> Next on Nov 15</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon icon-success"><i class='bx bx-group'></i></div>
+                        <div class="kpi-details">
+                            <span class="kpi-label">Active Participants</span>
+                            <h3 class="kpi-value">256</h3>
+                        </div>
+                        <div class="kpi-trend positive"><i class='bx bx-trending-up'></i> +12% this year</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon icon-warning"><i class='bx bx-medal'></i></div>
+                        <div class="kpi-details">
+                            <span class="kpi-label">Ongoing</span>
+                            <h3 class="kpi-value">1</h3>
+                        </div>
+                        <div class="kpi-trend neutral"><i class='bx bx-right-arrow-alt'></i> Round 4 of 7</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon icon-danger"><i class='bx bx-money'></i></div>
+                        <div class="kpi-details">
+                            <span class="kpi-label">Prize Pool Dist.</span>
+                            <h3 class="kpi-value">₹45k</h3>
+                        </div>
+                        <div class="kpi-trend positive"><i class='bx bx-check'></i> Paid completely</div>
+                    </div>
+                </div>
+
+                <!-- Management Toolbar -->
+                <div class="management-toolbar mt-4">
+                    <div class="search-bar-sm">
+                        <i class='bx bx-search'></i>
+                        <input type="text" placeholder="Search tournaments...">
+                    </div>
+                    <div class="toolbar-filters">
+                        <select class="form-select select-sm">
+                            <option>All Types</option>
+                            <option>Rapid</option>
+                            <option>Blitz</option>
+                            <option>Classical</option>
+                        </select>
+                        <select class="form-select select-sm">
+                            <option>Status</option>
+                            <option>Upcoming</option>
+                            <option>Ongoing</option>
+                            <option>Completed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Table -->
+                <div class="data-card mt-4">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Tournament Name</th>
+                                    <th>Format</th>
+                                    <th>Date</th>
+                                    <th>Participants</th>
+                                    <th>Prize Pool</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <strong>Winter Grand Prix 2026</strong>
+                                        <div class="text-sm text-muted">ID: TRN-1002</div>
+                                    </td>
+                                    <td><span class="badge bg-primary-light">Rapid (15|10)</span></td>
+                                    <td>Dec 10, 2026</td>
+                                    <td>
+                                        <div class="capacity-info">
+                                            <div class="capacity-bar"><div class="fill" style="width: 45%; background: var(--primary-color);"></div></div>
+                                            <span class="capacity-text">45/100</span>
+                                        </div>
+                                    </td>
+                                    <td>₹15,000</td>
+                                    <td><span class="badge bg-warning-light">Upcoming</span></td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="icon-btn-sm" title="View"><i class='bx bx-show'></i></button>
+                                            <button class="icon-btn-sm" title="Edit"><i class='bx bx-edit-alt'></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Academy Blitz Championship</strong>
+                                        <div class="text-sm text-muted">ID: TRN-1001</div>
+                                    </td>
+                                    <td><span class="badge bg-success-light">Blitz (3|2)</span></td>
+                                    <td>Oct 05 - Oct 07, 2026</td>
+                                    <td>
+                                        <div class="capacity-info">
+                                            <div class="capacity-bar"><div class="fill" style="width: 100%; background: var(--danger);"></div></div>
+                                            <span class="capacity-text">64/64</span>
+                                        </div>
+                                    </td>
+                                    <td>₹5,000</td>
+                                    <td><span class="badge status-active">Ongoing</span></td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="icon-btn-sm" title="View"><i class='bx bx-show'></i></button>
+                                            <button class="icon-btn-sm" title="Edit"><i class='bx bx-edit-alt'></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Summer Open Classical</strong>
+                                        <div class="text-sm text-muted">ID: TRN-0988</div>
+                                    </td>
+                                    <td><span class="badge bg-danger-light">Classical (90|30)</span></td>
+                                    <td>Jun 15 - Jun 20, 2026</td>
+                                    <td>
+                                        <div class="capacity-info">
+                                            <div class="capacity-bar"><div class="fill" style="width: 100%; background: var(--text-muted);"></div></div>
+                                            <span class="capacity-text">120/120</span>
+                                        </div>
+                                    </td>
+                                    <td>₹25,000</td>
+                                    <td><span class="badge status-pending">Completed</span></td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="icon-btn-sm" title="View"><i class='bx bx-show'></i></button>
+                                            <button class="icon-btn-sm" title="Results"><i class='bx bx-list-ol'></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Tournament Modal -->
+    <div class="modal-overlay" id="add-tournament-modal">
+        <div class="modal modal-md">
+            <div class="modal-header">
+                <h3>Create New Tournament</h3>
+                <button class="close-modal-btn"><i class='bx bx-x'></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="add-tournament-form">
+                    <div class="form-group">
+                        <label>Tournament Name</label>
+                        <input type="text" required placeholder="e.g. Winter Grand Prix">
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label>Format</label>
+                            <select>
+                                <option>Rapid (15|10)</option>
+                                <option>Blitz (3|2)</option>
+                                <option>Classical (90|30)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Max Participants</label>
+                            <input type="number" placeholder="e.g. 100">
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label>Start Date</label>
+                            <input type="date">
+                        </div>
+                        <div class="form-group">
+                            <label>End Date</label>
+                            <input type="date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Prize Pool (₹)</label>
+                        <input type="number" placeholder="e.g. 15000">
+                    </div>
+                    <div class="modal-actions" style="margin-top: 1rem;">
+                        <button type="button" class="btn btn-secondary close-modal-btn">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Create Tournament</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/admin.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('add-tournament-btn');
+            const modal = document.getElementById('add-tournament-modal');
+            const form = document.getElementById('add-tournament-form');
+            const closeBtns = document.querySelectorAll('#add-tournament-modal .close-modal-btn');
+
+            if(btn && modal) {
+                btn.addEventListener('click', () => modal.classList.add('active'));
+            }
+            closeBtns.forEach(b => b.addEventListener('click', () => modal.classList.remove('active')));
+            if(form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    modal.classList.remove('active');
+                    form.reset();
+                    alert('Tournament created successfully!');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+

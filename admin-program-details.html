@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Details | Strategy Chess Academy</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Boxicons for Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="icon" type="image/png" href="assets/strategix%20logo.png">
+</head>
+<body class="light-mode">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="assets/strategix logo.png" alt="Strategix" class="brand-logo">
+                </div>
+                <button id="close-sidebar-btn" class="close-sidebar-btn d-lg-none"><i class='bx bx-x'></i></button>
+            </div>
+            
+            <div class="sidebar-menu">
+                <div class="menu-category">Overview</div>
+                <a href="admin-dashboard.html" class="menu-item"><i class='bx bx-grid-alt'></i> <span>Dashboard</span></a>
+                
+                <div class="menu-category">Student Management</div>
+                <a href="students.html" class="menu-item"><i class='bx bx-user'></i> <span>Students</span></a>
+                <a href="attendance.html" class="menu-item"><i class='bx bx-check-square'></i> <span>Attendance</span></a>
+                
+                <div class="menu-category">Coaching</div>
+                <a href="coaches.html" class="menu-item"><i class='bx bx-chalkboard'></i> <span>Coaches</span></a>
+                <a href="admin-programs.html" class="menu-item active"><i class='bx bx-book'></i> <span>Programs</span></a>
+                <div class="menu-category">Batch Management</div>
+                <a href="batches.html" class="menu-item"><i class='bx bx-group'></i> <span>Batches</span></a>
+                <a href="schedule.html" class="menu-item"><i class='bx bx-calendar-event'></i> <span>Schedule</span></a>
+                
+                <div class="menu-category">Tournament Management</div>
+                <a href="admin-tournaments.html" class="menu-item"><i class='bx bx-trophy'></i> <span>Tournaments</span></a>
+                <a href="bookings.html" class="menu-item"><i class='bx bx-receipt'></i> <span>Bookings</span></a>
+                <a href="payments.html" class="menu-item"><i class='bx bx-wallet'></i> <span>Payments</span></a>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="admin-profile-sm">
+                    <img src="https://i.pravatar.cc/150?img=11" alt="Admin" class="avatar">
+                    <div class="admin-info">
+                        <span class="admin-name">Admin User</span>
+                        <span class="admin-role">Super Admin</span>
+                    </div>
+                </div>
+                <div class="sidebar-actions">
+                    <button id="theme-toggle" class="action-btn" title="Toggle Theme"><i class='bx bx-moon'></i></button>
+                    <button id="direction-toggle" class="action-btn" title="Toggle RTL/LTR"><i class='bx bx-right-indent'></i></button>
+                    <a href="login.html" class="action-btn text-danger" title="Logout"><i class='bx bx-log-out'></i></a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="main-content">
+            <!-- Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button id="sidebar-toggle" class="sidebar-toggle"><i class='bx bx-menu'></i></button>
+                    <div class="breadcrumbs">
+                        <a href="admin-dashboard.html" class="crumb">Dashboard</a> <span class="separator">/</span> 
+                        <a href="admin-programs.html" class="crumb">Programs</a> <span class="separator">/</span> 
+                        <span class="crumb active">Strategic Chess Mastery</span>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="search-bar">
+                        <i class='bx bx-search'></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+                    <div class="header-profile" id="profileDropdownBtn">
+                        <img src="https://i.pravatar.cc/150?img=11" alt="Admin" class="avatar">
+                        <span class="admin-name d-none d-md-block">Admin User <i class='bx bx-chevron-down'></i></span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                
+                <div class="page-header" style="align-items: flex-start;">
+                    <div class="header-text">
+                        <div style="display:flex; align-items:center; gap: 1rem; margin-bottom: 0.5rem;">
+                            <h1 class="page-title">Strategic Chess Mastery</h1>
+                            <span class="badge status-active">Active</span>
+                        </div>
+                        <div class="program-meta" style="display: flex; gap: 1.5rem; color: var(--text-muted); font-size: 0.9rem;">
+                            <span><i class='bx bx-layer'></i> Level: Advanced</span>
+                            <span><i class='bx bx-time'></i> Duration: 8 Weeks</span>
+                            <span><i class='bx bx-rupee'></i> Fee: Ã¢â€šÂ¹3,999</span>
+                            <span><i class='bx bx-user'></i> Coach: Daniel M.</span>
+                        </div>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-outline"><i class='bx bx-edit'></i> Edit Program</button>
+                        <button class="btn btn-outline"><i class='bx bx-group'></i> Manage Students</button>
+                        <button class="btn btn-primary"><i class='bx bx-target-lock'></i> Manage Strategies</button>
+                    </div>
+                </div>
+
+                <div class="two-col-grid mt-4">
+                    <!-- Left Column -->
+                    <div class="left-col">
+                        <!-- Program Overview -->
+                        <div class="data-card mb-4">
+                            <div class="card-header">
+                                <h3 class="card-title">Program Overview</h3>
+                            </div>
+                            <div class="card-body">
+                                <p style="color: var(--text-color); margin-bottom: 1rem; line-height: 1.6;">
+                                    This program is designed for advanced players who want to master positional play and strategic thinking. Students will learn how to evaluate positions, create long-term plans, and exploit structural weaknesses.
+                                </p>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                    <div><strong>Skill Level:</strong> Advanced</div>
+                                    <div><strong>Duration:</strong> 8 Weeks</div>
+                                    <div><strong>Sessions:</strong> 24</div>
+                                    <div><strong>Max Capacity:</strong> 30 Students</div>
+                                    <div><strong>Program Fee:</strong> Ã¢â€šÂ¹3,999</div>
+                                    <div><strong>Assigned Coach:</strong> Daniel M.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Learning Objectives -->
+                        <div class="data-card mb-4">
+                            <div class="card-header">
+                                <h3 class="card-title">Learning Objectives</h3>
+                            </div>
+                            <div class="card-body">
+                                <ul style="list-style: none; padding: 0; margin: 0; color: var(--text-color);">
+                                    <li style="margin-bottom: 0.5rem;"><i class='bx bx-check text-success' style="margin-right: 0.5rem;"></i> Evaluate complex middlegame positions accurately.</li>
+                                    <li style="margin-bottom: 0.5rem;"><i class='bx bx-check text-success' style="margin-right: 0.5rem;"></i> Understand pawn structures and their resulting plans.</li>
+                                    <li style="margin-bottom: 0.5rem;"><i class='bx bx-check text-success' style="margin-right: 0.5rem;"></i> Master the concept of weak squares and outposts.</li>
+                                    <li style="margin-bottom: 0.5rem;"><i class='bx bx-check text-success' style="margin-right: 0.5rem;"></i> Improve calculation depth in quiet positions.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Program Sessions Table -->
+                        <div class="data-card">
+                            <div class="card-header">
+                                <h3 class="card-title">Program Sessions</h3>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Topic</th>
+                                            <th>Strategy</th>
+                                            <th>Duration</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Positional Evaluation</td>
+                                            <td>Positional Play</td>
+                                            <td>90 min</td>
+                                            <td><span class="badge status-active">Completed</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Pawn Structures</td>
+                                            <td>Positional Play</td>
+                                            <td>90 min</td>
+                                            <td><span class="badge status-active">Completed</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Creating Outposts</td>
+                                            <td>Positional Play</td>
+                                            <td>90 min</td>
+                                            <td><span class="badge bg-warning-light">Upcoming</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="right-col">
+                        <!-- Enrollment Overview -->
+                        <div class="data-card mb-4">
+                            <div class="card-header">
+                                <h3 class="card-title">Enrollment Overview</h3>
+                            </div>
+                            <div class="card-body">
+                                <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 0.5rem;">
+                                    <span style="font-size: 1.5rem; font-weight: 600;">24 <span style="font-size: 1rem; color: var(--text-muted); font-weight: 400;">/ 30 Enrolled</span></span>
+                                    <span style="font-weight: 500; color: var(--primary-color);">80%</span>
+                                </div>
+                                <div class="capacity-bar" style="height: 10px; background: var(--bg-color); border-radius: 5px; margin-bottom: 1rem;">
+                                    <div class="fill" style="width: 80%; background: var(--primary-color); height: 100%; border-radius: 5px;"></div>
+                                </div>
+                                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">6 available seats remaining</p>
+                                <button class="btn btn-outline" style="width: 100%;">View Students</button>
+                            </div>
+                        </div>
+
+                        <!-- Strategies Covered -->
+                        <div class="data-card mb-4">
+                            <div class="card-header">
+                                <h3 class="card-title">Strategies Covered</h3>
+                                <button class="btn btn-sm btn-outline"><i class='bx bx-plus'></i> Add</button>
+                            </div>
+                            <div class="card-body">
+                                <div class="strategy-list">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid var(--border-color);">
+                                        <div>
+                                            <div style="font-weight: 500;">Positional Play</div>
+                                            <div style="font-size: 0.8rem; color: var(--text-muted);">Difficulty: Hard</div>
+                                        </div>
+                                        <div style="display: flex; align-items: center; gap: 1rem;">
+                                            <span class="badge status-active">Active</span>
+                                            <button class="icon-btn-sm"><i class='bx bx-show'></i></button>
+                                        </div>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid var(--border-color);">
+                                        <div>
+                                            <div style="font-weight: 500;">Endgame Technique</div>
+                                            <div style="font-size: 0.8rem; color: var(--text-muted);">Difficulty: Expert</div>
+                                        </div>
+                                        <div style="display: flex; align-items: center; gap: 1rem;">
+                                            <span class="badge bg-warning-light">Pending</span>
+                                            <button class="icon-btn-sm"><i class='bx bx-show'></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Assigned Coach -->
+                        <div class="data-card mb-4">
+                            <div class="card-header">
+                                <h3 class="card-title">Assigned Coach</h3>
+                            </div>
+                            <div class="card-body" style="display: flex; align-items: center; gap: 1rem;">
+                                <img src="https://i.pravatar.cc/150?img=33" alt="Coach" style="width: 60px; height: 60px; border-radius: 50%;">
+                                <div style="flex: 1;">
+                                    <h4 style="margin: 0; font-size: 1.1rem;">Daniel M.</h4>
+                                    <p style="margin: 0; color: var(--text-muted); font-size: 0.9rem;">FIDE Master (2350)</p>
+                                    <p style="margin: 0; color: var(--text-muted); font-size: 0.8rem;">Specialty: Positional Play</p>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                    <button class="btn btn-sm btn-outline">View</button>
+                                    <button class="btn btn-sm btn-outline">Change</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Program Performance -->
+                        <div class="data-card">
+                            <div class="card-header">
+                                <h3 class="card-title">Performance Snapshot</h3>
+                            </div>
+                            <div class="card-body">
+                                <div style="margin-bottom: 1rem;">
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+                                        <span style="font-size: 0.9rem;">Average Attendance</span>
+                                        <span style="font-size: 0.9rem; font-weight: 600;">92%</span>
+                                    </div>
+                                    <div class="capacity-bar" style="height: 6px; background: var(--bg-color); border-radius: 3px;">
+                                        <div class="fill" style="width: 92%; background: var(--success); height: 100%; border-radius: 3px;"></div>
+                                    </div>
+                                </div>
+                                <div style="margin-bottom: 1rem;">
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+                                        <span style="font-size: 0.9rem;">Student Satisfaction</span>
+                                        <span style="font-size: 0.9rem; font-weight: 600;">4.8/5</span>
+                                    </div>
+                                    <div class="capacity-bar" style="height: 6px; background: var(--bg-color); border-radius: 3px;">
+                                        <div class="fill" style="width: 96%; background: var(--primary-color); height: 100%; border-radius: 3px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+    
+    <script src="js/admin.js"></script>
+</body>
+</html>
+
+
+

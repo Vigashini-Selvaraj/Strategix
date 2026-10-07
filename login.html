@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Strategix</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="icon" type="image/png" href="assets/strategix%20logo.png">
+</head>
+<body class="auth-page">
+    <!-- NO NAVBAR -->
+
+    <main class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <a href="index.html" class="auth-logo">
+                    <img src="assets/strategix logo.png" alt="Strategix Logo">
+                    <span>STRATEGIX</span>
+                </a>
+                <h1>Welcome Back</h1>
+                <p>Log in to access your dashboard and training materials.</p>
+            </div>
+
+            <form class="auth-form" id="login-form">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="form-group">
+                    <div class="password-header">
+                        <label for="password">Password</label>
+                        <a href="#" class="forgot-link" id="forgot-password">Forgot Password?</a>
+                    </div>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                    </div>
+                </div>
+
+                <div class="alert-msg" id="reset-alert" style="display: none;">
+                    <i class="fa-solid fa-check-circle"></i> Password reset link has been sent to your email.
+                </div>
+                
+                <div class="alert-error" id="login-error" style="display: none;">
+                    <i class="fa-solid fa-circle-exclamation"></i> <span></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 btn-large">Log In</button>
+            </form>
+
+            <div class="auth-divider">
+                <span>OR</span>
+            </div>
+
+            <div class="social-login">
+                <button class="btn btn-outline social-btn">
+                    <i class="fa-brands fa-google"></i> Continue with Google
+                </button>
+                <button class="btn btn-outline social-btn">
+                    <i class="fa-brands fa-apple"></i> Continue with Apple
+                </button>
+            </div>
+
+            <div class="auth-footer">
+                <p>Don't have an account? <a href="register.html">Create one here</a></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- NO FOOTER -->
+
+    <script src="js/auth.js"></script>
+</body>
+</html>
+
+

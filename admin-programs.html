@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs Dashboard | Strategy Chess Academy</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Boxicons for Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="icon" type="image/png" href="assets/strategix%20logo.png">
+</head>
+<body class="light-mode">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="assets/strategix logo.png" alt="Strategix" class="brand-logo">
+                </div>
+                <button id="close-sidebar-btn" class="close-sidebar-btn d-lg-none"><i class='bx bx-x'></i></button>
+            </div>
+            
+            <div class="sidebar-menu">
+                <!-- Main Navigation -->
+                <div class="menu-category">Overview</div>
+                <a href="admin-dashboard.html" class="menu-item"><i class='bx bx-grid-alt'></i> <span>Dashboard</span></a>
+                
+                <div class="menu-category">Student Management</div>
+                <a href="students.html" class="menu-item"><i class='bx bx-user'></i> <span>Students</span></a>
+                <a href="attendance.html" class="menu-item"><i class='bx bx-check-square'></i> <span>Attendance</span></a>
+                
+                <div class="menu-category">Coaching</div>
+                <a href="coaches.html" class="menu-item"><i class='bx bx-chalkboard'></i> <span>Coaches</span></a>
+                <a href="admin-programs.html" class="menu-item active"><i class='bx bx-book'></i> <span>Programs</span></a>
+                <div class="menu-category">Batch Management</div>
+                <a href="batches.html" class="menu-item"><i class='bx bx-group'></i> <span>Batches</span></a>
+                <a href="schedule.html" class="menu-item"><i class='bx bx-calendar-event'></i> <span>Schedule</span></a>
+                
+                <div class="menu-category">Tournament Management</div>
+                <a href="admin-tournaments.html" class="menu-item"><i class='bx bx-trophy'></i> <span>Tournaments</span></a>
+                <a href="bookings.html" class="menu-item"><i class='bx bx-receipt'></i> <span>Bookings</span></a>
+                <a href="payments.html" class="menu-item"><i class='bx bx-wallet'></i> <span>Payments</span></a>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="admin-profile-sm">
+                    <img src="https://i.pravatar.cc/150?img=11" alt="Admin" class="avatar">
+                    <div class="admin-info">
+                        <span class="admin-name">Admin User</span>
+                        <span class="admin-role">Super Admin</span>
+                    </div>
+                </div>
+                <div class="sidebar-actions">
+                    <button id="theme-toggle" class="action-btn" title="Toggle Theme"><i class='bx bx-moon'></i></button>
+                    <button id="direction-toggle" class="action-btn" title="Toggle RTL/LTR"><i class='bx bx-right-indent'></i></button>
+                    <a href="login.html" class="action-btn text-danger" title="Logout"><i class='bx bx-log-out'></i></a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="main-content">
+            <!-- Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button id="sidebar-toggle" class="sidebar-toggle"><i class='bx bx-menu'></i></button>
+                    <div class="breadcrumbs">
+                        <span class="crumb">Dashboard</span> <span class="separator">/</span> <span class="crumb active">Programs</span>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="search-bar">
+                        <i class='bx bx-search'></i>
+                        <input type="text" placeholder="Search students, batches, etc...">
+                    </div>
+                    <div class="header-profile" id="profileDropdownBtn">
+                        <img src="https://i.pravatar.cc/150?img=11" alt="Admin" class="avatar">
+                        <span class="admin-name d-none d-md-block">Admin User <i class='bx bx-chevron-down'></i></span>
+                        <div class="dropdown-menu" id="profileDropdown">
+                            <a href="#"><i class='bx bx-user'></i> My Profile</a>
+                            <a href="#"><i class='bx bx-cog'></i> Account Settings</a>
+                            <div class="divider"></div>
+                            <a href="login.html" class="text-danger"><i class='bx bx-log-out'></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                
+                <!-- Welcome Section & Quick Actions -->
+                <div class="page-header">
+                    <div class="header-text">
+                        <h1 class="page-title">Programs Management</h1>
+                        <p class="page-subtitle">Manage curriculum, track enrollments, and update course offerings.</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-primary" id="add-program-btn"><i class='bx bx-plus'></i> Add Program</button>
+                    </div>
+                </div>
+
+                <!-- KPI Cards -->
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-icon"><i class='bx bx-book'></i></div>
+                        <div class="kpi-details">
+                            <span class="kpi-label">Total Programs</span>
+                            <h3 class="kpi-value">12</h3>
+                        </div>
+                        <div class="kpi-trend positive"><i class='bx bx-plus'></i> 2 new this month</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon icon-success"><i class='bx bx-check-circle'></i></div>
+                        <div class="kpi-details">
+                            <span class="kpi-label">Active Programs</span>
+                            <h3 class="kpi-value">9</h3>
+                        </div>
+                        <div class="kpi-trend positive"><i class='bx bx-trending-up'></i> Stable</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon icon-warning"><i class='bx bx-edit'></i></div>
+                        <div class="kpi-details">
+                            <span class="kpi-label">Draft Programs</span>
+                            <h3 class="kpi-value">2</h3>
+                        </div>
+                        <div class="kpi-trend neutral"><i class='bx bx-minus'></i> In review</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon icon-danger"><i class='bx bx-group'></i></div>
+                        <div class="kpi-details">
+                            <span class="kpi-label">Total Enrolled Students</span>
+                            <h3 class="kpi-value">186</h3>
+                        </div>
+                        <div class="kpi-trend positive"><i class='bx bx-trending-up'></i> +12% this quarter</div>
+                    </div>
+                </div>
+
+                <!-- Management Toolbar -->
+                <div class="management-toolbar mt-4">
+                    <div class="search-bar-sm">
+                        <i class='bx bx-search'></i>
+                        <input type="text" placeholder="Search programs...">
+                    </div>
+                </div>
+
+                <!-- Programs Table -->
+                <div class="data-card mt-4">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Program</th>
+                                    <th>Level</th>
+                                    <th>Duration</th>
+                                    <th>Sessions</th>
+                                    <th>Students</th>
+                                    <th>Coach</th>
+                                    <th>Fee</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="table-program">
+                                            <div class="program-img"><i class='bx bx-chess'></i></div>
+                                            <div>
+                                                <strong>Strategic Chess Mastery</strong>
+                                                <div class="text-sm text-muted">Mastering positional play</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge bg-primary-light">Advanced</span></td>
+                                    <td>8 Weeks</td>
+                                    <td>24 Sessions</td>
+                                    <td>24 / 30</td>
+                                    <td>
+                                        <div class="table-user">
+                                            <img src="https://i.pravatar.cc/150?img=33" alt="">
+                                            <span>Daniel M.</span>
+                                        </div>
+                                    </td>
+                                    <td>₹3,999</td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <a href="program-details.html" class="icon-btn-sm" title="View"><i class='bx bx-show'></i></a>
+                                            <button class="icon-btn-sm" title="Edit"><i class='bx bx-edit-alt'></i></button>
+                                            <button class="icon-btn-sm" title="More"><i class='bx bx-dots-vertical-rounded'></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="table-program">
+                                            <div class="program-img"><i class='bx bx-medal'></i></div>
+                                            <div>
+                                                <strong>Tournament Preparation</strong>
+                                                <div class="text-sm text-muted">Focus on high-stakes games</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge bg-warning-light">Expert</span></td>
+                                    <td>12 Weeks</td>
+                                    <td>36 Sessions</td>
+                                    <td>12 / 15</td>
+                                    <td>
+                                        <div class="table-user">
+                                            <img src="https://i.pravatar.cc/150?img=47" alt="">
+                                            <span>Sarah K.</span>
+                                        </div>
+                                    </td>
+                                    <td>₹5,999</td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <a href="program-details.html" class="icon-btn-sm" title="View"><i class='bx bx-show'></i></a>
+                                            <button class="icon-btn-sm" title="Edit"><i class='bx bx-edit-alt'></i></button>
+                                            <button class="icon-btn-sm" title="More"><i class='bx bx-dots-vertical-rounded'></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="table-program">
+                                            <div class="program-img"><i class='bx bx-layer'></i></div>
+                                            <div>
+                                                <strong>Beginner Fundamentals</strong>
+                                                <div class="text-sm text-muted">Introduction to chess</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge bg-success-light">Beginner</span></td>
+                                    <td>4 Weeks</td>
+                                    <td>12 Sessions</td>
+                                    <td>0 / 40</td>
+                                    <td>
+                                        <div class="text-sm text-muted">Unassigned</div>
+                                    </td>
+                                    <td>₹1,999</td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <a href="program-details.html" class="icon-btn-sm" title="View"><i class='bx bx-show'></i></a>
+                                            <button class="icon-btn-sm" title="Edit"><i class='bx bx-edit-alt'></i></button>
+                                            <button class="icon-btn-sm" title="More"><i class='bx bx-dots-vertical-rounded'></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+    </div>
+    
+    <!-- Add Program Modal -->
+    <div class="modal-overlay" id="add-program-modal">
+        <div class="modal modal-lg" style="max-width: 800px; width: 95%;">
+            <div class="modal-header">
+                <h3>Create New Program</h3>
+                <button class="close-modal"><i class='bx bx-x'></i></button>
+            </div>
+            <div class="modal-body" style="max-height: 70vh; overflow-y: auto;">
+                <form id="add-program-form" class="two-col-form" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-section full-width" style="grid-column: 1 / -1; margin-top: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">
+                        <h4 style="margin:0; font-size: 1.1rem;">Basic Information</h4>
+                    </div>
+                    <div class="form-group full-width" style="grid-column: 1 / -1;">
+                        <label>Program Name</label>
+                        <input type="text" required placeholder="Enter program name" style="width: 100%;">
+                    </div>
+                    <div class="form-group full-width" style="grid-column: 1 / -1;">
+                        <label>Short Description</label>
+                        <input type="text" required placeholder="A brief summary..." style="width: 100%;">
+                    </div>
+                    <div class="form-group full-width" style="grid-column: 1 / -1;">
+                        <label>Full Description</label>
+                        <textarea rows="3" placeholder="Detailed description of the program..." style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: var(--border-radius); background: var(--bg-color); color: var(--text-color);"></textarea>
+                    </div>
+                    <div class="form-group full-width" style="grid-column: 1 / -1;">
+                        <label>Program Image</label>
+                        <input type="file" class="form-control" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: var(--border-radius); background: var(--bg-color); color: var(--text-color);">
+                    </div>
+
+                    <div class="form-section full-width mt-3" style="grid-column: 1 / -1; margin-top: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">
+                        <h4 style="margin:0; font-size: 1.1rem;">Program Details</h4>
+                    </div>
+                    <div class="form-group">
+                        <label>Skill Level</label>
+                        <select style="width: 100%;">
+                            <option>Beginner</option>
+                            <option>Intermediate</option>
+                            <option>Advanced</option>
+                            <option>Expert</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Duration</label>
+                        <input type="text" placeholder="e.g. 8 Weeks" style="width: 100%;">
+                    </div>
+                    <div class="form-group">
+                        <label>Number of Sessions</label>
+                        <input type="number" placeholder="e.g. 24" style="width: 100%;">
+                    </div>
+                    <div class="form-group">
+                        <label>Session Duration (mins)</label>
+                        <input type="number" placeholder="60" style="width: 100%;">
+                    </div>
+                    <div class="form-group">
+                        <label>Maximum Students</label>
+                        <input type="number" placeholder="30" style="width: 100%;">
+                    </div>
+                    <div class="form-group">
+                        <label>Program Fee (Ã¢â€šÂ¹)</label>
+                        <input type="number" placeholder="3999" style="width: 100%;">
+                    </div>
+
+                    <div class="form-section full-width mt-3" style="grid-column: 1 / -1; margin-top: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">
+                        <h4 style="margin:0; font-size: 1.1rem;">Coaching & Objectives</h4>
+                    </div>
+                    <div class="form-group">
+                        <label>Assign Coach</label>
+                        <select style="width: 100%;">
+                            <option>Unassigned</option>
+                            <option>Daniel M.</option>
+                            <option>Sarah K.</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Select Strategies</label>
+                        <select multiple class="form-control" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: var(--border-radius); background: var(--bg-color); color: var(--text-color); height: 80px;">
+                            <option>Opening Principles</option>
+                            <option>Tactical Calculation</option>
+                            <option>Endgame Strategy</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width" style="grid-column: 1 / -1;">
+                        <label>Learning Objectives (one per line)</label>
+                        <textarea rows="3" placeholder="- Understand chess fundamentals&#10;- Improve tactical calculation" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: var(--border-radius); background: var(--bg-color); color: var(--text-color);"></textarea>
+                    </div>
+                    
+                    <div class="form-section full-width mt-3" style="grid-column: 1 / -1; margin-top: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">
+                        <h4 style="margin:0; font-size: 1.1rem;">Availability & Status</h4>
+                    </div>
+                    <div class="form-group">
+                        <label>Start Date</label>
+                        <input type="date" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: var(--border-radius); background: var(--bg-color); color: var(--text-color);">
+                    </div>
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select style="width: 100%;">
+                            <option>Active</option>
+                            <option>Draft</option>
+                            <option>Archived</option>
+                        </select>
+                    </div>
+                    
+                    <div class="modal-actions full-width mt-4" style="grid-column: 1 / -1; display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1rem;">
+                        <button type="button" class="btn btn-secondary close-modal-btn">Cancel</button>
+                        <button type="button" class="btn btn-outline">Save as Draft</button>
+                        <button type="submit" class="btn btn-primary">Save Program</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="js/admin.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payments - Strategy Chess Academy</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Admin CSS for dashboard layout -->
+    <link rel="stylesheet" href="css/admin.css">
+    <style>
+        .invoice-card {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow-md);
+            max-width: 800px;
+            margin: 0 auto;
+            display: none;
+        }
+        .invoice-card.active {
+            display: block;
+        }
+        .invoice-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 24px;
+            margin-bottom: 24px;
+        }
+        .invoice-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+        .invoice-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 32px;
+        }
+        .invoice-block {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 0.875rem;
+        }
+        .invoice-table th, .invoice-table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .invoice-table th {
+            text-align: left;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        .invoice-total {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 24px;
+        }
+        .total-block {
+            width: 300px;
+        }
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 0.875rem;
+        }
+        .total-row.grand-total {
+            font-size: 1.125rem;
+            font-weight: 700;
+            border-top: 1px solid var(--border-color);
+            padding-top: 12px;
+            margin-top: 8px;
+        }
+        .view-payments-btn {
+            margin-bottom: 24px;
+            display: none;
+        }
+        .view-payments-btn.active {
+            display: inline-flex;
+        }
+    </style>
+    <link rel="icon" type="image/png" href="assets/strategix%20logo.png">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="user-dashboard.html" class="logo">
+                    <img src="assets/strategix%20logo.png" alt="Strategy Chess Academy" class="brand-logo">
+                </a>
+                <button class="close-sidebar-btn" id="close-sidebar"><i class='bx bx-x'></i></button>
+            </div>
+            
+            <div class="sidebar-menu">
+                <div class="menu-category">MAIN</div>
+                <a href="user-dashboard.html" class="menu-item">
+                    <i class='bx bx-home-alt'></i>
+                    <span>Overview</span>
+                </a>
+                <a href="user-programs.html" class="menu-item">
+                    <i class='bx bx-book-open'></i>
+                    <span>My Programs</span>
+                </a>
+                <a href="user-batches.html" class="menu-item">
+                    <i class='bx bx-group'></i>
+                    <span>My Batches</span>
+                </a>
+                <a href="user-schedule.html" class="menu-item">
+                    <i class='bx bx-calendar'></i>
+                    <span>Schedule</span>
+                </a>
+                <a href="user-materials.html" class="menu-item">
+                    <i class='bx bx-library'></i>
+                    <span>Learning Materials</span>
+                </a>
+                <a href="user-attendance.html" class="menu-item">
+                    <i class='bx bx-check-shield'></i>
+                    <span>Attendance</span>
+                </a>
+
+                <div class="menu-category">COMPETE</div>
+                <a href="user-tournaments.html" class="menu-item">
+                    <i class='bx bx-trophy'></i>
+                    <span>Tournaments</span>
+                </a>
+                <a href="user-registrations.html" class="menu-item">
+                    <i class='bx bx-bookmark-alt'></i>
+                    <span>My Registrations</span>
+                </a>
+                <a href="user-results.html" class="menu-item">
+                    <i class='bx bx-medal'></i>
+                    <span>My Results</span>
+                </a>
+
+                <div class="menu-category">ACCOUNT</div>
+                <a href="user-bookings.html" class="menu-item">
+                    <i class='bx bx-calendar-event'></i>
+                    <span>Bookings</span>
+                </a>
+                <a href="user-payments.html" class="menu-item active">
+                    <i class='bx bx-credit-card'></i>
+                    <span>Payments</span>
+                </a>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-actions">
+                    <button id="theme-toggle" class="action-btn" title="Toggle Theme"><i class='bx bx-moon'></i></button>
+                    <button id="direction-toggle" class="action-btn" title="Toggle RTL/LTR"><i class='bx bx-right-indent'></i></button>
+                    <a href="#" class="action-btn" title="Help & Support"><i class='bx bx-help-circle'></i></a>
+                    <a href="login.html" class="action-btn text-danger" title="Logout"><i class='bx bx-log-out'></i></a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="main-content">
+            <!-- Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button id="sidebar-toggle" class="sidebar-toggle"><i class='bx bx-menu'></i></button>
+                    <div class="breadcrumbs">
+                        <span class="crumb">Dashboard</span> <span class="separator">/</span> <span class="crumb active">Payments</span>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="header-profile" id="profileDropdownBtn">
+                        <img src="https://i.pravatar.cc/150?img=11" alt="Student" class="avatar">
+                        <span class="admin-name d-none d-md-block">Arjun R. <i class='bx bx-chevron-down'></i></span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                
+                <div class="page-header" id="page-header">
+                    <div class="header-text">
+                        <h1 class="page-title">Payments & Billing</h1>
+                        <p class="page-subtitle">View your payment history and pending invoices.</p>
+                    </div>
+                </div>
+
+                <button class="btn btn-outline view-payments-btn" id="back-to-payments" onclick="showPayments()">
+                    <i class='bx bx-arrow-back'></i> Back to Payments
+                </button>
+
+                <!-- Payments Dashboard -->
+                <div id="payments-view">
+                    <!-- KPI Cards -->
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <div class="kpi-icon icon-success"><i class='bx bx-wallet'></i></div>
+                            <div class="kpi-details">
+                                <span class="kpi-label">Total Paid</span>
+                                <h3 class="kpi-value">₹27,000</h3>
+                            </div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon icon-warning"><i class='bx bx-error-circle'></i></div>
+                            <div class="kpi-details">
+                                <span class="kpi-label">Pending</span>
+                                <h3 class="kpi-value">₹500</h3>
+                            </div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon"><i class='bx bx-history'></i></div>
+                            <div class="kpi-details">
+                                <span class="kpi-label">Last Payment</span>
+                                <h3 class="kpi-value">₹15,000</h3>
+                                <div class="kpi-trend neutral">Sep 01, 2026</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="data-card mt-4">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Transaction ID</th>
+                                        <th>Program / Item</th>
+                                        <th>Amount</th>
+                                        <th>Date</th>
+                                        <th>Method</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>#TXN-8501</strong></td>
+                                        <td>Autumn Rapid Open</td>
+                                        <td>₹500</td>
+                                        <td>Oct 10, 2026</td>
+                                        <td>-</td>
+                                        <td><span class="badge status-pending">Pending</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-primary">Pay Now</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>#TXN-8492</strong></td>
+                                        <td>Strategic Chess Mastery</td>
+                                        <td>₹15,000</td>
+                                        <td>Sep 01, 2026</td>
+                                        <td>Credit Card ending in 4242</td>
+                                        <td><span class="badge status-active">Paid</span></td>
+                                        <td>
+                                            <div class="action-btns">
+                                                <button class="icon-btn-sm" title="View Invoice" onclick="showInvoice()"><i class='bx bx-receipt'></i></button>
+                                                <button class="icon-btn-sm" title="Download"><i class='bx bx-download'></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>#TXN-7104</strong></td>
+                                        <td>Beginner Chess Fundamentals</td>
+                                        <td>₹12,000</td>
+                                        <td>Jun 10, 2026</td>
+                                        <td>UPI (arjun@upi)</td>
+                                        <td><span class="badge status-active">Paid</span></td>
+                                        <td>
+                                            <div class="action-btns">
+                                                <button class="icon-btn-sm" title="View Invoice" onclick="showInvoice()"><i class='bx bx-receipt'></i></button>
+                                                <button class="icon-btn-sm" title="Download"><i class='bx bx-download'></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Invoice View -->
+                <div class="invoice-card" id="invoice-view">
+                    <div class="invoice-header">
+                        <div>
+                            <img src="assets/strategix%20logo.png" alt="Strategy Chess Academy" style="height: 50px; margin-bottom: 12px;">
+                            <p style="color: var(--text-muted); font-size: 0.875rem;">123 Chess Avenue, Strategy Park<br>Checkmate City, CC 12345<br>contact@strategychess.com</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <h2 class="invoice-title">INVOICE</h2>
+                            <p style="color: var(--text-muted); font-size: 0.875rem;">Invoice #: INV-8492<br>Date: Sep 01, 2026</p>
+                            <span class="badge status-active mt-4" style="font-size: 1rem; padding: 6px 12px; margin-top: 12px; display: inline-block;">PAID</span>
+                        </div>
+                    </div>
+
+                    <div class="invoice-details">
+                        <div class="invoice-block">
+                            <strong style="color: var(--text-muted);">Billed To:</strong>
+                            <strong style="font-size: 1rem; color: var(--text-main);">Arjun R.</strong>
+                            <span>arjun.r@example.com</span>
+                            <span>+91 98765 43210</span>
+                        </div>
+                        <div class="invoice-block" style="text-align: right;">
+                            <strong style="color: var(--text-muted);">Payment Method:</strong>
+                            <span>Credit Card</span>
+                            <span>Ending in •••• 4242</span>
+                        </div>
+                    </div>
+
+                    <table class="invoice-table" style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th style="text-align: right;">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="font-weight: 500;">Strategic Chess Mastery - Intermediate B-04</td>
+                                <td style="text-align: right;">₹12,711.86</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="invoice-total">
+                        <div class="total-block">
+                            <div class="total-row">
+                                <span>Subtotal</span>
+                                <span>₹12,711.86</span>
+                            </div>
+                            <div class="total-row">
+                                <span>Tax (18% GST)</span>
+                                <span>₹2,288.14</span>
+                            </div>
+                            <div class="total-row grand-total">
+                                <span>Total Paid</span>
+                                <span>₹15,000.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 12px; justify-content: flex-end; margin-top: 40px;">
+                        <button class="btn btn-outline" onclick="window.print()"><i class='bx bx-printer'></i> Print</button>
+                        <button class="btn btn-primary"><i class='bx bx-download'></i> Download PDF</button>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="js/admin.js"></script>
+    <script>
+        function showInvoice() {
+            document.getElementById('payments-view').style.display = 'none';
+            document.getElementById('page-header').style.display = 'none';
+            document.getElementById('invoice-view').classList.add('active');
+            document.getElementById('back-to-payments').classList.add('active');
+        }
+
+        function showPayments() {
+            document.getElementById('invoice-view').classList.remove('active');
+            document.getElementById('back-to-payments').classList.remove('active');
+            document.getElementById('payments-view').style.display = 'block';
+            document.getElementById('page-header').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
+
+

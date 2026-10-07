@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payments | Strategy Chess Academy</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Boxicons for Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="icon" type="image/png" href="assets/strategix%20logo.png">
+</head>
+<body class="light-mode">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="assets/strategix logo.png" alt="Strategix" class="brand-logo">
+                </div>
+                <button id="close-sidebar-btn" class="close-sidebar-btn d-lg-none"><i class='bx bx-x'></i></button>
+            </div>
+            
+            <div class="sidebar-menu">
+                <div class="menu-category">Overview</div>
+                <a href="admin-dashboard.html" class="menu-item"><i class='bx bx-grid-alt'></i> <span>Dashboard</span></a>
+                
+                <div class="menu-category">Student Management</div>
+                <a href="students.html" class="menu-item"><i class='bx bx-user'></i> <span>Students</span></a>
+                <a href="attendance.html" class="menu-item"><i class='bx bx-check-square'></i> <span>Attendance</span></a>
+                
+                <div class="menu-category">Coaching</div>
+                <a href="coaches.html" class="menu-item"><i class='bx bx-chalkboard'></i> <span>Coaches</span></a>
+                <a href="admin-programs.html" class="menu-item"><i class='bx bx-book'></i> <span>Programs</span></a>
+                
+                <div class="menu-category">Batch Management</div>
+                <a href="batches.html" class="menu-item"><i class='bx bx-group'></i> <span>Batches</span></a>
+                <a href="schedule.html" class="menu-item"><i class='bx bx-calendar-event'></i> <span>Schedule</span></a>
+                
+                <div class="menu-category">Tournament Management</div>
+                <a href="admin-tournaments.html" class="menu-item"><i class='bx bx-trophy'></i> <span>Tournaments</span></a>
+                <a href="bookings.html" class="menu-item"><i class='bx bx-receipt'></i> <span>Bookings</span></a>
+                <a href="payments.html" class="menu-item active"><i class='bx bx-wallet'></i> <span>Payments</span></a>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="admin-profile-sm">
+                    <img src="https://i.pravatar.cc/150?img=11" alt="Admin" class="avatar">
+                    <div class="admin-info">
+                        <span class="admin-name">Admin User</span>
+                        <span class="admin-role">Super Admin</span>
+                    </div>
+                </div>
+                <div class="sidebar-actions">
+                    <button id="theme-toggle" class="action-btn" title="Toggle Theme"><i class='bx bx-moon'></i></button>
+                    <button id="direction-toggle" class="action-btn" title="Toggle RTL/LTR"><i class='bx bx-right-indent'></i></button>
+                    <a href="login.html" class="action-btn text-danger" title="Logout"><i class='bx bx-log-out'></i></a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="main-content">
+            <header class="top-header">
+                <div class="header-left">
+                    <button id="sidebar-toggle" class="sidebar-toggle"><i class='bx bx-menu'></i></button>
+                    <div class="breadcrumbs">
+                        <a href="admin-dashboard.html" class="crumb">Dashboard</a> <span class="separator">/</span> 
+                        <span class="crumb active">Payments</span>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="search-bar">
+                        <i class='bx bx-search'></i>
+                        <input type="text" placeholder="Search payments...">
+                    </div>
+                    <div class="header-profile">
+                        <img src="https://i.pravatar.cc/150?img=11" alt="Admin" class="avatar">
+                        <span class="admin-name d-none d-md-block">Admin User</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <div class="page-header">
+                    <div class="header-text">
+                        <h1 class="page-title">Payments & Finances</h1>
+                        <p class="page-subtitle">Manage transactions, invoices, and revenue.</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-outline"><i class='bx bx-export'></i> Export</button>
+                    </div>
+                </div>
+
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-icon"><i class='bx bx-wallet'></i></div>
+                        <div class="kpi-details">
+                            <span class="kpi-label">Total Revenue</span>
+                            <h3 class="kpi-value">₹2.4M</h3>
+                        </div>
+                        <div class="kpi-trend positive"><i class='bx bx-trending-up'></i> +15% vs last month</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon icon-warning"><i class='bx bx-error-circle'></i></div>
+                        <div class="kpi-details">
+                            <span class="kpi-label">Pending Payments</span>
+                            <h3 class="kpi-value">₹15,000</h3>
+                        </div>
+                        <div class="kpi-trend negative"><i class='bx bx-up-arrow-alt'></i> 12 Invoices</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon icon-success"><i class='bx bx-check-shield'></i></div>
+                        <div class="kpi-details">
+                            <span class="kpi-label">Successful Today</span>
+                            <h3 class="kpi-value">₹8,499</h3>
+                        </div>
+                        <div class="kpi-trend positive"><i class='bx bx-plus'></i> 5 Transactions</div>
+                    </div>
+                </div>
+
+                <div class="management-toolbar mt-4">
+                    <div class="search-bar-sm">
+                        <i class='bx bx-search'></i>
+                        <input type="text" placeholder="Search Invoice ID...">
+                    </div>
+                    <div class="toolbar-filters">
+                        <select class="form-select select-sm">
+                            <option>Status</option>
+                            <option>Paid</option>
+                            <option>Pending</option>
+                            <option>Failed</option>
+                        </select>
+                        <select class="form-select select-sm">
+                            <option>Date Range</option>
+                            <option>Today</option>
+                            <option>Last 7 Days</option>
+                            <option>This Month</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="data-card mt-4">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Transaction ID</th>
+                                    <th>Customer</th>
+                                    <th>Description</th>
+                                    <th>Date</th>
+                                    <th>Method</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Invoice</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>#TRX-90021</strong></td>
+                                    <td>Alex Johnson</td>
+                                    <td>Chess Fundamentals</td>
+                                    <td>Oct 07, 2026</td>
+                                    <td>UPI</td>
+                                    <td>₹1,999</td>
+                                    <td><span class="badge status-active">Paid</span></td>
+                                    <td>
+                                        <button class="icon-btn-sm" title="Download Invoice"><i class='bx bx-download'></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>#TRX-90022</strong></td>
+                                    <td>Maria Garcia</td>
+                                    <td>Winter Grand Prix</td>
+                                    <td>Oct 07, 2026</td>
+                                    <td>Credit Card</td>
+                                    <td>₹500</td>
+                                    <td><span class="badge bg-warning-light">Pending</span></td>
+                                    <td>
+                                        <button class="icon-btn-sm" title="Remind"><i class='bx bx-bell'></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/admin.js"></script>
+</body>
+</html>
+
+
+

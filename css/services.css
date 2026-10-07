@@ -1,0 +1,839 @@
+/* =========================================================
+   STRATEGIX — SERVICES CSS
+   ========================================================= */
+
+/* --- GENERAL & HERO --- */
+
+.services-hero {
+    position: relative;
+    padding: 8rem 0 8rem;
+    overflow: hidden;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+.services-hero-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+}
+
+.services-hero-bg img {
+    width: 100%; height: 100%; object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(11, 18, 32, 0.75);
+}
+
+.services-hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+.services-hero-inner h1 {
+    font-family: var(--font-heading);
+    font-size: 4.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+
+.services-hero-inner h1 span {
+    color: var(--gold);
+}
+
+.services-hero-inner p {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 3rem;
+}
+
+.services-hero-inner .section-label {
+    color: var(--gold);
+}
+
+.services-hero-inner .section-label::before {
+    background: var(--gold);
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* --- OUR SERVICES --- */
+
+.services-overview {
+    background: var(--bg-secondary);
+}
+
+.services-header {
+    margin-bottom: 5rem;
+}
+
+.services-header h2 {
+    font-family: var(--font-heading);
+    font-size: 2.7rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+}
+
+.services-header h2 span {
+    color: var(--gold);
+}
+
+.services-header p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(350px, auto);
+    gap: 2rem;
+}
+
+.service-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    position: relative;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.service-image img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border);
+}
+
+.service-card-body {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    position: relative;
+}
+
+.service-number {
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--bg-secondary);
+    font-weight: 700;
+    line-height: 1;
+    z-index: 0;
+}
+
+[data-theme="dark"] .service-number {
+    color: var(--bg-elevated);
+}
+
+.service-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.service-card p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+    flex-grow: 1;
+}
+
+.service-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+.service-features li {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.service-features i {
+    color: var(--gold);
+    font-size: 0.9rem;
+}
+
+.service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: var(--transition);
+    position: relative;
+    z-index: 1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: auto;
+}
+
+.service-link i {
+    color: var(--gold);
+    transition: transform 0.3s ease;
+}
+
+.service-link:hover i {
+    transform: translateX(5px);
+}
+
+/* --- FIND THE RIGHT EXPERIENCE --- */
+
+.service-pathways {
+    background: #0B1220; /* Deep navy */
+}
+
+.pathways-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.pathways-header h2 {
+    font-family: var(--font-heading);
+    font-size: 2.7rem;
+    color: #ffffff;
+}
+
+.pathways-header h2 span {
+    color: var(--gold);
+}
+
+.pathways-grid {
+    display: flex;
+    gap: 2rem;
+}
+
+.pathway-card {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-sm);
+    padding: 3rem 2rem;
+    text-align: center;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.pathway-card:hover {
+    border-color: var(--gold);
+    background: rgba(184, 138, 18, 0.05);
+}
+
+.pathway-icon {
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+}
+
+.pathway-card h3 {
+    font-size: 1.1rem;
+    color: #ffffff;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.pathway-card p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.pathway-link {
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* --- HOW OUR SERVICES WORK --- */
+
+.services-process-section {
+    background: var(--bg-primary);
+}
+
+.process-header {
+    margin-bottom: 5rem;
+}
+
+.process-header h2 {
+    font-family: var(--font-heading);
+    font-size: 2.7rem;
+    color: var(--text-primary);
+}
+
+.process-header h2 span {
+    color: var(--gold);
+}
+
+.process-steps-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding-top: 1rem;
+    margin-bottom: 4rem;
+}
+
+.services-process .process-line {
+    position: absolute;
+    top: 40px;
+    left: 5%;
+    right: 5%;
+    height: 1px;
+    background: var(--border);
+    z-index: 0;
+}
+
+.services-process .process-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    padding: 0 1rem;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: var(--transition);
+}
+
+.services-process .process-step:hover,
+.services-process .process-step.active {
+    opacity: 1;
+}
+
+.services-process .process-step.active .step-num {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+.process-content-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 4rem;
+    min-height: 200px;
+    position: relative;
+    box-shadow: var(--shadow-sm);
+}
+
+.process-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.process-content.active {
+    display: block;
+}
+
+.process-content h4 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+.process-content p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- PERSONALIZED BY DESIGN --- */
+
+.personalized-section {
+    background: var(--bg-secondary);
+}
+
+.personalized-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.personalized-image img {
+    width: 100%;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-lg);
+}
+
+.personalized-content h2 {
+    font-family: var(--font-heading);
+    font-size: 2.7rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.personalized-content h2 span {
+    color: var(--gold);
+}
+
+.personalized-content>p {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 3rem;
+}
+
+.personalized-points {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.point-item {
+    border-left: 2px solid var(--gold);
+    padding-left: 2rem;
+}
+
+.point-item h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.point-item p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+/* --- FOR MORE THAN THE BOARD --- */
+
+.audience-section {
+    background: #0B1220;
+    padding: 8rem 0;
+}
+
+.audience-header {
+    text-align: center;
+}
+
+.audience-header h2 {
+    font-family: var(--font-heading);
+    font-size: 2.7rem;
+    color: #ffffff;
+    max-width: 800px;
+    margin: 0 auto 5rem;
+}
+
+.audience-header h2 span {
+    color: var(--gold);
+}
+
+.audience-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+}
+
+.audience-card {
+    text-align: center;
+}
+
+.audience-card i {
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 2rem;
+}
+
+.audience-card h3 {
+    color: #ffffff;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.audience-line {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    margin: 1.5rem auto;
+}
+
+.audience-card p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* --- SERVICE HIGHLIGHT --- */
+
+.service-feature {
+    background: var(--bg-primary);
+    padding: 8rem 0;
+}
+
+.service-feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.service-feature-content h2 {
+    font-family: var(--font-heading);
+    font-size: 2.7rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.service-feature-content h2 span {
+    color: var(--gold);
+}
+
+.service-feature-content p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 3rem;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 3rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.feature-list li {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 500;
+}
+
+.feature-list i {
+    color: var(--gold);
+}
+
+.service-feature-image img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-lg);
+}
+
+/* --- WHY CHOOSE STRATEGIX --- */
+
+.why-services {
+    background: var(--bg-secondary);
+}
+
+.why-services-header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.why-services-header h2 {
+    font-family: var(--font-heading);
+    font-size: 2.7rem;
+    color: var(--text-primary);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.why-services-header h2 span {
+    color: var(--gold);
+}
+
+.why-services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem 6rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.why-block {
+    display: flex;
+    gap: 2rem;
+}
+
+.why-number {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--gold);
+    line-height: 1;
+    font-weight: 700;
+}
+
+.why-content h3 {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.why-content p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* --- SERVICE FAQ --- */
+
+.service-faq {
+    background: var(--bg-primary);
+    padding: 6rem 0;
+}
+
+.faq-header {
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.faq-header h2 {
+    font-family: var(--font-heading);
+    font-size: 2.7rem;
+    color: var(--text-primary);
+}
+
+.faq-header h2 span {
+    color: var(--gold);
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+}
+
+.faq-item:first-child {
+    border-top: 1px solid var(--border);
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+}
+
+.faq-question h3 {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    margin: 0;
+}
+
+.faq-icon {
+    color: var(--gold);
+    transition: transform 0.3s ease;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer p {
+    color: var(--text-secondary);
+    padding-bottom: 1.5rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* --- FINAL CTA --- */
+
+.services-cta {
+    background: #0B1220;
+    padding: 8rem 0;
+    text-align: center;
+}
+
+.cta-inner h2 {
+    font-family: var(--font-heading);
+    font-size: 2.7rem;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+}
+
+.cta-inner h2 span {
+    color: var(--gold);
+}
+
+.cta-inner p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.btn-outline-white {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    padding: 12px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-outline-white:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+}
+
+/* --- RESPONSIVE --- */
+
+@media (max-width: 1199px) {
+    .services-hero-content h1, .services-header h2, .pathways-header h2, .process-header h2, 
+    .personalized-content h2, .audience-header h2, .service-feature-content h2, 
+    .why-services-header h2, .faq-header h2, .cta-inner h2 {
+        font-size: 3rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .large-service, .large-service-right {
+        grid-column: span 1;
+    }
+    
+    .personalized-grid, .service-feature-grid {
+        gap: 3rem;
+    }
+    
+    .audience-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4rem;
+    }
+    
+    .pathways-grid {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-hero-grid, .personalized-grid, .service-feature-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-floating-label {
+        left: 20px;
+    }
+    
+    .services-grid, .why-services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .large-service, .large-service-right {
+        grid-column: span 1;
+    }
+    
+    .audience-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .feature-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .services-process {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    
+    .services-process .process-line {
+        top: 0; bottom: 0; left: 30px; right: auto; width: 1px; height: auto;
+    }
+    
+    .services-process .process-step {
+        display: flex;
+        text-align: left;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+    .step-num {
+        margin: 0;
+    }
+    
+    .hero-actions, .cta-buttons {
+        flex-direction: column;
+    }
+}

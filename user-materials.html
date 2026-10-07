@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Materials - Strategy Chess Academy</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Admin CSS for dashboard layout -->
+    <link rel="stylesheet" href="css/admin.css">
+    <style>
+        .materials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 24px;
+        }
+        @media (min-width: 768px) {
+            .materials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 1024px) {
+            .materials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .material-card {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .material-header {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+        .material-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-md);
+            background-color: var(--primary-light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        .material-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+        .material-type {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .material-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+        .material-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .material-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: auto;
+            border-top: 1px solid var(--border-color);
+            padding-top: 16px;
+        }
+    </style>
+    <link rel="icon" type="image/png" href="assets/strategix%20logo.png">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="user-dashboard.html" class="logo">
+                    <img src="assets/strategix%20logo.png" alt="Strategy Chess Academy" class="brand-logo">
+                </a>
+                <button class="close-sidebar-btn" id="close-sidebar"><i class='bx bx-x'></i></button>
+            </div>
+            
+            <div class="sidebar-menu">
+                <div class="menu-category">MAIN</div>
+                <a href="user-dashboard.html" class="menu-item">
+                    <i class='bx bx-home-alt'></i>
+                    <span>Overview</span>
+                </a>
+                <a href="user-programs.html" class="menu-item">
+                    <i class='bx bx-book-open'></i>
+                    <span>My Programs</span>
+                </a>
+                <a href="user-batches.html" class="menu-item">
+                    <i class='bx bx-group'></i>
+                    <span>My Batches</span>
+                </a>
+                <a href="user-schedule.html" class="menu-item">
+                    <i class='bx bx-calendar'></i>
+                    <span>Schedule</span>
+                </a>
+                <a href="user-materials.html" class="menu-item active">
+                    <i class='bx bx-library'></i>
+                    <span>Learning Materials</span>
+                </a>
+                <a href="user-attendance.html" class="menu-item">
+                    <i class='bx bx-check-shield'></i>
+                    <span>Attendance</span>
+                </a>
+
+                <div class="menu-category">COMPETE</div>
+                <a href="user-tournaments.html" class="menu-item">
+                    <i class='bx bx-trophy'></i>
+                    <span>Tournaments</span>
+                </a>
+                <a href="user-registrations.html" class="menu-item">
+                    <i class='bx bx-bookmark-alt'></i>
+                    <span>My Registrations</span>
+                </a>
+                <a href="user-results.html" class="menu-item">
+                    <i class='bx bx-medal'></i>
+                    <span>My Results</span>
+                </a>
+
+                <div class="menu-category">ACCOUNT</div>
+                <a href="user-bookings.html" class="menu-item">
+                    <i class='bx bx-calendar-event'></i>
+                    <span>Bookings</span>
+                </a>
+                <a href="user-payments.html" class="menu-item">
+                    <i class='bx bx-credit-card'></i>
+                    <span>Payments</span>
+                </a>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-actions">
+                    <button id="theme-toggle" class="action-btn" title="Toggle Theme"><i class='bx bx-moon'></i></button>
+                    <button id="direction-toggle" class="action-btn" title="Toggle RTL/LTR"><i class='bx bx-right-indent'></i></button>
+                    <a href="#" class="action-btn" title="Help & Support"><i class='bx bx-help-circle'></i></a>
+                    <a href="login.html" class="action-btn text-danger" title="Logout"><i class='bx bx-log-out'></i></a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="main-content">
+            <!-- Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button id="sidebar-toggle" class="sidebar-toggle"><i class='bx bx-menu'></i></button>
+                    <div class="breadcrumbs">
+                        <span class="crumb">Dashboard</span> <span class="separator">/</span> <span class="crumb active">Learning Materials</span>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="search-bar">
+                        <i class='bx bx-search'></i>
+                        <input type="text" placeholder="Search materials...">
+                    </div>
+                    <div class="header-profile" id="profileDropdownBtn">
+                        <img src="https://i.pravatar.cc/150?img=11" alt="Student" class="avatar">
+                        <span class="admin-name d-none d-md-block">Arjun R. <i class='bx bx-chevron-down'></i></span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                
+                <div class="page-header">
+                    <div class="header-text">
+                        <h1 class="page-title">Learning Materials</h1>
+                        <p class="page-subtitle">Access your PDFs, study notes, videos, and practice exercises.</p>
+                    </div>
+                    <div class="header-actions">
+                        <select class="form-select">
+                            <option>All Types</option>
+                            <option>PDFs</option>
+                            <option>Videos</option>
+                            <option>Practice Exercises</option>
+                            <option>Study Notes</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="materials-grid">
+                    
+                    <div class="material-card">
+                        <div class="material-header">
+                            <div class="material-icon"><i class='bx bxs-file-pdf'></i></div>
+                            <div>
+                                <h3 class="material-title">Opening Principles Guide</h3>
+                                <span class="material-type">PDF Document</span>
+                            </div>
+                        </div>
+                        <div class="material-meta">
+                            <span><i class='bx bx-book'></i> Strategic Chess Mastery</span>
+                            <span><i class='bx bx-calendar'></i> Uploaded: Oct 02, 2026</span>
+                            <span><i class='bx bx-check-circle'></i> Status: <span class="text-success" style="margin-left: 4px;">Completed</span></span>
+                        </div>
+                        <div class="material-actions">
+                            <button class="btn btn-sm btn-outline"><i class='bx bx-folder-open'></i> Open</button>
+                            <button class="btn btn-sm btn-outline" onclick="this.innerHTML='<i class=\'bx bx-check\'></i> Download complete'; this.disabled=true;"><i class='bx bx-download'></i> Download</button>
+                        </div>
+                    </div>
+
+                    <div class="material-card">
+                        <div class="material-header">
+                            <div class="material-icon" style="background-color: var(--danger-light); color: var(--danger);"><i class='bx bx-play-circle'></i></div>
+                            <div>
+                                <h3 class="material-title">Tactical Calculations</h3>
+                                <span class="material-type">Video Lesson</span>
+                            </div>
+                        </div>
+                        <div class="material-meta">
+                            <span><i class='bx bx-bulb'></i> Strategy: The Fork</span>
+                            <span><i class='bx bx-calendar'></i> Uploaded: Oct 05, 2026</span>
+                            <span><i class='bx bx-time'></i> Status: <span class="text-warning" style="margin-left: 4px;">In Progress</span></span>
+                        </div>
+                        <div class="material-actions">
+                            <button class="btn btn-sm btn-primary" onclick="window.open('https://youtube.com', '_blank')"><i class='bx bx-play'></i> Watch</button>
+                            <button class="btn btn-sm btn-outline" onclick="this.innerHTML='<i class=\'bx bx-check-double\'></i> Completed marked'; this.disabled=true;"><i class='bx bx-check'></i> Mark Complete</button>
+                        </div>
+                    </div>
+
+                    <div class="material-card">
+                        <div class="material-header">
+                            <div class="material-icon" style="background-color: var(--warning-light); color: var(--warning);"><i class='bx bx-target-lock'></i></div>
+                            <div>
+                                <h3 class="material-title">Endgame Puzzles 1</h3>
+                                <span class="material-type">Practice Exercises</span>
+                            </div>
+                        </div>
+                        <div class="material-meta">
+                            <span><i class='bx bx-book'></i> Strategic Chess Mastery</span>
+                            <span><i class='bx bx-calendar'></i> Uploaded: Oct 06, 2026</span>
+                            <span><i class='bx bx-circle'></i> Status: <span class="text-muted" style="margin-left: 4px;">Pending</span></span>
+                        </div>
+                        <div class="material-actions">
+                            <button class="btn btn-sm btn-primary" onclick="this.innerHTML='<i class=\'bx bx-loader-alt bx-spin\'></i> Practicing...'; this.disabled=true;"><i class='bx bx-pencil'></i> Start Practice</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
+
+

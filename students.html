@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students Dashboard | Strategy Chess Academy</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Boxicons for Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="icon" type="image/png" href="assets/strategix%20logo.png">
+</head>
+<body class="light-mode">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="assets/strategix logo.png" alt="Strategix" class="brand-logo">
+                </div>
+                <button id="close-sidebar-btn" class="close-sidebar-btn d-lg-none"><i class='bx bx-x'></i></button>
+            </div>
+            
+            <div class="sidebar-menu">
+                <!-- Main Navigation -->
+                <div class="menu-category">Overview</div>
+                <a href="admin-dashboard.html" class="menu-item"><i class='bx bx-grid-alt'></i> <span>Dashboard</span></a>
+                
+                <div class="menu-category">Student Management</div>
+                <a href="students.html" class="menu-item active"><i class='bx bx-user'></i> <span>Students</span></a>
+                <a href="attendance.html" class="menu-item"><i class='bx bx-check-square'></i> <span>Attendance</span></a>
+                
+                <div class="menu-category">Coaching</div>
+                <a href="coaches.html" class="menu-item"><i class='bx bx-chalkboard'></i> <span>Coaches</span></a>
+                <a href="admin-programs.html" class="menu-item"><i class='bx bx-book'></i> <span>Programs</span></a>
+                <div class="menu-category">Batch Management</div>
+                <a href="batches.html" class="menu-item"><i class='bx bx-group'></i> <span>Batches</span></a>
+                <a href="schedule.html" class="menu-item"><i class='bx bx-calendar-event'></i> <span>Schedule</span></a>
+                
+                <div class="menu-category">Tournament Management</div>
+                <a href="admin-tournaments.html" class="menu-item"><i class='bx bx-trophy'></i> <span>Tournaments</span></a>
+                <a href="bookings.html" class="menu-item"><i class='bx bx-receipt'></i> <span>Bookings</span></a>
+                <a href="payments.html" class="menu-item"><i class='bx bx-wallet'></i> <span>Payments</span></a>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="admin-profile-sm">
+                    <img src="https://i.pravatar.cc/150?img=11" alt="Admin" class="avatar">
+                    <div class="admin-info">
+                        <span class="admin-name">Admin User</span>
+                        <span class="admin-role">Super Admin</span>
+                    </div>
+                </div>
+                <div class="sidebar-actions">
+                    <button id="theme-toggle" class="action-btn" title="Toggle Theme"><i class='bx bx-moon'></i></button>
+                    <button id="direction-toggle" class="action-btn" title="Toggle RTL/LTR"><i class='bx bx-right-indent'></i></button>
+                    <a href="login.html" class="action-btn text-danger" title="Logout"><i class='bx bx-log-out'></i></a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="main-content">
+            <!-- Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button id="sidebar-toggle" class="sidebar-toggle"><i class='bx bx-menu'></i></button>
+                    <div class="breadcrumbs">
+                        <span class="crumb">Dashboard</span> <span class="separator">/</span> <span class="crumb active">Students</span>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="search-bar">
+                        <i class='bx bx-search'></i>
+                        <input type="text" placeholder="Search students, batches, etc...">
+                    </div>
+                    <div class="header-profile" id="profileDropdownBtn">
+                        <img src="https://i.pravatar.cc/150?img=11" alt="Admin" class="avatar">
+                        <span class="admin-name d-none d-md-block">Admin User <i class='bx bx-chevron-down'></i></span>
+                        <div class="dropdown-menu" id="profileDropdown">
+                            <a href="#"><i class='bx bx-user'></i> My Profile</a>
+                            <a href="#"><i class='bx bx-cog'></i> Account Settings</a>
+                            <div class="divider"></div>
+                            <a href="login.html" class="text-danger"><i class='bx bx-log-out'></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                
+                <!-- Welcome Section & Quick Actions -->
+                <div class="page-header">
+                    <div class="header-text">
+                        <h1 class="page-title">Student Management</h1>
+                        <p class="page-subtitle">Manage, track, and support your academy's students.</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-primary" id="add-student-btn"><i class='bx bx-plus'></i> Add Student</button>
+                        <button class="btn btn-secondary" onclick="alert('Exported!')"><i class='bx bx-export'></i> Export</button>
+                    </div>
+                </div>
+
+                <!-- KPI Cards -->
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-icon"><i class='bx bx-user'></i></div>
+                        <div class="kpi-details">
+                            <span class="kpi-label">Total Enrolled</span>
+                            <h3 class="kpi-value">1,248</h3>
+                        </div>
+                        <div class="kpi-trend positive"><i class='bx bx-trending-up'></i> +12.5%</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon icon-success"><i class='bx bx-check-shield'></i></div>
+                        <div class="kpi-details">
+                            <span class="kpi-label">Active Students</span>
+                            <h3 class="kpi-value">1,120</h3>
+                        </div>
+                        <div class="kpi-trend positive"><i class='bx bx-trending-up'></i> +50 this month</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon icon-warning"><i class='bx bx-time'></i></div>
+                        <div class="kpi-details">
+                            <span class="kpi-label">Pending Assignments</span>
+                            <h3 class="kpi-value">14</h3>
+                        </div>
+                        <div class="kpi-trend negative"><i class='bx bx-trending-down'></i> Action Required</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon icon-danger"><i class='bx bx-line-chart-down'></i></div>
+                        <div class="kpi-details">
+                            <span class="kpi-label">Absences Today</span>
+                            <h3 class="kpi-value">8</h3>
+                        </div>
+                        <div class="kpi-trend neutral"><i class='bx bx-minus'></i> Same as yesterday</div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="charts-grid">
+                    <div class="chart-card growth-chart">
+                        <div class="card-header">
+                            <h3 class="card-title">Student Growth</h3>
+                            <select class="form-select">
+                                <option>Last 7 Days</option>
+                                <option selected>Last 30 Days</option>
+                                <option>Last 6 Months</option>
+                                <option>This Year</option>
+                            </select>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="growthChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card distribution-chart">
+                        <div class="card-header">
+                            <h3 class="card-title">Skill Level Distribution</h3>
+                        </div>
+                        <div class="card-body" style="position: relative; height:250px; display:flex; justify-content:center; align-items:center;">
+                            <canvas id="distributionChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Recent Registrations Table -->
+                <div class="data-card mt-4">
+                    <div class="card-header">
+                        <h3 class="card-title">All Students</h3>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Student</th>
+                                    <th>Program</th>
+                                    <th>Skill Level</th>
+                                    <th>Batch</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="students-list-body">
+                                <tr>
+                                    <td>
+                                        <div class="table-user">
+                                            <div class="avatar-initials bg-primary-light">AR</div>
+                                            <div>
+                                                <div class="user-name">Arjun Reddy</div>
+                                                <div class="user-email">arjun.r@example.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Beginner Chess</td>
+                                    <td>Beginner</td>
+                                    <td>Batch A</td>
+                                    <td>Oct 07, 2026</td>
+                                    <td><span class="badge status-active">Confirmed</span></td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="icon-btn-sm" title="View"><i class='bx bx-show'></i></button>
+                                            <button class="icon-btn-sm" title="Edit"><i class='bx bx-edit-alt'></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="table-user">
+                                            <img src="https://i.pravatar.cc/150?img=5" alt="">
+                                            <div>
+                                                <div class="user-name">Meera Sharma</div>
+                                                <div class="user-email">meera.s@example.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Advanced Strategy</td>
+                                    <td>Intermediate</td>
+                                    <td>Pending</td>
+                                    <td>Oct 06, 2026</td>
+                                    <td><span class="badge status-pending">Pending</span></td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="icon-btn-sm" title="View"><i class='bx bx-show'></i></button>
+                                            <button class="icon-btn-sm" title="Edit"><i class='bx bx-edit-alt'></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="table-user">
+                                            <div class="avatar-initials bg-success-light">JP</div>
+                                            <div>
+                                                <div class="user-name">John Peters</div>
+                                                <div class="user-email">john.p@example.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Tactical Mastery</td>
+                                    <td>Expert</td>
+                                    <td>Batch C</td>
+                                    <td>Oct 05, 2026</td>
+                                    <td><span class="badge status-active">Confirmed</span></td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="icon-btn-sm" title="View"><i class='bx bx-show'></i></button>
+                                            <button class="icon-btn-sm" title="Edit"><i class='bx bx-edit-alt'></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="table-user">
+                                            <div class="avatar-initials bg-warning-light" style="background-color: var(--warning-light); color: var(--warning);">SS</div>
+                                            <div>
+                                                <div class="user-name">Sana Singh</div>
+                                                <div class="user-email">sana.s@example.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Beginner Chess</td>
+                                    <td>Beginner</td>
+                                    <td>Batch B</td>
+                                    <td>Oct 04, 2026</td>
+                                    <td><span class="badge status-active">Confirmed</span></td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="icon-btn-sm" title="View"><i class='bx bx-show'></i></button>
+                                            <button class="icon-btn-sm" title="Edit"><i class='bx bx-edit-alt'></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="table-user">
+                                            <div class="avatar-initials bg-danger-light" style="background-color: var(--danger-light); color: var(--danger);">DK</div>
+                                            <div>
+                                                <div class="user-name">David Kumar</div>
+                                                <div class="user-email">david.k@example.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Advanced Strategy</td>
+                                    <td>Advanced</td>
+                                    <td>Batch C</td>
+                                    <td>Oct 02, 2026</td>
+                                    <td><span class="badge status-active">Confirmed</span></td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="icon-btn-sm" title="View"><i class='bx bx-show'></i></button>
+                                            <button class="icon-btn-sm" title="Edit"><i class='bx bx-edit-alt'></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Performance Leaderboard -->
+                <div class="data-card mt-4">
+                    <div class="card-header">
+                        <h3 class="card-title">Top Performing Students</h3>
+                        <button class="btn btn-sm btn-outline">View All</button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-borderless table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Student</th>
+                                    <th>Current Rating</th>
+                                    <th>Improvement</th>
+                                    <th>Level</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><div class="rank-badge gold">1</div></td>
+                                    <td>
+                                        <div class="table-user">
+                                            <img src="https://i.pravatar.cc/150?img=11" alt="">
+                                            <span>Arjun R.</span>
+                                        </div>
+                                    </td>
+                                    <td><strong>1420</strong></td>
+                                    <td><span class="text-success"><i class='bx bx-up-arrow-alt'></i> 120</span></td>
+                                    <td>Intermediate</td>
+                                </tr>
+                                <tr>
+                                    <td><div class="rank-badge silver">2</div></td>
+                                    <td>
+                                        <div class="table-user">
+                                            <img src="https://i.pravatar.cc/150?img=12" alt="">
+                                            <span>Rahul M.</span>
+                                        </div>
+                                    </td>
+                                    <td><strong>1380</strong></td>
+                                    <td><span class="text-success"><i class='bx bx-up-arrow-alt'></i> 105</span></td>
+                                    <td>Intermediate</td>
+                                </tr>
+                                <tr>
+                                    <td><div class="rank-badge bronze">3</div></td>
+                                    <td>
+                                        <div class="table-user">
+                                            <img src="https://i.pravatar.cc/150?img=5" alt="">
+                                            <span>Meera S.</span>
+                                        </div>
+                                    </td>
+                                    <td><strong>1320</strong></td>
+                                    <td><span class="text-success"><i class='bx bx-up-arrow-alt'></i> 98</span></td>
+                                    <td>Intermediate</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+    
+    <!-- Add Student Modal -->
+    <div class="modal-overlay" id="add-student-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Add New Student</h3>
+                <button class="close-modal"><i class='bx bx-x'></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="add-student-form">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="student-name" required placeholder="Enter student name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="student-email" required placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label>Skill Level</label>
+                        <select id="student-level">
+                            <option value="Beginner">Beginner</option>
+                            <option value="Intermediate">Intermediate</option>
+                            <option value="Advanced">Advanced</option>
+                            <option value="Expert">Expert</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Program</label>
+                        <select id="student-program">
+                            <option value="Beginner Chess">Beginner Chess</option>
+                            <option value="Tactical Mastery">Tactical Mastery</option>
+                            <option value="Advanced Strategy">Advanced Strategy</option>
+                        </select>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-secondary close-modal-btn">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Add Student</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="js/admin.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Strategix Journal | Premium Chess Blog</title>
+    <meta name="description"
+        content="Insights, strategy, training ideas and practical lessons for players who want to understand the game beyond the next move.">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <link rel="icon" type="image/png" href="assets/strategix%20logo.png">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <div id="navbar"></div>
+
+    <!-- =====================================================
+         SECTION 1: BLOG HERO
+    ====================================================== -->
+    <section class="blog-hero">
+        <div class="container">
+            <div class="blog-hero-content text-center">
+                <span class="section-label">THE STRATEGIX JOURNAL</span>
+                <h1>Think Deeper.<br><span class="text-gold">Play Smarter.</span></h1>
+                <p>
+                    Insights, strategy, training ideas and practical lessons for players who want to understand the game beyond the next move.
+                </p>
+                <div class="hero-actions" style="margin-top: 2.5rem; justify-content: center;">
+                    <a href="programs.html" class="btn btn-primary">Understand The Game <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="contact.html" class="btn btn-outline-white">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         SECTION 2: FEATURED ARTICLE
+    ====================================================== -->
+    <section class="featured-article section">
+        <div class="container">
+            <span class="section-label section-label-left">FEATURED</span>
+            <div class="featured-grid">
+                <div class="featured-image">
+                    <img src="assets/images/philosophy-art.jpg" alt="Strategic Chess Thinking">
+                </div>
+                <div class="featured-content">
+                    <span class="article-category">STRATEGY</span>
+                    <h2>Why Strong Players <span class="text-gold">Think Before They Move</span></h2>
+                    <p class="article-excerpt">
+                        Good chess begins before the hand reaches the piece. Learn how stronger players observe, evaluate and choose with purpose.
+                    </p>
+                    <div class="article-meta">
+                        <span><i class="fa-regular fa-clock"></i> 8 min read</span>
+                        <span>October 2026</span>
+                    </div>
+                    <a href="blog-details.html?post=thinking-before-moving" class="btn btn-primary mt-4">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         SECTION 3: CATEGORY FILTER & ARTICLES
+    ====================================================== -->
+    <section class="explore-articles section bg-secondary">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-label">LATEST ARTICLES</span>
+                <h2><span style="color: var(--text-primary);">Ideas Worth</span> <span class="text-gold">Thinking About.</span></h2>
+            </div>
+
+            <!-- Filter -->
+            <div class="blog-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="strategy">Strategy</button>
+                <button class="filter-btn" data-filter="training">Training</button>
+                <button class="filter-btn" data-filter="beginners">Beginners</button>
+                <button class="filter-btn" data-filter="mindset">Mindset</button>
+                <button class="filter-btn" data-filter="tournaments">Tournaments</button>
+                <button class="filter-btn" data-filter="analysis">Analysis</button>
+            </div>
+
+            <!-- Grid -->
+            <div class="article-grid" id="articleGrid">
+                <!-- Article 01 -->
+                <article class="article-card" data-category="strategy">
+                    <a href="blog-details.html?post=thinking-before-moving" class="article-card-link">
+                        <div class="article-image">
+                            <img src="assets/images/Questions Before Answer.png" alt="How to think">
+                        </div>
+                        <div class="article-body">
+                            <span class="article-category">STRATEGY</span>
+                            <h3>How To Think Before Making A Move</h3>
+                            <p>Learn a simple thinking process that can improve the quality of your decisions.</p>
+                            <div class="article-footer">
+                                <span class="read-time"><i class="fa-regular fa-clock"></i> 6 min read</span>
+                                <span class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- Article 02 -->
+                <article class="article-card" data-category="training">
+                    <a href="blog-details.html?post=chess-calculation" class="article-card-link">
+                        <div class="article-image">
+                            <img src="assets/images/Pattern Before Calculation.png" alt="Chess Calculation">
+                        </div>
+                        <div class="article-body">
+                            <span class="article-category">TRAINING</span>
+                            <h3>Building A Better Chess Calculation Process</h3>
+                            <p>Calculation is not about seeing everything. It is about knowing what to look for.</p>
+                            <div class="article-footer">
+                                <span class="read-time"><i class="fa-regular fa-clock"></i> 7 min read</span>
+                                <span class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- Article 03 -->
+                <article class="article-card" data-category="beginners">
+                    <a href="blog-details.html?post=beginner-habits" class="article-card-link">
+                        <div class="article-image">
+                            <img src="assets/images/beginner.png" alt="Beginner Habits">
+                        </div>
+                        <div class="article-body">
+                            <span class="article-category">BEGINNERS</span>
+                            <h3>Five Habits Every Beginner Should Build</h3>
+                            <p>Small habits can make a major difference in how quickly a player develops.</p>
+                            <div class="article-footer">
+                                <span class="read-time"><i class="fa-regular fa-clock"></i> 5 min read</span>
+                                <span class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- Article 04 -->
+                <article class="article-card" data-category="tournaments">
+                    <a href="blog-details.html?post=tournament-preparation" class="article-card-link">
+                        <div class="article-image">
+                            <img src="assets/images/competition.png" alt="Tournament Prep">
+                        </div>
+                        <div class="article-body">
+                            <span class="article-category">TOURNAMENTS</span>
+                            <h3>How To Prepare For Your First Chess Tournament</h3>
+                            <p>Preparation is about more than openings. Learn how to prepare mentally and strategically.</p>
+                            <div class="article-footer">
+                                <span class="read-time"><i class="fa-regular fa-clock"></i> 8 min read</span>
+                                <span class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- Article 05 -->
+                <article class="article-card" data-category="mindset">
+                    <a href="blog-details.html?post=decision-making" class="article-card-link">
+                        <div class="article-image">
+                            <img src="assets/images/focus.png" alt="Decision Making">
+                        </div>
+                        <div class="article-body">
+                            <span class="article-category">MINDSET</span>
+                            <h3>What Chess Teaches Us About Decision Making</h3>
+                            <p>Chess creates a unique environment for learning patience, judgement and adaptability.</p>
+                            <div class="article-footer">
+                                <span class="read-time"><i class="fa-regular fa-clock"></i> 6 min read</span>
+                                <span class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- Article 06 -->
+                <article class="article-card" data-category="analysis">
+                    <a href="blog-details.html?post=game-analysis" class="article-card-link">
+                        <div class="article-image">
+                            <img src="assets/images/analysis.jpg" alt="Game Analysis" onerror="this.src='assets/images/complex-position.jpg'">
+                        </div>
+                        <div class="article-body">
+                            <span class="article-category">ANALYSIS</span>
+                            <h3>How To Learn From Your Own Games</h3>
+                            <p>Your games contain valuable information. The key is knowing how to analyze them.</p>
+                            <div class="article-footer">
+                                <span class="read-time"><i class="fa-regular fa-clock"></i> 7 min read</span>
+                                <span class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         SECTION 4: EXPLORE BY TOPIC
+    ====================================================== -->
+    <section class="topics-section section bg-secondary">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-label">CATEGORIES</span>
+                <h2>Explore <span class="text-gold">By Topic</span></h2>
+            </div>
+            <div class="topics-grid">
+                <a href="#" class="topic-card" style="background-image: url('assets/images/strategy.jpg');">
+                    <h3>Strategy</h3>
+                    <p>12 Articles</p>
+                </a>
+                <a href="#" class="topic-card" style="background-image: url('assets/images/chess-workshop.jpg');">
+                    <h3>Training</h3>
+                    <p>8 Articles</p>
+                </a>
+                <a href="#" class="topic-card" style="background-image: url('assets/images/focus.png');">
+                    <h3>Mindset</h3>
+                    <p>5 Articles</p>
+                </a>
+                <a href="#" class="topic-card" style="background-image: url('assets/images/competition.png');">
+                    <h3>Tournaments</h3>
+                    <p>7 Articles</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         SECTION 5: POPULAR ARTICLES
+    ====================================================== -->
+    <section class="popular-section section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Most <span class="text-gold">Read</span></h2>
+            </div>
+            
+            <div class="popular-list">
+                <a href="blog-details.html?post=thinking-before-moving" class="popular-item">
+                    <div class="popular-num">01</div>
+                    <div class="popular-details">
+                        <h3>Why Strong Players Think Before They Move</h3>
+                        <div class="popular-meta">Strategy &middot; 8 min</div>
+                    </div>
+                </a>
+                
+                <a href="blog-details.html?post=game-analysis" class="popular-item">
+                    <div class="popular-num">02</div>
+                    <div class="popular-details">
+                        <h3>How To Analyze Your Own Games</h3>
+                        <div class="popular-meta">Analysis &middot; 7 min</div>
+                    </div>
+                </a>
+                
+                <a href="blog-details.html?post=chess-calculation" class="popular-item">
+                    <div class="popular-num">03</div>
+                    <div class="popular-details">
+                        <h3>Building A Better Calculation Process</h3>
+                        <div class="popular-meta">Training &middot; 6 min</div>
+                    </div>
+                </a>
+                
+                <a href="blog-details.html?post=tournament-preparation" class="popular-item">
+                    <div class="popular-num">04</div>
+                    <div class="popular-details">
+                        <h3>Preparing For Tournament Pressure</h3>
+                        <div class="popular-meta">Mindset &middot; 5 min</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         SECTION 6: BEST ARTICLE OF THE WEEK
+    ====================================================== -->
+    <section class="best-article-section section bg-secondary">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-label">EDITOR'S CHOICE</span>
+                <h2>Best Article <span class="text-gold">Of The Week</span></h2>
+            </div>
+            
+            <div class="best-article-card">
+                <div class="best-article-content">
+                    <span class="article-category">MINDSET</span>
+                    <h3>The Psychology of the Endgame</h3>
+                    <p>When there are few pieces left on the board, the mind becomes the most important piece. Explore how to maintain focus and exploit your opponent's fatigue in the final stages of the game.</p>
+                    <div class="article-meta">
+                        <span><i class="fa-regular fa-clock"></i> 10 min read</span>
+                        <span>October 2026</span>
+                    </div>
+                    <a href="blog-details.html?post=endgame-psychology" class="btn btn-primary mt-4">Read Full Story <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="best-article-image">
+                    <img src="assets/images/strategy.jpg" alt="Endgame Psychology" onerror="this.src='assets/images/private-coaching.jpg'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         SECTION 7: ESSENTIAL READING
+    ====================================================== -->
+    <section class="essential-reading section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-label">CURATED</span>
+                <h2>Essential <span class="text-gold">Reading</span></h2>
+            </div>
+
+            <div class="essential-grid">
+                <article class="article-card">
+                    <a href="blog-details.html?post=mastering-tactics" class="article-card-link">
+                        <div class="article-image">
+                            <img src="assets/images/chess-workshop.jpg" alt="Mastering Tactics">
+                        </div>
+                        <div class="article-body">
+                            <span class="article-category">TRAINING</span>
+                            <h3>Mastering Chess Tactics Daily</h3>
+                            <p>Why solving puzzles isn't enough, and how to actually apply tactical vision in your competitive games.</p>
+                            <div class="article-footer">
+                                <span class="read-time"><i class="fa-regular fa-clock"></i> 5 min read</span>
+                                <span class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="article-card">
+                    <a href="blog-details.html?post=opening-principles" class="article-card-link">
+                        <div class="article-image">
+                            <img src="assets/images/group-coaching.jpg" alt="Opening Principles">
+                        </div>
+                        <div class="article-body">
+                            <span class="article-category">BEGINNERS</span>
+                            <h3>Beyond Memorization: Opening Principles</h3>
+                            <p>Stop memorizing opening lines you don't understand. Learn the core principles that guide every strong opening.</p>
+                            <div class="article-footer">
+                                <span class="read-time"><i class="fa-regular fa-clock"></i> 6 min read</span>
+                                <span class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         SECTION 8: FAQ
+    ====================================================== -->
+    <section class="faq-section section bg-secondary">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-label">FAQ</span>
+                <h2>Frequently <span class="text-gold">Asked Questions</span></h2>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item" onclick="this.classList.toggle('active')">
+                    <div class="faq-question">
+                        <h3>How often do you publish new articles?</h3>
+                        <i class="fa-solid fa-plus faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We publish new strategic insights and training guides every Tuesday and Thursday.</p>
+                    </div>
+                </div>
+                <div class="faq-item" onclick="this.classList.toggle('active')">
+                    <div class="faq-question">
+                        <h3>Are these articles suitable for beginners?</h3>
+                        <i class="fa-solid fa-plus faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes. While some articles dive deep into advanced strategy, we have a dedicated "Beginners" category focused on building strong foundational habits.</p>
+                    </div>
+                </div>
+                <div class="faq-item" onclick="this.classList.toggle('active')">
+                    <div class="faq-question">
+                        <h3>Can I request a specific topic for the blog?</h3>
+                        <i class="fa-solid fa-plus faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. If you are a student at Strategix, you can request specific topics during your sessions. We often write articles based on the recurring challenges our students face.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         SECTION 9: FINAL CTA
+    ====================================================== -->
+    <section class="blog-cta section text-center">
+        <div class="container">
+            <h2>Ready To Put <span class="text-gold">The Ideas Into Practice?</span></h2>
+            <p>Reading about strategy is only the beginning. Build your game through structured training.</p>
+            <div class="cta-actions">
+                <a href="programs.html" class="btn btn-primary">Explore Programs</a>
+                <a href="contact.html" class="btn btn-outline-white">Book A Free Trial</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div id="footer"></div>
+
+    <!-- JS -->
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const articles = document.querySelectorAll('.article-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add to clicked
+                    btn.classList.add('active');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    articles.forEach(article => {
+                        if (filterValue === 'all' || article.getAttribute('data-category') === filterValue) {
+                            article.style.display = 'block';
+                            // Optional small animation trigger here if needed
+                            article.style.animation = 'none';
+                            article.offsetHeight; /* trigger reflow */
+                            article.style.animation = null; 
+                        } else {
+                            article.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+

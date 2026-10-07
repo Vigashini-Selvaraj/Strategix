@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament Details | Strategix</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tournament-details.css">
+    <link rel="icon" type="image/png" href="assets/strategix%20logo.png">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <div id="navbar"></div>
+
+    <main>
+        <!-- ERROR STATE -->
+        <div id="error-state" class="error-state" style="display: none;">
+            <div class="container">
+                <h1>Tournament Not Found</h1>
+                <p>The tournament you're looking for could not be found.</p>
+                <a href="tournaments.html" class="btn btn-primary">Back To Tournaments</a>
+            </div>
+        </div>
+
+        <!-- DYNAMIC CONTENT WRAPPER -->
+        <div id="dynamic-content" style="display: none;">
+
+            <!-- SECTION 1: HERO -->
+            <section class="tournament-hero" id="dyn-hero-bg">
+                <div class="hero-overlay"></div>
+                <div class="container">
+                    <div class="hero-eyebrow">
+                        <span class="category-label">STRATEGIX TOURNAMENT</span>
+                        <span class="status-badge" id="dyn-status-badge"></span>
+                    </div>
+
+                    <h1 id="dyn-title"></h1>
+                    <p class="hero-desc" id="dyn-desc"></p>
+
+                    <div class="hero-metadata">
+                        <div class="meta-item">
+                            <span>DATE</span>
+                            <span id="dyn-meta-date"></span>
+                        </div>
+                        <div class="meta-item">
+                            <span>FORMAT</span>
+                            <span id="dyn-meta-format"></span>
+                        </div>
+                        <div class="meta-item">
+                            <span>LEVEL</span>
+                            <span id="dyn-meta-level"></span>
+                        </div>
+                        <div class="meta-item">
+                            <span>LOCATION</span>
+                            <span id="dyn-meta-loc"></span>
+                        </div>
+                    </div>
+
+                    <div class="hero-actions" id="dyn-hero-actions">
+                        <!-- Buttons injected via JS based on status -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 2: EVENT SNAPSHOT -->
+            <section class="event-snapshot">
+                <div class="container">
+                    <div class="snapshot-grid">
+                        <div class="snapshot-item">
+                            <h4>EVENT DATE</h4>
+                            <p id="snap-date"></p>
+                        </div>
+                        <div class="snapshot-item">
+                            <h4>FORMAT</h4>
+                            <p id="snap-format"></p>
+                        </div>
+                        <div class="snapshot-item">
+                            <h4>PLAYER LEVEL</h4>
+                            <p id="snap-level"></p>
+                        </div>
+                        <div class="snapshot-item">
+                            <h4>LOCATION</h4>
+                            <p id="snap-loc"></p>
+                        </div>
+                        <div class="snapshot-item">
+                            <h4>STATUS</h4>
+                            <p id="snap-status"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: ABOUT THE TOURNAMENT -->
+            <section class="about-tournament section">
+                <div class="container">
+                    <span class="section-label">ABOUT THE EVENT</span>
+                    <div class="about-layout">
+                        <div class="about-left">
+                            <h2>Compete. Learn. <span class="text-gold">Improve.</span></h2>
+                            <p id="dyn-about-desc"></p>
+                            <p id="dyn-about-desc-2" class="mt-3"></p>
+                            <p id="dyn-about-desc-3" class="mt-3"></p>
+                        </div>
+                        <div class="about-right">
+                            <div class="highlight-panel">
+                                <h4>What To Expect</h4>
+                                <ul>
+                                    <li><i class="fa-solid fa-check"></i> Competitive games</li>
+                                    <li><i class="fa-solid fa-check"></i> Structured pairings</li>
+                                    <li><i class="fa-solid fa-check"></i> Professional tournament environment</li>
+                                    <li><i class="fa-solid fa-check"></i> Time-controlled play</li>
+                                    <li><i class="fa-solid fa-check"></i> Post-game learning opportunities</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 4: WHO CAN PARTICIPATE -->
+            <section class="tournament-eligibility section">
+                <div class="container">
+                    <div class="eligibility-container">
+                        <h2>Who Is This <span class="text-gold">Tournament For?</span></h2>
+                        <div class="eligibility-list">
+                            <ul id="dyn-eligibility">
+                                <!-- JS injected list -->
+                            </ul>
+                        </div>
+                        <p class="note">Before registering, review the tournament-specific eligibility requirements.</p>
+                        <a href="#guidelines" class="btn btn-primary">Read Guidelines</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 5, 6, 7: FORMAT / SCHEDULE / BRING -->
+            <section class="tournament-info-grid section">
+                <div class="container">
+                    <div class="info-grid-layout">
+
+                        <!-- Format -->
+                        <div class="info-column">
+                            <h3>Understand The Format</h3>
+                            <div class="format-details">
+                                <div class="format-item">
+                                    <h5>FORMAT</h5>
+                                    <p id="info-format"></p>
+                                </div>
+                                <div class="format-item">
+                                    <h5>TIME CONTROL</h5>
+                                    <p>Defined in tournament regulations</p>
+                                </div>
+                                <div class="format-item">
+                                    <h5>ROUNDS</h5>
+                                    <p>Published with the final schedule</p>
+                                </div>
+                                <div class="format-item">
+                                    <h5>PAIRING</h5>
+                                    <p>Tournament pairing system</p>
+                                </div>
+                                <div class="format-item">
+                                    <h5>SCORING</h5>
+                                    <p>Standard tournament scoring</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Schedule -->
+                        <div class="info-column">
+                            <h3>Tournament Schedule</h3>
+                            <div class="schedule-timeline" id="dyn-schedule-timeline">
+                                <div class="schedule-item">
+                                    <span class="s-time">08:30</span>
+                                    <span class="s-event">Check-in & Registration</span>
+                                </div>
+                                <div class="schedule-item">
+                                    <span class="s-time">09:15</span>
+                                    <span class="s-event">Player Briefing</span>
+                                </div>
+                                <div class="schedule-item">
+                                    <span class="s-time">09:30</span>
+                                    <span class="s-event">Round 1</span>
+                                </div>
+                                <div class="schedule-item">
+                                    <span class="s-time">10:30</span>
+                                    <span class="s-event">Round 2</span>
+                                </div>
+                                <div class="schedule-item">
+                                    <span class="s-time">12:30</span>
+                                    <span class="s-event">Break</span>
+                                </div>
+                                <div class="schedule-item">
+                                    <span class="s-time">13:30</span>
+                                    <span class="s-event">Further Rounds</span>
+                                </div>
+                                <div class="schedule-item">
+                                    <span class="s-time">17:00</span>
+                                    <span class="s-event">Final Results</span>
+                                </div>
+                            </div>
+                            <p class="bring-note mt-3">Note: Final schedule will be published before the event.</p>
+                        </div>
+
+                        <!-- Bring -->
+                        <div class="info-column">
+                            <h3>Come Prepared</h3>
+                            <div class="bring-checklist">
+                                <ul>
+                                    <li><i class="fa-solid fa-check"></i> Registration confirmation</li>
+                                    <li><i class="fa-solid fa-check"></i> Required identification</li>
+                                    <li><i class="fa-solid fa-check"></i> Chess equipment if specified</li>
+                                    <li><i class="fa-solid fa-check"></i> Water</li>
+                                    <li><i class="fa-solid fa-check"></i> Notebook if permitted</li>
+                                    <li><i class="fa-solid fa-check"></i> Tournament-ready mindset</li>
+                                </ul>
+                                <p class="bring-note">Review the final tournament guidelines before arriving.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 8: TOURNAMENT PREPARATION -->
+            <section class="tournament-preparation section">
+                <div class="container text-center">
+                    <h2>Prepare Before <span class="text-gold">You Compete.</span></h2>
+                    <p class="prep-intro">Strong tournament performance starts before the first move. Use your training
+                        time to prepare your openings, review your weaknesses, and practice making decisions under
+                        pressure.</p>
+
+                    <div class="prep-grid">
+                        <div class="prep-card">
+                            <h4>OPENINGS</h4>
+                            <p>Know your first decisions.</p>
+                        </div>
+                        <div class="prep-card">
+                            <h4>TACTICS</h4>
+                            <p>Sharpen pattern recognition.</p>
+                        </div>
+                        <div class="prep-card">
+                            <h4>TIME MANAGEMENT</h4>
+                            <p>Practice making decisions under pressure.</p>
+                        </div>
+                        <div class="prep-card">
+                            <h4>MINDSET</h4>
+                            <p>Stay focused when the position becomes difficult.</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 3rem;">
+                        <a href="program-details.html?program=tournament" class="btn btn-primary">Explore Tournament Preparation</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 9: GUIDELINES ACCORDION -->
+            <section class="tournament-accordions section" id="guidelines">
+                <div class="container">
+                    <div class="section-header text-center">
+                        <h2 >Tournament <span class="text-gold">Guidelines</span></h2>
+                    </div>
+                    <div class="accordion-container">
+                        <!-- 01 -->
+                        <div class="accordion-item">
+                            <button class="accordion-btn" aria-expanded="false">
+                                <span>01 â€” Eligibility</span>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <div class="accordion-content">
+                                <p>Who can participate? Refer to the final tournament regulations issued for this event.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- 02 -->
+                        <div class="accordion-item">
+                            <button class="accordion-btn" aria-expanded="false">
+                                <span>02 â€” Registration</span>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <div class="accordion-content">
+                                <p>How registration works. Refer to the final tournament regulations issued for this
+                                    event.</p>
+                            </div>
+                        </div>
+                        <!-- 03 -->
+                        <div class="accordion-item">
+                            <button class="accordion-btn" aria-expanded="false">
+                                <span>03 â€” Arrival</span>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <div class="accordion-content">
+                                <p>When participants should arrive. Refer to the final tournament regulations issued for
+                                    this event.</p>
+                            </div>
+                        </div>
+                        <!-- 04 -->
+                        <div class="accordion-item">
+                            <button class="accordion-btn" aria-expanded="false">
+                                <span>04 â€” Conduct</span>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <div class="accordion-content">
+                                <p>Expected player behavior. Refer to the final tournament regulations issued for this
+                                    event.</p>
+                            </div>
+                        </div>
+                        <!-- 05 -->
+                        <div class="accordion-item">
+                            <button class="accordion-btn" aria-expanded="false">
+                                <span>05 â€” Game Rules</span>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <div class="accordion-content">
+                                <p>Where official rules and regulations will be provided. Refer to the final tournament
+                                    regulations issued for this event.</p>
+                            </div>
+                        </div>
+                        <!-- 06 -->
+                        <div class="accordion-item">
+                            <button class="accordion-btn" aria-expanded="false">
+                                <span>06 â€” Cancellation</span>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <div class="accordion-content">
+                                <p>Registration cancellation and event changes. Refer to the final tournament
+                                    regulations issued for this event.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 10: REGISTRATION PANEL -->
+            <section class="registration-panel-section">
+                <div class="container">
+                    <div class="reg-panel">
+                        <h2>Ready <span class="text-gold">To Compete?</span></h2>
+                        <div class="reg-details">
+                            <div class="reg-detail">
+                                <span>Tournament</span>
+                                <span id="reg-title"></span>
+                            </div>
+                            <div class="reg-detail">
+                                <span>Date</span>
+                                <span id="reg-date"></span>
+                            </div>
+                            <div class="reg-detail">
+                                <span>Format</span>
+                                <span id="reg-format"></span>
+                            </div>
+                            <div class="reg-detail">
+                                <span>Status</span>
+                                <span id="reg-status"></span>
+                            </div>
+                        </div>
+                        <div class="reg-cta" id="dyn-reg-cta">
+                            <!-- CTA generated via JS -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 11: WHAT HAPPENS AFTER -->
+            <section class="registration-process section">
+                <div class="container text-center">
+                    <div class="section-header">
+                        <h2 >What Happens <span class="text-gold">After Registration</span></h2>
+                    </div>
+                    <div class="process-steps">
+                        <div class="proc-step">
+                            <div class="proc-num">01</div>
+                            <h4>REGISTER</h4>
+                            <p>Submit your tournament details.</p>
+                        </div>
+                        <div class="proc-step">
+                            <div class="proc-num">02</div>
+                            <h4>CONFIRM</h4>
+                            <p>Receive confirmation of your registration.</p>
+                        </div>
+                        <div class="proc-step">
+                            <div class="proc-num">03</div>
+                            <h4>PREPARE</h4>
+                            <p>Review the schedule, format, and guidelines.</p>
+                        </div>
+                        <div class="proc-step">
+                            <div class="proc-num">04</div>
+                            <h4>COMPETE</h4>
+                            <p>Arrive prepared and play with purpose.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 12: FAQ -->
+            <section class="tournament-accordions section bg-secondary">
+                <div class="container">
+                    <div class="section-header text-center">
+                        <h2 >Tournament <span class="text-gold">FAQ</span></h2>
+                    </div>
+                    <div class="accordion-container" id="dyn-faq">
+                        <!-- Generated via JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 13: RELATED TOURNAMENTS -->
+            <section class="related-tournaments section">
+                <div class="container">
+                    <div class="section-header text-center">
+                        <h2 >Explore More <span class="text-gold">Events</span></h2>
+                    </div>
+                    <div class="related-grid" id="dyn-related">
+                        <!-- Generated via JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 14: FINAL CTA -->
+            <section class="tournament-cta text-center"
+                style="background-color: #0B1220 !important; padding: 8rem 0; color: #ffffff;">
+                <div class="container">
+                    <h2
+                        >
+                        Make Your Next <span class="text-gold">Game Count.</span></h2>
+                    <p style="font-size: 1.2rem; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto 3rem;">
+                        Prepare with purpose, compete with confidence, and use every tournament as another step in your
+                        development.</p>
+                    <div class="hero-actions">
+                        <a href="#" id="dyn-final-btn" class="btn btn-primary">Register Now</a>
+                        <a href="tournaments.html" class="btn btn-outline-white">Explore More Tournaments</a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <div id="footer"></div>
+
+    <!-- JS -->
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // TOURNAMENT DATA
+            const tournamentsData = {
+                'rapid-open': {
+                    id: 'rapid-open',
+                    title: 'Strategix Rapid Open',
+                    category: 'Rapid',
+                    level: 'Open',
+                    status: 'Registration Open',
+                    format: 'Rapid Chess',
+                    date: '12 DEC 2026',
+                    location: 'Strategix Chess Center',
+                    description: 'A fast-paced competitive event designed for players looking to test practical decision-making under time pressure. This tournament offers an intense environment where quick calculation, sharp tactics, and instinct play a crucial role.',
+                    image: 'assets/images/competitive.jpg', // updated to existing image
+                    eligibility: [
+                        'Players of different experience levels',
+                        'Competitive chess players',
+                        'Players looking for practical tournament experience'
+                    ],
+                    related: ['young-strategists', 'classical-challenge', 'blitz-night']
+                },
+                'young-strategists': {
+                    id: 'young-strategists',
+                    title: 'Young Strategists Cup',
+                    category: 'Junior',
+                    level: 'Kids',
+                    status: 'Registration Open',
+                    format: 'Rapid',
+                    date: '19 DEC 2026',
+                    location: 'Strategix Chess Center',
+                    description: 'A structured competitive experience designed to help young players develop confidence and tournament discipline. It provides a supportive yet challenging environment where junior players can apply their training, learn from their mistakes, and experience the excitement of organized chess.',
+                    image: 'assets/images/focus.png', // updated to existing image
+                    eligibility: [
+                        'Young chess players',
+                        'Beginners and developing players',
+                        'Students ready for structured competition'
+                    ],
+                    related: ['rapid-open', 'classical-challenge', 'blitz-night']
+                },
+                'classical-challenge': {
+                    id: 'classical-challenge',
+                    title: 'Strategix Classical Challenge',
+                    category: 'Classical',
+                    level: 'Intermediate / Advanced',
+                    status: 'Coming Soon',
+                    format: 'Classical Chess',
+                    date: '10 JAN 2027',
+                    location: 'Strategix Chess Center',
+                    description: 'A longer-format event focused on calculation, strategic planning, and disciplined decision-making. Classical chess is the ultimate test of a player\'s understanding of the game. In this tournament, participants will have the time to dive deep into complex positions.',
+                    image: 'assets/images/strategy.jpg', // updated to existing image
+                    eligibility: [
+                        'Experienced intermediate players',
+                        'Advanced players',
+                        'Competitive participants'
+                    ],
+                    related: ['rapid-open', 'young-strategists', 'blitz-night']
+                },
+                'blitz-night': {
+                    id: 'blitz-night',
+                    title: 'Strategix Blitz Night',
+                    category: 'Blitz',
+                    level: 'Open',
+                    status: 'Coming Soon',
+                    format: 'Blitz',
+                    date: '24 JAN 2027',
+                    location: 'Strategix Chess Center',
+                    description: 'A fast competitive evening where players must make accurate decisions under intense time pressure. Blitz chess strips away the luxury of deep calculation and relies heavily on intuition, opening preparation, and reflex.',
+                    image: 'assets/images/chess-workshop.jpg', // updated to existing image
+                    eligibility: [
+                        'Players of different experience levels',
+                        'Competitive chess players',
+                        'Players looking for practical tournament experience'
+                    ],
+                    related: ['rapid-open', 'classical-challenge', 'young-strategists']
+                },
+                'summer-open': {
+                    id: 'summer-open',
+                    title: 'Strategix Summer Open (Completed)',
+                    date: 'AUG 2026',
+                    format: 'Classical Chess',
+                    status: 'Completed',
+                    desc: 'A rigorous classical event featuring highly competitive endgame battles.',
+                    about: [
+                        'This event set a new standard for our academy, with over 50 players competing in deep, grueling classical games.',
+                        'The endgame battles were particularly notable, showing a marked improvement in our advanced players\' resilience.'
+                    ],
+                    whoFor: [
+                        'Advanced players',
+                        'Academy students'
+                    ],
+                    related: ['classical-challenge']
+                },
+                'junior-challenge': {
+                    id: 'junior-challenge',
+                    title: 'Strategix Junior Challenge (Completed)',
+                    date: 'OCT 2026',
+                    format: 'Rapid Chess',
+                    status: 'Completed',
+                    desc: 'An inspiring display of emerging talent and fundamental tactical awareness.',
+                    about: [
+                        'Our younger students demonstrated incredible growth in tactical vision during this rapid event.',
+                        'It was a fantastic display of sportsmanship and competitive discipline from our junior divisions.'
+                    ],
+                    whoFor: [
+                        'Kids',
+                        'Beginner to Intermediate'
+                    ],
+                    related: ['young-strategists']
+                },
+                'blitz-champ': {
+                    id: 'blitz-champ',
+                    title: 'Strategix Blitz Championship (Completed)',
+                    date: 'NOV 2026',
+                    format: 'Blitz Chess',
+                    status: 'Completed',
+                    desc: 'A fast-paced evening defining quick calculation and robust opening prep.',
+                    about: [
+                        'With mere minutes on the clock, players had to rely on pure instinct and deeply ingrained preparation.',
+                        'The high-pressure environment revealed exactly where our players needed to sharpen their opening repertoires.'
+                    ],
+                    whoFor: [
+                        'Open to all levels',
+                        'Competitive participants'
+                    ],
+                    related: ['blitz-night']
+                }
+            };
+
+            const faqs = [
+                { q: 'Who can participate in this tournament?', a: 'Check the eligibility section above. Tournaments are open to students and outside players who meet the criteria.' },
+                { q: 'How do I register?', a: 'Click the "Register Now" button when registration is open. You will be redirected to the secure registration page.' },
+                { q: 'What should I bring?', a: 'Please review the "Come Prepared" checklist above. Clocks and boards are typically provided unless stated otherwise.' },
+                { q: 'When will the final schedule be published?', a: 'The final schedule will be published and emailed to registered participants 48 hours before the event.' },
+                { q: 'What happens if I cannot attend?', a: 'Please contact us at least 24 hours in advance to cancel your registration. Read the cancellation policy for refund details.' },
+                { q: 'Where can I find tournament rules?', a: 'Official FIDE or local federation rules apply depending on the tournament. A link to rules will be provided.' },
+                { q: 'Can beginners participate?', a: 'Yes, if the tournament level specifies "Beginner" or "Kids". Otherwise, we recommend our programs first.' },
+                { q: 'How will registration confirmation be provided?', a: 'You will receive an email confirmation and receipt immediately after completing the registration form.' }
+            ];
+
+            const params = new URLSearchParams(window.location.search);
+            const tId = params.get('tournament');
+
+            const errorState = document.getElementById('error-state');
+            const dynamicContent = document.getElementById('dynamic-content');
+
+            if (!tId || !tournamentsData[tId]) {
+                errorState.style.display = 'block';
+                return;
+            }
+
+            const data = tournamentsData[tId];
+            dynamicContent.style.display = 'block';
+            document.title = `${data.title} | Strategix`;
+
+            // 1. HERO
+            document.getElementById('dyn-hero-bg').style.backgroundImage = `url('${data.image}')`;
+
+            const badge = document.getElementById('dyn-status-badge');
+            badge.innerText = data.status;
+            if (data.status === 'Closed') badge.classList.add('closed');
+
+            const words = data.title.split(' ');
+            if (words.length > 1) {
+                const lastWord = words.pop();
+                const styledTitle = `${words.join(' ')} <span class="text-gold">${lastWord}</span>`;
+                document.getElementById('dyn-title').innerHTML = styledTitle;
+            } else {
+                document.getElementById('dyn-title').innerText = data.title;
+            }
+
+            document.getElementById('dyn-desc').innerText = data.description;
+            document.getElementById('dyn-meta-date').innerText = data.date;
+            document.getElementById('dyn-meta-format').innerText = data.format;
+            document.getElementById('dyn-meta-level').innerText = data.level;
+            document.getElementById('dyn-meta-loc').innerText = data.location;
+
+            const heroActions = document.getElementById('dyn-hero-actions');
+            let primaryBtnHtml = '';
+
+            if (data.status === 'Registration Open') {
+                primaryBtnHtml = `<a href="tournament-registration.html?tournament=${data.id}" class="btn btn-primary">Register For Tournament</a>`;
+            } else if (data.status === 'Coming Soon') {
+                primaryBtnHtml = `<a href="#" class="btn btn-primary" onclick="return false;" style="opacity:0.7; cursor:not-allowed;">Registration Opening Soon</a>`;
+            } else {
+                primaryBtnHtml = `<a href="#" class="btn btn-primary" onclick="return false;" style="opacity:0.7; cursor:not-allowed;">Registration Closed</a>`;
+            }
+
+            heroActions.innerHTML = `
+                ${primaryBtnHtml}
+                <a href="#guidelines" class="btn btn-outline-white">View Tournament Guidelines</a>
+            `;
+
+            // 2. SNAPSHOT
+            document.getElementById('snap-date').innerText = data.date;
+            document.getElementById('snap-format').innerText = data.format;
+            document.getElementById('snap-level').innerText = data.level;
+            document.getElementById('snap-loc').innerText = data.location;
+            document.getElementById('snap-status').innerText = data.status;
+
+            // 3. ABOUT
+            document.getElementById('dyn-about-desc').innerText = data.description;
+            document.getElementById('dyn-about-desc-2').innerText = "Participation in Strategix events goes beyond simply playing games. It provides an opportunity for rigorous evaluation, helping players identify specific areas for improvement.";
+            document.getElementById('dyn-about-desc-3').innerText = "Our tournaments are carefully structured to offer the most conducive environment for deep concentration and peak performance. By competing, you are joining a community of dedicated players who value strategy and discipline.";
+
+            // 4. ELIGIBILITY
+            const eligList = document.getElementById('dyn-eligibility');
+            data.eligibility.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="fa-solid fa-check"></i> ${item}`;
+                eligList.appendChild(li);
+            });
+
+            // 5. FORMAT
+            document.getElementById('info-format').innerText = data.format;
+
+            // 10. REGISTRATION PANEL
+            document.getElementById('reg-title').innerText = data.title;
+            document.getElementById('reg-date').innerText = data.date;
+            document.getElementById('reg-format').innerText = data.format;
+            document.getElementById('reg-status').innerText = data.status;
+
+            const regCta = document.getElementById('dyn-reg-cta');
+            if (data.status === 'Registration Open') {
+                regCta.innerHTML = `
+                    <a href="tournament-registration.html?tournament=${data.id}" class="btn btn-primary">Register Now</a>
+                    <a href="contact.html" class="btn btn-outline">Contact Strategix</a>
+                `;
+            } else if (data.status === 'Coming Soon') {
+                regCta.innerHTML = `
+                    <a href="#" class="btn btn-primary" onclick="return false;">Notify Me When Registration Opens</a>
+                    <a href="contact.html" class="btn btn-outline">Contact Strategix</a>
+                `;
+            } else {
+                regCta.innerHTML = `
+                    <a href="#" class="btn btn-primary" onclick="return false;" style="opacity:0.7; cursor:not-allowed;">Registration Closed</a>
+                    <a href="contact.html" class="btn btn-outline">Contact Strategix</a>
+                `;
+            }
+
+            // 12. FAQ
+            const faqContainer = document.getElementById('dyn-faq');
+            faqs.forEach((faq, index) => {
+                const faqDiv = document.createElement('div');
+                faqDiv.className = 'accordion-item';
+                faqDiv.innerHTML = `
+                    <button class="accordion-btn" aria-expanded="false">
+                        <span>${index + 1}. ${faq.q}</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>${faq.a}</p>
+                    </div>
+                `;
+                faqContainer.appendChild(faqDiv);
+            });
+
+            // 13. RELATED TOURNAMENTS
+            const relatedGrid = document.getElementById('dyn-related');
+            data.related.forEach(relId => {
+                if (tournamentsData[relId]) {
+                    const rel = tournamentsData[relId];
+                    const relCard = document.createElement('div');
+                    relCard.className = 'related-card';
+                    relCard.innerHTML = `
+                        <span class="related-cat">${rel.category}</span>
+                        <h4>${rel.title}</h4>
+                        <span class="related-date">${rel.date}</span>
+                        <p>${rel.description.substring(0, 70)}...</p>
+                        <a href="tournament-details.html?tournament=${relId}" class="btn btn-outline sm-btn">View Tournament</a>
+                    `;
+                    relatedGrid.appendChild(relCard);
+                }
+            });
+
+            // 14. FINAL CTA logic
+            const finalBtn = document.getElementById('dyn-final-btn');
+            if (data.status === 'Registration Open') {
+                finalBtn.href = `tournament-registration.html?tournament=${data.id}`;
+                finalBtn.innerText = 'Register Now';
+                finalBtn.style.opacity = "1";
+            } else if (data.status === 'Coming Soon') {
+                finalBtn.href = '#';
+                finalBtn.innerText = 'Registration Opening Soon';
+                finalBtn.style.opacity = "0.7";
+                finalBtn.onclick = () => false;
+            } else {
+                finalBtn.href = '#';
+                finalBtn.innerText = 'Registration Closed';
+                finalBtn.style.opacity = "0.7";
+                finalBtn.onclick = () => false;
+            }
+
+            // ACCORDION BEHAVIOR
+            const allAccordions = document.querySelectorAll('.accordion-btn');
+            allAccordions.forEach(acc => {
+                acc.addEventListener('click', function () {
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+                    // Close siblings
+                    const parentContainer = this.closest('.accordion-container');
+                    const siblings = parentContainer.querySelectorAll('.accordion-btn');
+                    siblings.forEach(sib => {
+                        sib.setAttribute('aria-expanded', 'false');
+                        sib.nextElementSibling.style.maxHeight = null;
+                        sib.querySelector('i').style.transform = "rotate(0deg)";
+                    });
+
+                    // Open clicked
+                    if (!isExpanded) {
+                        this.setAttribute('aria-expanded', 'true');
+                        this.querySelector('i').style.transform = "rotate(180deg)";
+                        const content = this.nextElementSibling;
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                });
+            });
+
+            // SCHEDULE TIMELINE ANIMATION
+            const scheduleItems = document.querySelectorAll('.schedule-item');
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('fade-in-up');
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                scheduleItems.forEach(item => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateY(20px)';
+                    item.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                    observer.observe(item);
+                });
+            }
+
+        });
+    </script>
+</body>
+
+</html>
+

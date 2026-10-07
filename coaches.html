@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coaches Dashboard | Strategy Chess Academy</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Boxicons for Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="icon" type="image/png" href="assets/strategix%20logo.png">
+</head>
+<body class="light-mode">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="assets/strategix logo.png" alt="Strategix" class="brand-logo">
+                </div>
+                <button id="close-sidebar-btn" class="close-sidebar-btn d-lg-none"><i class='bx bx-x'></i></button>
+            </div>
+            
+            <div class="sidebar-menu">
+                <!-- Main Navigation -->
+                <div class="menu-category">Overview</div>
+                <a href="admin-dashboard.html" class="menu-item"><i class='bx bx-grid-alt'></i> <span>Dashboard</span></a>
+                
+                <div class="menu-category">Student Management</div>
+                <a href="students.html" class="menu-item"><i class='bx bx-user'></i> <span>Students</span></a>
+                <a href="attendance.html" class="menu-item"><i class='bx bx-check-square'></i> <span>Attendance</span></a>
+                
+                <div class="menu-category">Coaching</div>
+                <a href="coaches.html" class="menu-item active"><i class='bx bx-chalkboard'></i> <span>Coaches</span></a>
+                <a href="admin-programs.html" class="menu-item"><i class='bx bx-book'></i> <span>Programs</span></a>
+                <div class="menu-category">Batch Management</div>
+                <a href="batches.html" class="menu-item"><i class='bx bx-group'></i> <span>Batches</span></a>
+                <a href="schedule.html" class="menu-item"><i class='bx bx-calendar-event'></i> <span>Schedule</span></a>
+                
+                <div class="menu-category">Tournament Management</div>
+                <a href="admin-tournaments.html" class="menu-item"><i class='bx bx-trophy'></i> <span>Tournaments</span></a>
+                <a href="bookings.html" class="menu-item"><i class='bx bx-receipt'></i> <span>Bookings</span></a>
+                <a href="payments.html" class="menu-item"><i class='bx bx-wallet'></i> <span>Payments</span></a>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="admin-profile-sm">
+                    <img src="https://i.pravatar.cc/150?img=11" alt="Admin" class="avatar">
+                    <div class="admin-info">
+                        <span class="admin-name">Admin User</span>
+                        <span class="admin-role">Super Admin</span>
+                    </div>
+                </div>
+                <div class="sidebar-actions">
+                    <button id="theme-toggle" class="action-btn" title="Toggle Theme"><i class='bx bx-moon'></i></button>
+                    <button id="direction-toggle" class="action-btn" title="Toggle RTL/LTR"><i class='bx bx-right-indent'></i></button>
+                    <a href="login.html" class="action-btn text-danger" title="Logout"><i class='bx bx-log-out'></i></a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="main-content">
+            <!-- Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button id="sidebar-toggle" class="sidebar-toggle"><i class='bx bx-menu'></i></button>
+                    <div class="breadcrumbs">
+                        <span class="crumb">Dashboard</span> <span class="separator">/</span> <span class="crumb active">Coaches</span>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="search-bar">
+                        <i class='bx bx-search'></i>
+                        <input type="text" placeholder="Search students, batches, etc...">
+                    </div>
+                    <div class="header-profile" id="profileDropdownBtn">
+                        <img src="https://i.pravatar.cc/150?img=11" alt="Admin" class="avatar">
+                        <span class="admin-name d-none d-md-block">Admin User <i class='bx bx-chevron-down'></i></span>
+                        <div class="dropdown-menu" id="profileDropdown">
+                            <a href="#"><i class='bx bx-user'></i> My Profile</a>
+                            <a href="#"><i class='bx bx-cog'></i> Account Settings</a>
+                            <div class="divider"></div>
+                            <a href="login.html" class="text-danger"><i class='bx bx-log-out'></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                
+                <!-- Welcome Section & Quick Actions -->
+                <div class="page-header">
+                    <div class="header-text">
+                        <h1 class="page-title">Coaches Management</h1>
+                        <p class="page-subtitle">Manage your academy's coaching staff, their schedules, and performance.</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-primary" id="add-coach-btn"><i class='bx bx-plus'></i> Add Coach</button>
+                    </div>
+                </div>
+
+                <!-- KPI Cards -->
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-icon"><i class='bx bx-chalkboard'></i></div>
+                        <div class="kpi-details">
+                            <span class="kpi-label">Total Coaches</span>
+                            <h3 class="kpi-value">24</h3>
+                        </div>
+                        <div class="kpi-trend positive"><i class='bx bx-user-plus'></i> 2 new this month</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon icon-success"><i class='bx bx-group'></i></div>
+                        <div class="kpi-details">
+                            <span class="kpi-label">Active Sessions</span>
+                            <h3 class="kpi-value">12</h3>
+                        </div>
+                        <div class="kpi-trend positive"><i class='bx bx-check'></i> Ongoing now</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon icon-warning"><i class='bx bx-star'></i></div>
+                        <div class="kpi-details">
+                            <span class="kpi-label">Avg Rating</span>
+                            <h3 class="kpi-value">4.8/5</h3>
+                        </div>
+                        <div class="kpi-trend positive"><i class='bx bx-trending-up'></i> Excellent feedback</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon icon-danger"><i class='bx bx-user-circle'></i></div>
+                        <div class="kpi-details">
+                            <span class="kpi-label">Available Coaches</span>
+                            <h3 class="kpi-value">5</h3>
+                        </div>
+                        <div class="kpi-trend neutral"><i class='bx bx-minus'></i> Ready to assign</div>
+                    </div>
+                </div>
+
+
+
+                <!-- Coaches Table -->
+                <div class="data-card mt-4">
+                    <div class="card-header">
+                        <h3 class="card-title">Coaches Directory</h3>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Coach</th>
+                                    <th>Title/FIDE Rating</th>
+                                    <th>Specialty</th>
+                                    <th>Active Batches</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="table-user">
+                                            <img src="https://i.pravatar.cc/150?img=11" alt="">
+                                            <div>
+                                                <div class="user-name">Grandmaster Petrov</div>
+                                                <div class="user-email">petrov@example.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>GM (2650)</td>
+                                    <td>Opening Theory</td>
+                                    <td>4 Batches</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="table-user">
+                                            <img src="https://i.pravatar.cc/150?img=33" alt="">
+                                            <div>
+                                                <div class="user-name">Daniel Martinez</div>
+                                                <div class="user-email">daniel.m@example.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>IM (2420)</td>
+                                    <td>Endgame Strategy</td>
+                                    <td>6 Batches</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="table-user">
+                                            <img src="https://i.pravatar.cc/150?img=47" alt="">
+                                            <div>
+                                                <div class="user-name">Sarah Kim</div>
+                                                <div class="user-email">sarah.k@example.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>WGM (2380)</td>
+                                    <td>Tactics & Calculation</td>
+                                    <td>3 Batches</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+    
+    <!-- Add Coach Modal -->
+    <div class="modal-overlay" id="add-coach-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Add New Coach</h3>
+                <button class="close-modal"><i class='bx bx-x'></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="add-coach-form">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="coach-name" required placeholder="Enter coach name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="coach-email" required placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label>Title/FIDE Rating</label>
+                        <input type="text" id="coach-title" required placeholder="e.g., GM (2650)">
+                    </div>
+                    <div class="form-group">
+                        <label>Specialty</label>
+                        <select id="coach-specialty">
+                            <option value="Opening Theory">Opening Theory</option>
+                            <option value="Endgame Strategy">Endgame Strategy</option>
+                            <option value="Tactics & Calculation">Tactics & Calculation</option>
+                            <option value="Positional Play">Positional Play</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Profile Picture</label>
+                        <input type="file" id="coach-media" accept="image/*" class="form-control" style="padding: 0.5rem; background: var(--bg-color); border: 1px solid var(--border-color); border-radius: var(--border-radius); color: var(--text-color); width: 100%;">
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-secondary close-modal-btn">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Add Coach</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="js/admin.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament Registration - Strategix</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tournament-registration.css">
+    <link rel="icon" type="image/png" href="assets/strategix%20logo.png">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <div id="navbar"></div>
+
+    <main id="main-content">
+        
+        <!-- INVALID TOURNAMENT STATE -->
+        <section id="invalid-state" class="container" style="display: none;">
+            <h2>Tournament <span class="text-gold">Not Found</span></h2>
+            <p>We couldn't find the tournament you are trying to register for.</p>
+            <a href="tournaments.html" class="btn btn-primary">Back To Tournaments</a>
+        </section>
+
+        <!-- CLOSED STATE -->
+        <section id="closed-state" class="container" style="display: none;">
+            <h2>Registration <span class="text-gold">Closed</span></h2>
+            <p>Registration for this tournament is no longer available.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+                <a href="tournaments.html" class="btn btn-primary">Explore Other Tournaments</a>
+                <a href="contact.html" class="btn btn-outline">Contact Strategix</a>
+            </div>
+        </section>
+
+        <!-- COMING SOON STATE -->
+        <section id="coming-soon-state" class="container" style="display: none;">
+            <h2>Registration <span class="text-gold">Opening Soon</span></h2>
+            <p>Registration for this event has not opened yet.</p>
+            <a href="tournaments.html" id="btn-view-details" class="btn btn-primary">View Tournament Details</a>
+        </section>
+
+        <!-- VALID REGISTRATION STATE -->
+        <div id="valid-state" style="display: none;">
+            
+            <!-- HERO -->
+            <section class="registration-hero">
+                <div class="container text-center">
+                    <div class="hero-breadcrumb">
+                        <a href="tournaments.html">Tournaments</a>
+                        <span>/</span>
+                        <a href="#" id="bread-details">Tournament Details</a>
+                        <span>/</span>
+                        Registration
+                    </div>
+                    <div class="section-label text-center-inline" style="color: var(--gold); border-color: var(--gold);">TOURNAMENT REGISTRATION</div>
+                    <h1>Register For Your <span class="text-gold">Next Challenge.</span></h1>
+                    <p style="margin: 0 auto;">Complete the details below to register your place for the selected Strategix tournament.</p>
+                </div>
+            </section>
+
+            <!-- MAIN REGISTRATION AREA -->
+            <div class="container registration-layout">
+                
+                <!-- LEFT COLUMN -->
+                <div class="registration-form-area">
+                    
+                    <!-- PROGRESS -->
+                    <div class="progress-container">
+                        <div class="mobile-progress" id="mobile-progress">Step 1 of 3 - Player Details</div>
+                        <div class="progress-steps" id="progress-desktop">
+                            <div class="progress-line" id="progress-line" style="width: 0%;"></div>
+                            <div class="step active" id="step-1">
+                                <div class="step-num">01</div>
+                                <div class="step-label">PLAYER DETAILS</div>
+                            </div>
+                            <div class="step" id="step-2">
+                                <div class="step-num">02</div>
+                                <div class="step-label">TOURNAMENT DETAILS</div>
+                            </div>
+                            <div class="step" id="step-3">
+                                <div class="step-num">03</div>
+                                <div class="step-label">REVIEW</div>
+                            </div>
+                            <div class="step" id="step-4">
+                                <div class="step-num"><i class="fa-solid fa-check"></i></div>
+                                <div class="step-label">CONFIRMATION</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FORM -->
+                    <form id="registration-form" novalidate>
+                        
+                        <!-- SEC 4: PLAYER INFO -->
+                        <div class="form-section">
+                            <h3>Player Information</h3>
+                            <p>Enter the details of the participant who will take part in the tournament.</p>
+                            
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label" for="firstName">First Name <span class="req">*</span></label>
+                                    <input type="text" id="firstName" class="form-control" required aria-describedby="err-firstName">
+                                    <div class="error-message" id="err-firstName">First name is required.</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="lastName">Last Name <span class="req">*</span></label>
+                                    <input type="text" id="lastName" class="form-control" required aria-describedby="err-lastName">
+                                    <div class="error-message" id="err-lastName">Last name is required.</div>
+                                </div>
+
+                                <div class="form-group full-width">
+                                    <label class="form-label" for="dob">Date of Birth <span class="req">*</span></label>
+                                    <input type="date" id="dob" class="form-control" required aria-describedby="err-dob">
+                                    <div class="error-message" id="err-dob">Date of birth is required.</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="email">Email Address <span class="req">*</span></label>
+                                    <input type="email" id="email" class="form-control" required aria-describedby="err-email">
+                                    <div class="error-message" id="err-email">Valid email is required.</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="phone">Phone Number <span class="req">*</span></label>
+                                    <input type="tel" id="phone" class="form-control" required aria-describedby="err-phone">
+                                    <div class="error-message" id="err-phone">Phone number is required.</div>
+                                </div>
+
+                                <div class="form-group full-width">
+                                    <label class="form-label" for="rating">Player Rating (Optional)</label>
+                                    <input type="text" id="rating" class="form-control" placeholder="e.g. FIDE 1500, USCF 1200">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="chesscom">Chess.com Username (Optional)</label>
+                                    <input type="text" id="chesscom" class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="lichess">Lichess Username (Optional)</label>
+                                    <input type="text" id="lichess" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SEC 5: PLAYER LEVEL -->
+                        <div class="form-section">
+                            <h3>Playing Information</h3>
+                            
+                            <div class="form-grid">
+                                <div class="form-group full-width">
+                                    <label class="form-label" for="playingLevel">Current Playing Level <span class="req">*</span></label>
+                                    <select id="playingLevel" class="form-control" required aria-describedby="err-playingLevel">
+                                        <option value="" disabled selected>Select level</option>
+                                        <option value="Beginner">Beginner</option>
+                                        <option value="Intermediate">Intermediate</option>
+                                        <option value="Advanced">Advanced</option>
+                                        <option value="Competitive">Competitive</option>
+                                    </select>
+                                    <div class="error-message" id="err-playingLevel">Please select a playing level.</div>
+                                </div>
+
+                                <div class="form-group full-width">
+                                    <label class="form-label" for="chessExp">Chess Experience <span class="req">*</span></label>
+                                    <select id="chessExp" class="form-control" required aria-describedby="err-chessExp">
+                                        <option value="" disabled selected>Select experience</option>
+                                        <option value="Less than 1 year">Less than 1 year</option>
+                                        <option value="1-2 years">1â€“2 years</option>
+                                        <option value="3-5 years">3â€“5 years</option>
+                                        <option value="5+ years">5+ years</option>
+                                    </select>
+                                    <div class="error-message" id="err-chessExp">Please select your experience.</div>
+                                </div>
+
+                                <div class="form-group full-width">
+                                    <label class="form-label" for="tourExp">Tournament Experience</label>
+                                    <select id="tourExp" class="form-control">
+                                        <option value="" disabled selected>Select tournament experience</option>
+                                        <option value="First tournament">First tournament</option>
+                                        <option value="Some tournament experience">Some tournament experience</option>
+                                        <option value="Regular tournament player">Regular tournament player</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SEC 6: EMERGENCY / GUARDIAN -->
+                        <div class="form-section">
+                            <h3>Additional Details</h3>
+                            
+                            <label class="checkbox-group" for="isUnder18">
+                                <input type="checkbox" id="isUnder18">
+                                <span class="checkbox-label">I am registering a participant under 18.</span>
+                            </label>
+
+                            <div id="guardian-fields" style="display: none; margin-top: 1.5rem;">
+                                <div class="form-grid">
+                                    <div class="form-group full-width">
+                                        <label class="form-label" for="guardName">Guardian Name <span class="req">*</span></label>
+                                        <input type="text" id="guardName" class="form-control" aria-describedby="err-guardName">
+                                        <div class="error-message" id="err-guardName">Guardian name is required.</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="guardPhone">Guardian Phone <span class="req">*</span></label>
+                                        <input type="tel" id="guardPhone" class="form-control" aria-describedby="err-guardPhone">
+                                        <div class="error-message" id="err-guardPhone">Guardian phone is required.</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="guardEmail">Guardian Email <span class="req">*</span></label>
+                                        <input type="email" id="guardEmail" class="form-control" aria-describedby="err-guardEmail">
+                                        <div class="error-message" id="err-guardEmail">Guardian email is required.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SEC 7: AGREEMENT -->
+                        <div class="form-section">
+                            <h3>Tournament Agreement</h3>
+                            
+                            <label class="checkbox-group" for="agreeAccurate">
+                                <input type="checkbox" id="agreeAccurate" required>
+                                <span class="checkbox-label">I confirm that the information provided is accurate. <span class="req">*</span></span>
+                            </label>
+                            
+                            <label class="checkbox-group" for="agreeRules">
+                                <input type="checkbox" id="agreeRules" required>
+                                <span class="checkbox-label">I agree to follow the <a href="#" style="color: var(--gold); text-decoration: underline;">tournament guidelines</a> and player conduct requirements. <span class="req">*</span></span>
+                            </label>
+
+                            <label class="checkbox-group" for="agreePolicy">
+                                <input type="checkbox" id="agreePolicy" required>
+                                <span class="checkbox-label">I understand that tournament registration is subject to the event's registration and <a href="#" style="color: var(--gold); text-decoration: underline;">cancellation policies</a>. <span class="req">*</span></span>
+                            </label>
+                            
+                            <div class="error-message" id="err-agreements" style="margin-bottom: 1.5rem;">Please check all required agreements.</div>
+
+                            <button type="button" id="btn-continue" class="btn btn-primary" style="width: 100%;">Continue to Review</button>
+                        </div>
+                    </form>
+
+                    <!-- SEC 10: REVIEW -->
+                    <div id="review-section" style="display: none;">
+                        <div class="form-section">
+                            <h3>Review Your Registration</h3>
+                            <p>Please confirm your details before submitting your registration.</p>
+                            
+                            <div class="review-grid">
+                                <div class="review-item">
+                                    <label>Player</label>
+                                    <span id="rev-name"></span>
+                                </div>
+                                <div class="review-item">
+                                    <label>Date of Birth</label>
+                                    <span id="rev-dob"></span>
+                                </div>
+                                <div class="review-item">
+                                    <label>Email</label>
+                                    <span id="rev-email"></span>
+                                </div>
+                                <div class="review-item">
+                                    <label>Phone</label>
+                                    <span id="rev-phone"></span>
+                                </div>
+                                <div class="review-item">
+                                    <label>Level</label>
+                                    <span id="rev-level"></span>
+                                </div>
+                                <div class="review-item" id="rev-guardian-box" style="display: none;">
+                                    <label>Guardian</label>
+                                    <span id="rev-guardian"></span>
+                                </div>
+                                
+                                <div style="grid-column: 1 / -1; height: 1px; background: var(--border); margin: 1rem 0;"></div>
+                                
+                                <div class="review-item">
+                                    <label>Tournament</label>
+                                    <span id="rev-tour-name"></span>
+                                </div>
+                                <div class="review-item">
+                                    <label>Date</label>
+                                    <span id="rev-tour-date"></span>
+                                </div>
+                                <div class="review-item">
+                                    <label>Format</label>
+                                    <span id="rev-tour-format"></span>
+                                </div>
+                                <div class="review-item">
+                                    <label>Location</label>
+                                    <span id="rev-tour-loc"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="review-actions">
+                                <button type="button" id="btn-back" class="btn btn-outline">Back To Edit</button>
+                                <button type="button" id="btn-submit" class="btn btn-primary">Continue To Payment</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEC 10.5: PAYMENT -->
+                    <div id="payment-section" style="display: none;" class="payment-section">
+                        <h3>Registration Payment</h3>
+                        <p>Complete your payment to secure your spot in the tournament.</p>
+                        
+                        <div class="payment-amount">
+                            Total: <span id="pay-amt"></span>
+                        </div>
+                        
+                        <div class="payment-actions">
+                            <button type="button" id="btn-back-review" class="btn btn-outline">Back To Review</button>
+                            <button type="button" id="btn-pay" class="btn btn-primary">Pay & Confirm</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN: SUMMARY -->
+                <div class="summary-wrapper" id="summary-sidebar">
+                    <div class="summary-card">
+                        <h3>Your Tournament</h3>
+                        <div class="summary-item">
+                            <span>Tournament</span>
+                            <span id="sum-title">Loading...</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Date</span>
+                            <span id="sum-date">Loading...</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Format</span>
+                            <span id="sum-format">Loading...</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Level</span>
+                            <span id="sum-level">Loading...</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Location</span>
+                            <span id="sum-location">Loading...</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Status</span>
+                            <span class="text-gold">Loading...</span>
+                        </div>
+                        
+                        <div class="summary-fee">
+                            <span class="fee-label">Registration Fee</span>
+                            <span class="fee-amount" id="sum-fee">To be announced</span>
+                        </div>
+
+                        <div class="summary-actions">
+                            <a href="tournaments.html" class="btn btn-outline" style="width: 100%;">Change Tournament</a>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-help">
+                        Need help? <a href="contact.html">Contact Strategix</a>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- END VALID STATE -->
+
+        <!-- SEC 12: SUCCESS STATE -->
+        <section id="success-state" style="display: none;">
+            <div class="container success-container">
+                <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+                <h2>Registration <span class="text-gold">Submitted.</span></h2>
+                <p>Your tournament registration details have been received.</p>
+                
+                <div class="success-details">
+                    <div class="summary-item">
+                        <span>Tournament</span>
+                        <span id="succ-tour"></span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Participant</span>
+                        <span id="succ-name"></span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Date</span>
+                        <span id="succ-date"></span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Registration ID</span>
+                        <span class="text-gold"></span>
+                    </div>
+                </div>
+
+                <div class="success-actions">
+                    <a href="tournaments.html" class="btn btn-outline">Return To Tournaments</a>
+                    <a href="user-dashboard.html" class="btn btn-primary">View Your Dashboard</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEC 13: WHAT HAPPENS NEXT -->
+        <section class="next-steps">
+            <div class="container text-center">
+                <h2 >What Happens <span class="text-gold">Next</span></h2>
+                <div class="next-steps-grid text-start">
+                    <div class="next-step-card">
+                        <span>01 &mdash; CONFIRMATION</span>
+                        <h4>Information Reviewed</h4>
+                        <p>Your registration information is reviewed by the tournament director.</p>
+                    </div>
+                    <div class="next-step-card">
+                        <span>02 &mdash; EVENT INFO</span>
+                        <h4>Final Instructions</h4>
+                        <p>Final tournament instructions are shared directly to your email.</p>
+                    </div>
+                    <div class="next-step-card">
+                        <span>03 &mdash; PREPARE</span>
+                        <h4>Review Guidelines</h4>
+                        <p>Review the event format, time controls, and conduct guidelines.</p>
+                    </div>
+                    <div class="next-step-card">
+                        <span>04 &mdash; COMPETE</span>
+                        <h4>Take Your Place</h4>
+                        <p>Arrive prepared and take your place at the board on tournament day.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEC 14: REGISTRATION FAQ -->
+        <section class="reg-faq bg-primary">
+            <div class="container">
+                <div class="section-header text-center mx-auto">
+                    <h2 >Registration <span class="text-gold">FAQ</span></h2>
+                </div>
+                
+                <div class="faq-accordion" id="regFaq">
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            1. Can beginners register?
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes, absolutely. We have dedicated tournaments and sections specifically designed for beginners to experience structured competition in a welcoming environment.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            2. Can I edit my registration later?
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Once submitted, you will need to contact our team to make any adjustments to your registration details.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            3. What happens after I submit the form?
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Your details are reviewed by the tournament director, and you will receive a confirmation email with final instructions and any payment details if applicable.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            4. Will I receive a confirmation?
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes, a confirmation email will be sent to the address provided during registration once it has been processed.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            5. What should I bring to the tournament?
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Boards and pieces are usually provided. Depending on the event, you may be required to bring your own chess clock. This will be specified in the final instructions.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            6. Can I cancel my registration?
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes, but cancellation policies vary per event. Please review the specific event guidelines or contact us directly.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            7. Who should I contact if I have a question?
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>You can reach our tournament organizers through the Contact Strategix page or by calling our center directly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEC 15: NEED HELP -->
+        <section class="support-section">
+            <div class="container">
+                <h2 >Need Help Before <span class="text-gold">Registering?</span></h2>
+                <p>If you are unsure which tournament is right for you or need clarification about registration, contact the Strategix team.</p>
+                <div class="support-actions">
+                    <a href="contact.html" class="btn btn-primary">Contact Strategix</a>
+                    <a href="tournaments.html" class="btn btn-outline" style="border-color: rgba(255,255,255,0.3); color: #fff;">View Tournaments</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <div id="footer"></div>
+
+    <!-- MAIN SCRIPT -->
+    <script src="js/main.js"></script>
+
+    <!-- PAGE LOGIC -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // FAQ Accordion
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(q => {
+                q.addEventListener('click', function() {
+                    const expanded = this.getAttribute('aria-expanded') === 'true';
+                    // Close all
+                    faqQuestions.forEach(btn => {
+                        btn.setAttribute('aria-expanded', 'false');
+                        btn.nextElementSibling.style.maxHeight = null;
+                    });
+                    // Toggle current
+                    if (!expanded) {
+                        this.setAttribute('aria-expanded', 'true');
+                        this.nextElementSibling.style.maxHeight = this.nextElementSibling.scrollHeight + "px";
+                    }
+                });
+            });
+
+            // Demo Tournament Data
+            const tournamentsData = {
+                'rapid-open': {
+                    id: 'rapid-open',
+                    title: 'Strategix Rapid Open',
+                    category: 'Rapid',
+                    level: 'Open',
+                    status: 'Registration Open',
+                    format: 'Rapid Chess',
+                    date: '12 DEC 2026',
+                    location: 'Strategix Chess Center',
+                    registrationFee: 'â‚¹999'
+                },
+                'young-strategists': {
+                    id: 'young-strategists',
+                    title: 'Young Strategists U-14',
+                    category: 'Junior',
+                    level: 'Under 14',
+                    status: 'Registration Open',
+                    format: 'Classical Chess',
+                    date: '18 DEC 2026',
+                    location: 'Strategix Chess Center',
+                    registrationFee: 'â‚¹500'
+                },
+                'classical-challenge': {
+                    id: 'classical-challenge',
+                    title: 'Strategix Classical Challenge',
+                    category: 'Classical',
+                    level: 'Advanced',
+                    status: 'Coming Soon',
+                    format: 'Classical Chess',
+                    date: '15 JAN 2027',
+                    location: 'Strategix Grand Hall',
+                    registrationFee: 'â‚¹1500'
+                },
+                'blitz-night': {
+                    id: 'blitz-night',
+                    title: 'Friday Blitz Night',
+                    category: 'Blitz',
+                    level: 'Open',
+                    status: 'Closed',
+                    format: 'Blitz Chess',
+                    date: '05 DEC 2026',
+                    location: 'Strategix Chess Center',
+                    registrationFee: 'Free'
+                }
+            };
+
+            // URL Params
+            const params = new URLSearchParams(window.location.search);
+            const tournamentId = params.get('tournament');
+            const tournament = tournamentId ? tournamentsData[tournamentId] : null;
+
+            // Elements
+            const validState = document.getElementById('valid-state');
+            const invalidState = document.getElementById('invalid-state');
+            const closedState = document.getElementById('closed-state');
+            const comingSoonState = document.getElementById('coming-soon-state');
+            
+            if (!tournament) {
+                invalidState.style.display = 'block';
+                return;
+            }
+
+            if (tournament.status === 'Closed') {
+                closedState.style.display = 'block';
+                return;
+            }
+
+            if (tournament.status === 'Coming Soon') {
+                comingSoonState.style.display = 'block';
+                document.getElementById('btn-view-details').href = `tournament-details.html?tournament=${tournamentId}`;
+                return;
+            }
+
+            // Valid & Open
+            validState.style.display = 'block';
+            
+            // Populate Summary & Breadcrumb
+            document.getElementById('bread-details').href = `tournament-details.html?tournament=${tournamentId}`;
+            document.getElementById('sum-title').textContent = tournament.title;
+            document.getElementById('sum-date').textContent = tournament.date;
+            document.getElementById('sum-format').textContent = tournament.format;
+            document.getElementById('sum-level').textContent = tournament.level;
+            document.getElementById('sum-location').textContent = tournament.location;
+            document.getElementById('sum-status').textContent = tournament.status;
+            
+            if (tournament.registrationFee) {
+                document.getElementById('sum-fee').textContent = tournament.registrationFee;
+            }
+
+            // Guardian Checkbox Logic
+            const checkUnder18 = document.getElementById('isUnder18');
+            const guardianFields = document.getElementById('guardian-fields');
+            const guardInputs = ['guardName', 'guardPhone', 'guardEmail'];
+            
+            checkUnder18.addEventListener('change', (e) => {
+                guardianFields.style.display = e.target.checked ? 'block' : 'none';
+                guardInputs.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (e.target.checked) el.setAttribute('required', 'true');
+                    else el.removeAttribute('required');
+                });
+            });
+
+            // Form Validation & Navigation Logic
+            const form = document.getElementById('registration-form');
+            const reviewSec = document.getElementById('review-section');
+            const paymentSec = document.getElementById('payment-section');
+            const sidebar = document.getElementById('summary-sidebar');
+            const successState = document.getElementById('success-state');
+            const btnContinue = document.getElementById('btn-continue');
+            const btnBack = document.getElementById('btn-back');
+            const btnSubmit = document.getElementById('btn-submit');
+            const btnBackReview = document.getElementById('btn-back-review');
+            const btnPay = document.getElementById('btn-pay');
+            
+            // Progress
+            const line = document.getElementById('progress-line');
+            const step1 = document.getElementById('step-1');
+            const step2 = document.getElementById('step-2');
+            const step3 = document.getElementById('step-3');
+            const step4 = document.getElementById('step-4');
+            const mobileProg = document.getElementById('mobile-progress');
+
+            function showError(input, show) {
+                if (show) {
+                    input.classList.add('is-invalid');
+                    input.setAttribute('aria-invalid', 'true');
+                } else {
+                    input.classList.remove('is-invalid');
+                    input.setAttribute('aria-invalid', 'false');
+                }
+            }
+
+            btnContinue.addEventListener('click', () => {
+                let isValid = true;
+                
+                // Text Inputs
+                const reqInputs = ['firstName', 'lastName', 'dob', 'email', 'phone'];
+                if (checkUnder18.checked) reqInputs.push(...guardInputs);
+                
+                reqInputs.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (!el.value.trim() || !el.checkValidity()) {
+                        showError(el, true);
+                        isValid = false;
+                    } else {
+                        showError(el, false);
+                    }
+                });
+
+                // Selects
+                ['playingLevel', 'chessExp'].forEach(id => {
+                    const el = document.getElementById(id);
+                    if (!el.value) {
+                        showError(el, true);
+                        isValid = false;
+                    } else {
+                        showError(el, false);
+                    }
+                });
+
+                // Checkboxes
+                const agrees = [document.getElementById('agreeAccurate'), document.getElementById('agreeRules'), document.getElementById('agreePolicy')];
+                const errAgree = document.getElementById('err-agreements');
+                let agreesValid = true;
+                agrees.forEach(ch => {
+                    if (!ch.checked) agreesValid = false;
+                });
+                
+                if (!agreesValid) {
+                    errAgree.style.display = 'block';
+                    isValid = false;
+                } else {
+                    errAgree.style.display = 'none';
+                }
+
+                if (isValid) {
+                    // Populate Review Data
+                    document.getElementById('rev-name').textContent = `${document.getElementById('firstName').value} ${document.getElementById('lastName').value}`;
+                    document.getElementById('rev-dob').textContent = document.getElementById('dob').value;
+                    document.getElementById('rev-email').textContent = document.getElementById('email').value;
+                    document.getElementById('rev-phone').textContent = document.getElementById('phone').value;
+                    document.getElementById('rev-level').textContent = document.getElementById('playingLevel').value;
+                    
+                    if (checkUnder18.checked) {
+                        document.getElementById('rev-guardian-box').style.display = 'flex';
+                        document.getElementById('rev-guardian').textContent = `${document.getElementById('guardName').value} (${document.getElementById('guardPhone').value})`;
+                    } else {
+                        document.getElementById('rev-guardian-box').style.display = 'none';
+                    }
+
+                    document.getElementById('rev-tour-name').textContent = tournament.title;
+                    document.getElementById('rev-tour-date').textContent = tournament.date;
+                    document.getElementById('rev-tour-format').textContent = tournament.format;
+                    document.getElementById('rev-tour-loc').textContent = tournament.location;
+
+                    // Swap Views
+                    form.style.display = 'none';
+                    reviewSec.style.display = 'block';
+                    
+                    // Update Progress
+                    step1.classList.remove('active');
+                    step1.classList.add('completed');
+                    step2.classList.remove('active');
+                    step2.classList.add('completed');
+                    step3.classList.add('active');
+                    line.style.width = '66%';
+                    mobileProg.textContent = 'Step 3 of 3 - Review';
+                    
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+
+            btnBack.addEventListener('click', () => {
+                reviewSec.style.display = 'none';
+                form.style.display = 'block';
+                
+                step3.classList.remove('active');
+                step2.classList.remove('completed');
+                step2.classList.add('active');
+                line.style.width = '33%';
+                mobileProg.textContent = 'Step 2 of 3 - Tournament Details';
+                
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            btnSubmit.addEventListener('click', () => {
+                // Move from Review to Payment
+                reviewSec.style.display = 'none';
+                paymentSec.style.display = 'block';
+                
+                // Update amount display
+                const feeText = tournament.registrationFee || 'Free';
+                document.getElementById('pay-amt').textContent = feeText;
+                
+                if (feeText === 'Free' || feeText === 'To be announced') {
+                    btnPay.textContent = "Confirm Registration";
+                } else {
+                    btnPay.textContent = `Pay ${feeText} & Confirm`;
+                }
+
+                // Update Progress (Wait at step 3, or maybe activate step 4)
+                mobileProg.textContent = 'Step 3 of 3 - Payment';
+                
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            btnBackReview.addEventListener('click', () => {
+                paymentSec.style.display = 'none';
+                reviewSec.style.display = 'block';
+                mobileProg.textContent = 'Step 3 of 3 - Review';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            btnPay.addEventListener('click', () => {
+                // Final Submit after Payment
+                validState.style.display = 'none';
+                successState.style.display = 'block';
+                
+                // Generate Demo ID
+                const demoId = 'STRX-' + new Date().getFullYear() + '-' + Math.floor(Math.random() * 900 + 100);
+                
+                document.getElementById('succ-tour').textContent = tournament.title;
+                document.getElementById('succ-name').textContent = `${document.getElementById('firstName').value} ${document.getElementById('lastName').value}`;
+                document.getElementById('succ-date').textContent = tournament.date;
+                document.getElementById('succ-id').textContent = demoId;
+                
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            // Initial Progress
+            setTimeout(() => {
+                if(validState.style.display === 'block') {
+                    line.style.width = '33%';
+                    step2.classList.add('active');
+                    mobileProg.textContent = 'Step 2 of 3 - Tournament Details';
+                }
+            }, 500);
+        });
+    </script>
+</body>
+</html>
+
+

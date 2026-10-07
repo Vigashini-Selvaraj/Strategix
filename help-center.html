@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center | Strategix</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="assets/strategix%20logo.png">
+    <style>
+        body { background-color: var(--bg-primary); color: var(--text-primary); }
+        .page-header { padding: 6rem 2rem; text-align: center; border-bottom: 1px solid var(--border); background: var(--bg-secondary); }
+        .page-header h1 { color: var(--accent); font-family: var(--font-heading); font-size: 3.5rem; margin-bottom: 1.5rem; }
+        
+        .search-container { max-width: 600px; margin: 0 auto; position: relative; }
+        .search-container input { width: 100%; padding: 1.2rem 3rem 1.2rem 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border); background: var(--bg-card); color: var(--text-primary); font-size: 1.1rem; }
+        .search-container i { position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 1.2rem; }
+
+        .help-categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1000px; margin: 4rem auto; padding: 0 2rem; }
+        .category-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 2.5rem 2rem; text-align: center; transition: var(--transition); cursor: pointer; text-decoration: none; color: inherit; display: block; }
+        .category-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+        .category-card i { font-size: 2.5rem; color: var(--accent); margin-bottom: 1.5rem; }
+        .category-card h3 { font-size: 1.3rem; margin-bottom: 1rem; color: var(--text-primary); }
+        .category-card p { color: var(--text-secondary); line-height: 1.5; font-size: 0.95rem; }
+
+        .back-nav { position: absolute; top: 2rem; left: 2rem; }
+    </style>
+</head>
+<body>
+    <div class="back-nav">
+        <a href="index.html" class="btn btn-outline"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+    </div>
+
+    <header class="page-header">
+        <h1>How can we help you?</h1>
+        <div class="search-container">
+            <input type="text" placeholder="Search for articles, topics, or FAQs...">
+            <i class="fa-solid fa-search"></i>
+        </div>
+    </header>
+
+    <div class="help-categories">
+        <a href="#" class="category-card">
+            <i class="fa-solid fa-rocket"></i>
+            <h3>Getting Started</h3>
+            <p>Learn how to enroll in programs and navigate your student dashboard.</p>
+        </a>
+        <a href="#" class="category-card">
+            <i class="fa-solid fa-user-gear"></i>
+            <h3>Account Settings</h3>
+            <p>Manage your profile, password, notifications, and privacy preferences.</p>
+        </a>
+        <a href="#" class="category-card">
+            <i class="fa-solid fa-credit-card"></i>
+            <h3>Billing & Payments</h3>
+            <p>Information on payment methods, invoices, refunds, and subscriptions.</p>
+        </a>
+        <a href="#" class="category-card">
+            <i class="fa-solid fa-chess-knight"></i>
+            <h3>Tournaments</h3>
+            <p>Rules, registration guides, and how to participate in online events.</p>
+        </a>
+        <a href="#" class="category-card">
+            <i class="fa-solid fa-laptop-file"></i>
+            <h3>Technical Support</h3>
+            <p>Troubleshoot video calls, interactive boards, and connection issues.</p>
+        </a>
+        <a href="faq.html" class="category-card">
+            <i class="fa-solid fa-circle-question"></i>
+            <h3>FAQs</h3>
+            <p>Browse our list of frequently asked questions for quick answers.</p>
+        </a>
+    </div>
+</body>
+</html>
